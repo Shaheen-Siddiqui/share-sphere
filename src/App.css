@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&family=PT+Serif:ital@0;1&family=Playfair+Display&family=Playfair:wght@300&display=swap');
+
+:root {
+  --backgrounds: #BCEAD5;
+  --primary-color: #9ED5C5;
+  --secondary-color: #8EC3B0;
+  --borders: #2E5748;
+  --text-color: #0B1411;
+  --main-text:#57A589;
+  --box-shadow:0 2px 4px rgba(46, 87, 72, 0.6);
+  --border-radius:0.5rem
+
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Serif', serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 100vw;
+  margin-block: 0.25em;
+  background: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 100vw;
+}
+
+@supports (scrollbar-color: red blue) {
+  * {
+    scrollbar-color: var(--primary-color) var(--secondary-color);
+    scrollbar-width: thin;
+  }
+}
+
+h1 {
+  font-size: 1.25rem;
+}
+
+h2 {
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 1.75em;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+}
+
+  
