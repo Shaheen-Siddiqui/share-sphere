@@ -1,0 +1,17 @@
+.footer-case {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--backgrounds);
+    padding: 1rem;
+}
+.footer-icon-container{
+    display: flex;
+    justify-content: space-around;
+}
+#ftr-icon{
+    color: var(--borders);
+    box-shadow:0 2px 4px rgba(4, 26, 18, 0.6);
+    padding: 0.5rem;
+    border-radius: var(--border-radius)
+}

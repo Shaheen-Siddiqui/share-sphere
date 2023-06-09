@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300&family=PT+Serif:ital@0;1&family=Playfair+Display&family=Playfair:wght@300&family=Tilt+Prism&display=swap');
+
+
+.header-case {
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    padding: 2rem 0;
+    text-align: center;
+    color: var(--text-color);
+    background-color: var(--backgrounds);
+    font-family: 'Tilt Prism', cursive;
+    letter-spacing: 0.3rem;
+    border-bottom: 0.5rem groove var(--borders);
+    box-shadow: var(--box-shadow);
+
+}
