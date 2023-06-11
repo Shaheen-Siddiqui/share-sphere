@@ -4,14 +4,22 @@
     width: 100%;
     background-color: var(--backgrounds);
     padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    & a {
+        margin: auto;
+    }
 }
-.footer-icon-container{
-    display: flex;
-    justify-content: space-around;
-}
-#ftr-icon{
+
+#ftr-icon {
     color: var(--borders);
-    box-shadow:0 2px 4px rgba(4, 26, 18, 0.6);
+    box-shadow: 0 2px 4px rgba(4, 26, 18, 0.6);
     padding: 0.5rem;
     border-radius: var(--border-radius)
+}
+
+@media (min-width:768px) {
+    .footer-case {
+        display: none;
+    }
 }

@@ -1,0 +1,22 @@
+.filter-border{
+    border-color: var(--secondary-color);
+}
+.sort-btn-case{
+    padding: 0.5rem 1.1rem;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content:stretch;
+}
+.sort-btn-case button{
+     border: 1px solid var(--primary-color);
+     border-radius: var(--border-radius);
+     padding: 1rem;
+     font-weight: bolder;
+    
+}
+
+@media (min-width:768px) {
+    .sort-btn-case{
+        display: none;
+    }
+}

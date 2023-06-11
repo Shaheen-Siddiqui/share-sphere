@@ -14,5 +14,6 @@
     letter-spacing: 0.3rem;
     border-bottom: 0.5rem groove var(--borders);
     box-shadow: var(--box-shadow);
-
+    z-index: 1;
 }
+
