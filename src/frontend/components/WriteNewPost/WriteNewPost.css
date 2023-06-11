@@ -1,0 +1,29 @@
+.new-post-case {
+    display: grid;
+    margin: 0;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 3rem;
+    margin: 0;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 1px 1px 4px 3px rgba(46, 87, 72, 0.6);
+    background-color: var(--secondary-color);
+    padding: 0 0 1rem 0;
+    position: fixed;
+    left: 36rem;
+    top: 53rem;
+}
+
+#plus-icon {
+    position: relative;
+    left: 0.7rem;
+    top: 1rem;
+}
+
+
+@media (min-width: 768px) {
+    .new-post-case{
+        display: none;
+    }
+}
