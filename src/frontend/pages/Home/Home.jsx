@@ -20,7 +20,6 @@ export const Home = () => {
             <input
               type="text"
               placeholder="Write something intrasting..."
-              size="51"
             />
           </div>
         </main>
