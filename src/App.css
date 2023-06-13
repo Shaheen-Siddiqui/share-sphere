@@ -23,7 +23,8 @@ html {
 }
 
 body {
-/*   height: 100rem; */
+
+  height: 200vh;
 }
 button{
   cursor: pointer;
