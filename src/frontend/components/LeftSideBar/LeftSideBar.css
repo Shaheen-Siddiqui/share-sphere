@@ -1,0 +1,40 @@
+.navbar-links {
+    display: grid;
+    row-gap: 3rem;
+    column-gap: 0;
+    padding: 0 1.5rem;
+    width: fit-content;
+    border-radius: var(--border-radius);
+}
+
+
+
+.side-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem 2.5rem;
+    border: 2px solid var(--borders);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+}
+:hover.side-item{
+    background-color: var(--primary-color);
+}
+
+.navbar-links h2 {
+    place-self: center;
+}
+.left-sidebar-case{
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+.navbar-links div:last-child{
+    background-color: var(--main-text);
+}
+
+@media (max-width:767px) {
+    .left-sidebar-case {
+        display: none;
+    }
+}
