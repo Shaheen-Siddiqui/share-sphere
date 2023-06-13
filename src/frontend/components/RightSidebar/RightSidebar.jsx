@@ -1,7 +1,7 @@
 import "./RightSidebar.css";
 export const RightSidebar = () => {
   return (
-    <div className="right-sidebar-case">
+    <div className="right-sidebar-case" id="lapy-sidebar-case">
      {/* <strong> who to follow</strong>
       <hr /> */}
       <div className="follow-user-case">
@@ -15,7 +15,7 @@ export const RightSidebar = () => {
             alt=""
           />
           <p>
-            <h6>John kids</h6>
+            <p>John kids</p>
             <p>@Johnkidd</p>
           </p>
           <button>
@@ -32,7 +32,7 @@ export const RightSidebar = () => {
             alt=""
           />
           <p>
-            <h6>John kids</h6>
+            <p>John kids</p>
             <p>@Johnkidd</p>
           </p>
           <button>
@@ -49,7 +49,7 @@ export const RightSidebar = () => {
             alt=""
           />
           <p>
-            <h6>John kids</h6>
+            <p>John kids</p>
             <p>@Johnkidd</p>
           </p>
           <button>

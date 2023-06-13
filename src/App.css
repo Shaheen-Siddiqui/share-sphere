@@ -2,28 +2,31 @@
 
 :root {
   --backgrounds: #BCEAD5;
+  --light-background: #DEF5E5;
   --primary-color: #9ED5C5;
   --secondary-color: #8EC3B0;
   --borders: #2E5748;
   --text-color: #0B1411;
-  --main-text:#57A589;
-  --box-shadow:0 2px 4px rgba(46, 87, 72, 0.6);
-  --border-radius:0.5rem
-
+  --main-text: #57A589;
+  --box-shadow: 0 2px 4px rgba(46, 87, 72, 0.6);
+  --border-radius: 0.5rem
 }
-*{
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Noto Serif', serif;
-  height: 100rem;
-}
-
 html {
   font-size: 62.5%;
+}
+
+body {
+  height: 100rem;
+}
+button{
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -65,6 +68,12 @@ h2 {
     font-size: 1.25rem;
   }
 
+  h3,
+  p,
+  button {
+    font-size: 0.9rem;
+  }
+
 }
 
 @media (min-width: 1024px) {
@@ -75,6 +84,10 @@ h2 {
   h2 {
     font-size: 1.35rem;
   }
-}
 
-  
+  h3,
+  p,
+  button {
+    font-size: 1rem;
+  }
+}

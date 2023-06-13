@@ -3,7 +3,7 @@ import "./Header.css";
 export const MobileHeader = () => {
   return (
     <header className="header-case">
-      <h1>share sphare</h1>
+      <h1>share sphere</h1>
 
     </header>
   );
