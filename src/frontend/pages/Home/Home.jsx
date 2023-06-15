@@ -21,7 +21,7 @@ export const Home = () => {
             <input type="text" placeholder="Write something intrasting..." />
           </div>
           
-          {/* <div className="user-post-main-case">
+          <div className="user-post-main-case">
             <div className="about-user">
               <img
                 height="40"
@@ -88,7 +88,7 @@ export const Home = () => {
               </div>
             </div>
             
-          </div> */}
+          </div>
         </main>
         <div className="left-sidebar-container">
           <LeftSideBar />
