@@ -44,7 +44,9 @@ padding: 0 1rem;
 
 @media (min-width:805px) {
     .home-case {
-        width: 60rem;
+        width: 100%;
+        /* fixed width of home component */
+        /* fixed width of home component */
 
     }
 }
