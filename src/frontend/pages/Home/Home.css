@@ -1,50 +1,153 @@
-.home-case {
-    /* width: 34rem; */
 
-}
-.home-main-case{
-padding: 0 1rem;
+.home-main-case {
+    padding: 0 1rem;
 }
 
 .search-icon-case {
     background-color: var(--light-background);
     display: grid;
     grid-auto-flow: column;
-    justify-content:start;
+    justify-content: start;
     align-items: center;
     padding: 0.4rem;
     border-radius: var(--border-radius);
     margin-top: 1rem;
 }
 
-.search-icon-case input{
+.search-icon-case input {
     padding: 0.5rem;
     border: none;
     outline: none;
     background-color: transparent;
-    grid-template-columns: minmax(0, 1fr); 
+    width: 100%;
 }
 
 #search-add-icon {
     color: var(--borders);
 }
 
-@media (min-width:767px) {
+.user-post-main-case {
+    background-color: var(--light-background);
+    padding: 1rem;
+    margin-top: 1rem;
+    display: grid;
+}
 
-    .home-main-case {
-        display: grid;
-        padding: 2rem 3rem;
-        grid-auto-flow: column;
-        justify-content: center;
-        align-content: center;
-        width: fit-content;
-        /* grid-template-columns: repeat(3, 1fr); */
+.user-post {
+    display: grid;
+
+    & p {
+        text-align: start;
+        padding: 0.8rem 0;
     }
 }
 
-@media (min-width:805px) {
-    .home-case {
-        width: 60rem;
+.like-bookmark-icon {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: min-content;
+    gap: 5rem;
+    padding: 1rem 0;
+}
 
+.like-bookmark-icon div {
+    display: grid;
+    grid-template-columns: min-content;
+    grid-auto-flow: column;
+    gap: 0.2rem;
+
+    & p {
+        padding: 0;
+        align-self: center;
+        font-size: 1.5rem;
+    }
+
+}
+
+.post-comment-case {
+    /* border: 1px solid pink; */
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: min-content auto;
+    gap: 1rem;
+
+
+    & img {
+        border-radius: 5rem;
+        /* align-items: center; */
+        margin: auto;
+    }
+}
+
+.write-comment-case {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto min-content;
+    border-radius: var(--border-radius);
+    border: 0.1rem solid var(--borders);
+    background-color: transparent;
+
+    & button,
+    input {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        padding: 0 1rem;
+    }
+}
+
+.about-user {
+    display: grid;
+    grid-template-columns: min-content auto 10%;
+
+    & img {
+        border-radius: 5rem;
+    }
+
+    & div {
+        justify-self: start;
+        text-align: left;
+        margin-left: 1rem;
+    }
+
+    & button {
+        border: none;
+        outline: none;
+        background-color: transparent;
+    }
+}
+
+
+.posted-main-image {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (min-width:767px) {
+
+    .home-main-case {
+        width:45%;
+        margin: 14rem 20% 0 15%;
+    }
+
+    .right-sidebar-container {
+        position: fixed;
+        padding:1rem;
+        right: 10%;
+        width: 20%;
+        top:13rem;
+    }
+
+ 
+    .left-sidebar-container {
+        position: fixed;
+        padding:1rem;
+        left:10%;
+        width: 15%;
+        top:13rem;
+    }
+
+    .home-case {
+        width: 100%;
     }
 }

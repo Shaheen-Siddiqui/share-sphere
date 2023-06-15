@@ -14,7 +14,7 @@
      font-weight: bolder;
 }
 
-@media (min-width:768px) {
+@media (min-width:767px) {
     .sort-btn-case{
         display: none;
     }
