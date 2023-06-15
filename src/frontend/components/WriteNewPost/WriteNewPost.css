@@ -22,7 +22,7 @@
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
     .new-post-case{
         display: none;
     }
