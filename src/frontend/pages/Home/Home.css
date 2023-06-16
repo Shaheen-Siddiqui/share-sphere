@@ -90,10 +90,7 @@
         border: none;
         background-color: transparent;
         padding: 0 1rem;
-    }
-
-}
-
+    }}
 
 .about-user {
     display: grid;
