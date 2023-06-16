@@ -5,6 +5,9 @@ const MobileHeader = lazy(() => import("./frontend/components/Header/Header"));
 const MobileFooter = lazy(() => import("./frontend/components/Footer/Footer"));
 const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
 const Home = lazy(() => import("./frontend/pages/Home/Home"));
+const PostModal = lazy(() =>
+  import("./frontend/components/PostModal/PostModal")
+);
 
 function App() {
   return (
@@ -14,8 +17,9 @@ function App() {
         {/* Mobile view */}
         <MobileFooter />
         {/* ----------- */}
-      
+
         <Home />
+        <PostModal />
       </div>
     </Suspense>
   );

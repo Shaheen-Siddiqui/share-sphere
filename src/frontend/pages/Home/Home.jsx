@@ -20,7 +20,7 @@ export const Home = () => {
             ></ion-icon>
             <input
               type="text"
-              placeholder="Write something intrasting..."
+              placeholder="What's happning Shaheen...."
               className="menu-button"
             />
           </div>
@@ -29,7 +29,7 @@ export const Home = () => {
             <div className="about-user">
               <img
                 src="https://imgv3.fotor.com/images/slider-image/A-clear-image-of-a-woman-wearing-red-sharpened-by-Fotors-image-sharpener.jpg"
-                alt="user profile pic"
+                alt="user profile"
               />
               <div>
                 <h1>Guest User</h1>
@@ -98,7 +98,7 @@ export const Home = () => {
               <div className="commented-user-info">
                 <img
                   src="https://imgv3.fotor.com/images/slider-image/A-clear-image-of-a-woman-wearing-red-sharpened-by-Fotors-image-sharpener.jpg"
-                  alt="user profile pic"
+                  alt="user profile"
                 />
                 <div>
                   <h2>Guest User</h2>
@@ -132,7 +132,7 @@ export const Home = () => {
             <div className="comments-of-followers commented-user-info">
               <img
                 src="https://i.pinimg.com/136x136/d2/cd/d8/d2cdd8e12bbae0a77db58413a981a431.jpg"
-                alt="user profile pic"
+                alt="user profile"
               />
               <div>
                 <h2>Another User</h2>
