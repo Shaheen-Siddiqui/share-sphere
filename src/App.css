@@ -31,7 +31,9 @@ button{
   cursor: pointer;
 }
 
-
+a{
+  text-decoration: none;
+}
 ::-webkit-scrollbar {
   width: 0.5em;
 }
