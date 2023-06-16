@@ -10,12 +10,14 @@
     padding: 0.4rem 1rem;
     border-radius: var(--border-radius);
     margin-top: 1rem;
-}
+    cursor: pointer;
 
-.search-icon-case input {
-    padding: 1rem;
+    & input {
+        padding: 1rem;
+        width: 100%;
+        cursor: pointer;
 
-    width: 100%;
+    }
 }
 
 #search-add-icon {
@@ -140,6 +142,7 @@
     }
 }
 
+/* --Test */
 .edit-delete-menu {
     display: flex;
     flex-direction: column;
@@ -206,6 +209,7 @@
         right: 10%;
         width: 20%;
         top: 13rem;
+        z-index: -1;
     }
 
 
@@ -215,6 +219,8 @@
         left: 10%;
         width: 15%;
         top: 13rem;
+        z-index: -1;
+
     }
 
     .home-case {
