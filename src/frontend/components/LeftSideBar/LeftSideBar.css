@@ -4,9 +4,10 @@
     gap: 1rem;
     border: 2px solid var(--borders);
     border-radius: var(--border-radius);
-    cursor: pointer;
     box-shadow: var(--box-shadow);
     padding: 1.5rem;
+    cursor: pointer;
+    color: black;
 }
 
 .side-item:hover {
@@ -18,26 +19,30 @@
     flex-direction: column;
     gap: 2rem;
 }
-.navbar-links div:last-child{
+
+.navbar-links div:last-child {
     background-color: var(--main-text);
 }
+
+/************** media queries********** */
 @media (max-width:767px) {
     .left-sidebar-case {
         display: none;
     }
 }
+
 @media (min-width:767px) and (max-width:946px) {
-    .side-item h2{
+    .side-item h2 {
         display: none
     }
-    .side-item{
+
+    .side-item {
         justify-content: center;
         width: fit-content;
     }
-    .navbar-links{
+
+    .navbar-links {
         align-items: center;
     }
-    
-}
 
-/* new comment */
+}
