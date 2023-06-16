@@ -1,21 +1,21 @@
-.filter-border{
+.filter-border {
     border-color: var(--secondary-color);
 }
-.sort-btn-case{
-    padding: 0.5rem 1.1rem;
+
+.sort-btn-case {
+    padding: 0.5rem 0;
     display: grid;
     grid-auto-flow: column;
-    justify-content:stretch;
-}
-.sort-btn-case button{
-     border: 1px solid var(--primary-color);
-     border-radius: var(--border-radius);
-     padding: 1rem;
-     font-weight: bolder;
+    justify-content: stretch;
+    gap: 2rem;
+
 }
 
-@media (min-width:767px) {
-    .sort-btn-case{
-        display: none;
-    }
+.sort-btn-case button {
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    font-weight: bolder;
 }
+
+@media (min-width:767px) {}
