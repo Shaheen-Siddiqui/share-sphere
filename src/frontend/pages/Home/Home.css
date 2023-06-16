@@ -209,7 +209,7 @@
         right: 10%;
         width: 20%;
         top: 13rem;
-        z-index: -1;
+        /* z-index: -1; */
     }
 
 
@@ -219,7 +219,7 @@
         left: 10%;
         width: 15%;
         top: 13rem;
-        z-index: -1;
+        /* z-index: -1; */
 
     }
 
