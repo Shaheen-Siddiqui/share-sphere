@@ -6,6 +6,7 @@
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    z-index: 2;
 
     & a {
         margin: auto;
