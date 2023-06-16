@@ -1,12 +1,12 @@
 .side-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     border: 2px solid var(--borders);
     border-radius: var(--border-radius);
     cursor: pointer;
     box-shadow: var(--box-shadow);
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 .side-item:hover {
@@ -16,9 +16,11 @@
 .navbar-links {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
 }
-
+.navbar-links div:last-child{
+    background-color: var(--main-text);
+}
 @media (max-width:767px) {
     .left-sidebar-case {
         display: none;
@@ -35,5 +37,6 @@
     .navbar-links{
         align-items: center;
     }
+    
 }
 
