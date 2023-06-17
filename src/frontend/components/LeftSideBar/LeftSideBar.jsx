@@ -15,14 +15,14 @@ export const LeftSideBar = () => {
 
         <Link to="/explore">
           <div className="side-item">
-            <ion-icon name="aperture" size="small" id="ftr-icon"></ion-icon>{" "}
+          <ion-icon size="small" name="compass" id="ftr-icon"></ion-icon>
             <h2>Explore</h2>
           </div>
         </Link>
 
         <Link to="/bookmark">
           <div className="side-item">
-            <ion-icon name="bookmark" size="small" id="ftr-icon"></ion-icon>{" "}
+            <ion-icon name="bookmark" size="small" id="ftr-icon"></ion-icon>
             <h2>Bookmark</h2>
           </div>
         </Link>
@@ -38,7 +38,7 @@ export const LeftSideBar = () => {
           </div>
         </Link>
 
-        <div className="side-item">
+        <div className="side-item new-post-button">
           <ion-icon size="small" name="leaf-sharp" id="ftr-icon"></ion-icon>
           <h2>new post</h2>
         </div>
