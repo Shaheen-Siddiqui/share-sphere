@@ -19,7 +19,6 @@ export const Explore = () => {
             <button>
               <ion-icon name="flame-sharp"></ion-icon> Tranding
             </button>
-            {/* | */}
             <button>
               <ion-icon name="layers-sharp"></ion-icon> Latest
             </button>
@@ -269,6 +268,9 @@ export const Explore = () => {
         </main>
         <div className="left-sidebar-container">
           <LeftSideBar />
+        </div>
+        <div className="sticky-post-icon">
+          <WriteNewPost/>
         </div>
       </div>
     </center>
