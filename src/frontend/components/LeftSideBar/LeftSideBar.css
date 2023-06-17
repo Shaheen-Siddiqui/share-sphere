@@ -20,8 +20,13 @@
     gap: 2rem;
 }
 
-.navbar-links div:last-child {
+.new-post-button {
     background-color: var(--main-text);
+}
+
+.new-post-button:hover {
+    background-color: var(--main-text);
+
 }
 
 /************** media queries********** */
