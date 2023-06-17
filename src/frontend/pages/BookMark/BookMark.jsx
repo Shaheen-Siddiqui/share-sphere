@@ -10,18 +10,7 @@ export const BookMark = () => {
           <RightSidebar />
         </div>
         <main className="home-case">
-          <div className="search-icon-case">
-            <ion-icon
-              size="large"
-              name="add-circle-sharp"
-              id="search-add-icon"
-            ></ion-icon>
-            <input
-              type="text"
-              placeholder="What's happning Shaheen...."
-              className="menu-button"
-            />
-          </div>
+          <h1 className="search-icon-case">Your Book Marks</h1>
 
           <div className="user-post-main-case">
             <div className="about-user">

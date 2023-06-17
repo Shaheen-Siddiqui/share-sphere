@@ -1,5 +1,6 @@
 .home-main-case {
     padding: 0 1rem;
+    position: relative;
 }
 
 .search-icon-case {
@@ -128,7 +129,7 @@
 
 .comments-of-followers {
     display: flex;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color); 
     padding: 1rem 0;
     margin-top: 1rem;
     border-radius: var(--border-radius);
@@ -209,20 +210,14 @@
         right: 10%;
         width: 20%;
         top: 13rem;
-        /* z-index: -1; */
     }
-
-
     .left-sidebar-container {
         position: fixed;
         padding: 1rem;
         left: 10%;
         width: 15%;
         top: 13rem;
-        /* z-index: -1; */
-
     }
-
     .home-case {
         width: 100%;
     }
