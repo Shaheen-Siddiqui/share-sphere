@@ -1,6 +1,5 @@
 .home-main-case {
     padding: 0 1rem;
-    position: relative;
 }
 
 .search-icon-case {
@@ -220,6 +219,7 @@
     }
     .home-case {
         width: 100%;
+        
     }
 
     .user-post p {

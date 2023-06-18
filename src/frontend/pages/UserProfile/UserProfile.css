@@ -19,6 +19,7 @@
 
 .profile-logout-button {
     float: right;
+    cursor: pointer;
 }
 
 .guest-user-profile-info button {
