@@ -2,6 +2,7 @@ import "./BookMark.css";
 import "../Home/Home.css";
 import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
 import { RightSidebar } from "../../components/RightSidebar/RightSidebar";
+import { WriteNewPost } from "../../components/WriteNewPost/WriteNewPost";
 export const BookMark = () => {
   return (
     <center>
@@ -129,6 +130,8 @@ export const BookMark = () => {
                 </p>
               </div>
             </div>
+          <WriteNewPost/>
+
           </div>
         </main>
         <div className="left-sidebar-container">

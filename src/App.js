@@ -7,6 +7,9 @@ const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
 const Home = lazy(() => import("./frontend/pages/Home/Home"));
 const BookMark = lazy(() => import("./frontend/pages/BookMark/BookMark"));
 const UserProfile=lazy(()=>import("./frontend/pages/UserProfile/UserProfile"))
+const LogIn =lazy(()=>import("./frontend/pages/authentication/Login"))
+const SignUp=lazy(()=>import("./frontend/pages/authentication/Signup"))
+
 const PostModal = lazy(() =>
   import("./frontend/components/PostModal/PostModal")
 );
@@ -22,7 +25,11 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/bookmark" element={<BookMark />} />
           <Route path="/profile" element={<UserProfile/>} />
+          <Route path="/login" element={<LogIn/>} />
+          <Route path="/signup" element={<SignUp/>} />
+
         </Routes>
+        {/* <PostModal/> */}
       </div>
     </Suspense>
   );

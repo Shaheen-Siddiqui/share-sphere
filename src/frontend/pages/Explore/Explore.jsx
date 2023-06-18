@@ -269,9 +269,7 @@ export const Explore = () => {
         <div className="left-sidebar-container">
           <LeftSideBar />
         </div>
-        <div className="sticky-post-icon">
           <WriteNewPost/>
-        </div>
       </div>
     </center>
   );

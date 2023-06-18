@@ -5,6 +5,7 @@ import "./UserProfile.css";
 import "../../pages/Home/Home.css";
 import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
 import { RightSidebar } from "../../components/RightSidebar/RightSidebar";
+import { WriteNewPost } from "../../components/WriteNewPost/WriteNewPost";
 
 export const UserProfile = () => {
   return (
@@ -15,7 +16,7 @@ export const UserProfile = () => {
           <div className="guest-user-profile-info-case">
             <div className="user-profile-image">
               <div className="profile-logout-button">
-                <ion-icon size="small" name="log-out"></ion-icon>
+                <ion-icon size="large" name="log-out"></ion-icon>
               </div>
               <img
                 src="https://w0.peakpx.com/wallpaper/275/208/HD-wallpaper-margarita-lying-in-bed-margarita-girls-model.jpg"
@@ -178,6 +179,8 @@ export const UserProfile = () => {
         <div className="left-sidebar-container">
           <LeftSideBar />
         </div>
+        <WriteNewPost/>
+        
       </div>
     </center>
   );
