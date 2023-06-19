@@ -1,6 +1,10 @@
+import Mockman from "mockman-js";
 import { Suspense, lazy } from "react";
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
+
+//internal imports
+
+import "./App.css";
 const MobileHeader = lazy(() => import("./frontend/components/Header/Header"));
 const MobileFooter = lazy(() => import("./frontend/components/Footer/Footer"));
 const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
@@ -27,6 +31,8 @@ function App() {
           <Route path="/profile" element={<UserProfile/>} />
           <Route path="/login" element={<LogIn/>} />
           <Route path="/signup" element={<SignUp/>} />
+          <Route path="/mock" element={<Mockman />
+} />
 
         </Routes>
         {/* <PostModal/> */}

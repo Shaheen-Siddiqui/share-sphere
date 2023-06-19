@@ -8,7 +8,7 @@ export const MobileFooter = () => {
         <ion-icon name="home" size="small" id="ftr-icon"></ion-icon>
       </Link>
       <Link title="Explore" to="/explore">
-        <ion-icon size="small" name="compass" id="ftr-icon"></ion-icon>
+        {/* <ion-icon size="small" name="compass" id="ftr-icon"></ion-icon> */}
       </Link>
       <Link title="BookMarks" to="/bookmark">
         <ion-icon name="bookmark" size="small" id="ftr-icon"></ion-icon>
