@@ -1,3 +1,13 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrash,
+  faCircleXmark,
+  faEllipsisVertical,
+  faPenToSquare,
+} from "@fortawesome/free-solid-svg-icons";
+import {faHeart,faBookmark} from '@fortawesome/free-regular-svg-icons'
+
+//internal imports
 import "./BookMark.css";
 import "../Home/Home.css";
 import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
@@ -24,28 +34,25 @@ export const BookMark = () => {
                 <strong>@guestuser</strong>
                 <p>2023</p>
               </div>
-              <button className="menu-button  edit-delete-parent">
-                <div className="edit-delete-menu menu-position">
+              <div className="menu-button  edit-delete-parent">
+              <div className="edit-delete-menu menu-position">
                   <button className="menu-button">
-                    <ion-icon size="small" name="create"></ion-icon>
+                    <FontAwesomeIcon icon={faPenToSquare} />
                     <span>Edit</span>
                   </button>
 
                   <button className="menu-button">
-                    <ion-icon size="small" name="trash"></ion-icon>
+                    <FontAwesomeIcon icon={faTrash} />
                     <span>Delete</span>
                   </button>
 
                   <button className="menu-button">
-                    <ion-icon size="small" name="close-circle"></ion-icon>{" "}
+                    <FontAwesomeIcon icon={faCircleXmark} />
                     <span>Cancel</span>
                   </button>
                 </div>
-                <ion-icon
-                  size="small"
-                  name="ellipsis-vertical-sharp"
-                ></ion-icon>
-              </button>
+                <FontAwesomeIcon icon={faEllipsisVertical} size="xl" />
+              </div>
             </div>
 
             <div className="user-post">
@@ -62,11 +69,11 @@ export const BookMark = () => {
                 />
               </center>
               <div className="like-bookmark-icon">
-                <div>
-                  <ion-icon size="small" name="heart-outline"></ion-icon>
+              <div>
+                <FontAwesomeIcon icon={faHeart} size="xl" />
                   <p>0</p>
                 </div>
-                <ion-icon size="small" name="bookmark-outline"></ion-icon>
+                <FontAwesomeIcon icon={faBookmark} size="xl"/>
               </div>
             </div>
             <div className="post-comment-case">
@@ -98,23 +105,21 @@ export const BookMark = () => {
                 </div>
               </div>
 
-              <button className="menu-button edit-delete-parent">
+              <div className="menu-button edit-delete-parent">
                 <div className="edit-delete-menu menu-position">
                   <button className="menu-button">
-                    <ion-icon size="small" name="trash"></ion-icon>
+                    <FontAwesomeIcon icon={faTrash} />
                     <span>Delete</span>
                   </button>
 
                   <button className="menu-button">
-                    <ion-icon size="small" name="close-circle"></ion-icon>
+                    <FontAwesomeIcon icon={faCircleXmark} />
+
                     <span>Cancel</span>
                   </button>
                 </div>
-                <ion-icon
-                  size="small"
-                  name="ellipsis-vertical-sharp"
-                ></ion-icon>
-              </button>
+                <FontAwesomeIcon icon={faEllipsisVertical} size="xl" />
+              </div>
             </div>
 
             <div className="comments-of-followers commented-user-info">

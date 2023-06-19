@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 // internal imports
-import "../Home/Home.css"
+import "../Home/Home.css";
 import "./authentication.css";
 import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
 import { RightSidebar } from "../../components/RightSidebar/RightSidebar";
@@ -102,19 +104,15 @@ export const SignUp = () => {
                   }
                 />
                 {passwordIcon ? (
-                  <ion-icon
-                    size="small"
-                    name="eye-off"
-                    className="eye-icon"
+                  <FontAwesomeIcon
+                    icon={faEyeSlash}
                     onClick={() => setPasswordIcon(!passwordIcon)}
-                  ></ion-icon>
+                  />
                 ) : (
-                  <ion-icon
-                    size="small"
-                    name="eye"
-                    className="eye-icon"
+                  <FontAwesomeIcon
+                    icon={faEye}
                     onClick={() => setPasswordIcon(!passwordIcon)}
-                  ></ion-icon>
+                  />
                 )}
               </div>
 
@@ -139,19 +137,15 @@ export const SignUp = () => {
                   }
                 />
                 {confirmPasswordIcon ? (
-                  <ion-icon
-                    size="small"
-                    name="eye-off"
-                    className="eye-icon"
+                  <FontAwesomeIcon
+                    icon={faEyeSlash}
                     onClick={() => seConfirmPasswordIcon(!confirmPasswordIcon)}
-                  ></ion-icon>
+                  />
                 ) : (
-                  <ion-icon
-                    size="small"
-                    name="eye"
-                    className="eye-icon"
+                  <FontAwesomeIcon
+                    icon={faEye}
                     onClick={() => seConfirmPasswordIcon(!confirmPasswordIcon)}
-                  ></ion-icon>
+                  />
                 )}
               </div>
 

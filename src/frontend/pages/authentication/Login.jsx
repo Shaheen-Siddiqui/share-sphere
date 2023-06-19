@@ -1,5 +1,7 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 import "./authentication.css";
 import "../Home/Home.css";
@@ -71,19 +73,15 @@ export const LogIn = () => {
                 }
               />
               {passwordIcon ? (
-                <ion-icon
-                size="small"
-                  name="eye-off"
-                  className="eye-icon"
+                <FontAwesomeIcon
+                  icon={faEyeSlash}
                   onClick={() => setPasswordIcon(!passwordIcon)}
-                ></ion-icon>
+                />
               ) : (
-                <ion-icon
-                size="small"
-                  name="eye"
-                  className="eye-icon"
+                <FontAwesomeIcon
+                  icon={faEye}
                   onClick={() => setPasswordIcon(!passwordIcon)}
-                ></ion-icon>
+                />
               )}
             </div>
             <button

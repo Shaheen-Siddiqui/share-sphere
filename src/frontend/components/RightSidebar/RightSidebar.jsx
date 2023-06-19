@@ -2,6 +2,8 @@ import { useContext } from "react";
 import "./RightSidebar.css";
 import { ProfileContext } from "../../hook/context/ProfileContext";
 import { AuthRequest } from "../AuthRequest.jsx/AuthRequest";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPlus} from '@fortawesome/free-solid-svg-icons'
 
 export const RightSidebar = () => {
   const { login } = useContext(ProfileContext);
@@ -23,7 +25,7 @@ export const RightSidebar = () => {
               <p>@Johnkidd</p>
             </p>
             <button className="row">
-              <ion-icon name="add-outline"></ion-icon>
+              <FontAwesomeIcon icon={faPlus} />
               Follow
             </button>
           </div>
@@ -41,7 +43,8 @@ export const RightSidebar = () => {
               <p>@Johnkidd</p>
             </p>
             <button className="row">
-              <ion-icon name="add-outline"></ion-icon> Follow
+              <FontAwesomeIcon icon={faPlus} />
+              Follow
             </button>
           </div>
           <div className="follow-user row">
@@ -58,7 +61,8 @@ export const RightSidebar = () => {
               <p>@Johnkidd</p>
             </p>
             <button className="row">
-              <ion-icon name="add-outline"></ion-icon> Follow
+              <FontAwesomeIcon icon={faPlus} />
+              Follow
             </button>
           </div>
         </div>

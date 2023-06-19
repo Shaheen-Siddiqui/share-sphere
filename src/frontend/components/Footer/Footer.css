@@ -16,12 +16,17 @@
 #ftr-icon {
     color: var(--borders);
     box-shadow: 0 2px 4px rgba(4, 26, 18, 0.6);
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
     border-radius: var(--border-radius)
 }
 
 @media (min-width:767px) {
     .footer-case {
         display: none;
+        
+    }
+    #ftr-icon{
+        
+        padding: 1rem;
     }
 }
