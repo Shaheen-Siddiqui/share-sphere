@@ -15,7 +15,7 @@ export const LeftSideBar = () => {
 
         <Link to="/explore">
           <div className="side-item">
-          <ion-icon size="small" name="compass" id="ftr-icon"></ion-icon>
+          {/* <ion-icon size="small" name="compass" id="ftr-icon"></ion-icon> */}
             <h2>Explore</h2>
           </div>
         </Link>
