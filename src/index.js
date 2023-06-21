@@ -5,6 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import { ProfileContextProvider } from "./frontend/hook/context/ProfileContext";
 
 import { makeServer } from "./server";
+import { AuthContextProvider } from "./frontend/hook/context/AuthContext";
+import { PostContextProveder } from "./frontend/hook/context/PostContext";
 
 // Call make Server
 makeServer();
@@ -12,9 +14,17 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ProfileContextProvider>
-        <App />
-      </ProfileContextProvider>
+      <AuthContextProvider>
+
+
+        <PostContextProveder>
+          <ProfileContextProvider>
+            <App />
+          </ProfileContextProvider>
+        </PostContextProveder>
+
+        
+      </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

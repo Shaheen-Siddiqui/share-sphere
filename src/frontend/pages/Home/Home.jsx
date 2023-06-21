@@ -4,6 +4,7 @@ import {
   faCircleXmark,
   faEllipsisVertical,
   faPenToSquare,
+  faCirclePlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart, faBookmark } from "@fortawesome/free-regular-svg-icons";
 
@@ -12,8 +13,15 @@ import { faHeart, faBookmark } from "@fortawesome/free-regular-svg-icons";
 import "./Home.css";
 import { RightSidebar } from "../../components/RightSidebar/RightSidebar";
 import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
+import { useState } from "react";
+import { useContext } from "react";
+import { PostContext } from "../../hook/context/PostContext";
 
 export const Home = () => {
+  const [postEDCToggle, setPostEDCToggle] = useState(false);
+  const [msgDCToggale, setMsgDCToggale] = useState(false);
+  const { setTogglePostModal } = useContext(PostContext);
+
   return (
     <center>
       <div className="home-main-case">
@@ -21,6 +29,22 @@ export const Home = () => {
           <RightSidebar />
         </div>
         <main className="home-case">
+          <div
+            className="search-icon-case"
+            onClick={() => setTogglePostModal(true)}
+          >
+            <FontAwesomeIcon
+              id="search-add-icon"
+              size="2x"
+              icon={faCirclePlus}
+            />
+
+            <input
+              type="text"
+              placeholder="What's happning Shaheen...."
+              className="menu-button"
+            />
+          </div>
           <div className="user-post-main-case">
             <div className="about-user">
               <img
@@ -33,23 +57,33 @@ export const Home = () => {
                 <p>2023</p>
               </div>
               <div className="menu-button  edit-delete-parent">
-                <div className="edit-delete-menu menu-position">
-                  <button className="menu-button">
-                    <FontAwesomeIcon icon={faPenToSquare} />
-                    <span>Edit</span>
-                  </button>
+                {postEDCToggle && (
+                  <div className="edit-delete-menu menu-position">
+                    <button className="menu-button">
+                      <FontAwesomeIcon icon={faPenToSquare} />
+                      <span>Edit</span>
+                    </button>
 
-                  <button className="menu-button">
-                    <FontAwesomeIcon icon={faTrash} />
-                    <span>Delete</span>
-                  </button>
+                    <button className="menu-button">
+                      <FontAwesomeIcon icon={faTrash} />
+                      <span>Delete</span>
+                    </button>
 
-                  <button className="menu-button">
-                    <FontAwesomeIcon icon={faCircleXmark} />
-                    <span>Cancel</span>
-                  </button>
-                </div>
-                <FontAwesomeIcon icon={faEllipsisVertical} size="xl" />
+                    <button
+                      className="menu-button"
+                      onClick={() => setPostEDCToggle(false)}
+                    >
+                      <FontAwesomeIcon icon={faCircleXmark} />
+                      <span>Cancel</span>
+                    </button>
+                  </div>
+                )}
+                <FontAwesomeIcon
+                  icon={faEllipsisVertical}
+                  className="ellips-icon"
+                  size="xl"
+                  onClick={() => setPostEDCToggle(true)}
+                />
               </div>
             </div>
 
@@ -104,19 +138,28 @@ export const Home = () => {
               </div>
 
               <div className="menu-button edit-delete-parent">
-                {/* <div className="edit-delete-menu menu-position">
-                  <button className="menu-button">
-                    <FontAwesomeIcon icon={faTrash} />
-                    <span>Delete</span>
-                  </button>
+                {msgDCToggale && (
+                  <div className="edit-delete-menu menu-position">
+                    <button className="menu-button">
+                      <FontAwesomeIcon icon={faTrash} />
+                      <span>Delete</span>
+                    </button>
 
-                  <button className="menu-button">
-                    <FontAwesomeIcon icon={faCircleXmark} />
-
-                    <span>Cancel</span>
-                  </button>
-                </div> */}
-                <FontAwesomeIcon icon={faEllipsisVertical} size="xl" />
+                    <button
+                      className="menu-button"
+                      onClick={() => setMsgDCToggale(false)}
+                    >
+                      <FontAwesomeIcon icon={faCircleXmark} />
+                      <span>Cancel</span>
+                    </button>
+                  </div>
+                )}
+                <FontAwesomeIcon
+                  icon={faEllipsisVertical}
+                  size="xl"
+                  className="ellips-icon"
+                  onClick={() => setMsgDCToggale(true)}
+                />
               </div>
             </div>
 

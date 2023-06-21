@@ -7,15 +7,19 @@ import {
   faEllipsisVertical,
   faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
-import {faBookmark,faHeart} from '@fortawesome/free-regular-svg-icons'
+import { faBookmark, faHeart } from "@fortawesome/free-regular-svg-icons";
 // internal imports
 import "./Explore.css";
 import "../Home/Home.css";
 import { RightSidebar } from "../../components/RightSidebar/RightSidebar";
 import { WriteNewPost } from "../../components/WriteNewPost/WriteNewPost";
 import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
+import { useState } from "react";
 
 export const Explore = () => {
+  const [postEDCToggle, setPostEDCToggle] = useState(false);
+  const [msgDCToggale, setMsgDCToggale] = useState(false);
+
   return (
     <center>
       <div className="home-main-case">
@@ -46,23 +50,33 @@ export const Explore = () => {
                 <p>2023</p>
               </div>
               <div className="menu-button  edit-delete-parent">
-                <div className="edit-delete-menu menu-position">
-                  <button className="menu-button">
-                    <FontAwesomeIcon icon={faPenToSquare} />
-                    <span>Edit</span>
-                  </button>
+                {postEDCToggle && (
+                  <div className="edit-delete-menu menu-position">
+                    <button className="menu-button">
+                      <FontAwesomeIcon icon={faPenToSquare} />
+                      <span>Edit</span>
+                    </button>
 
-                  <button className="menu-button">
-                    <FontAwesomeIcon icon={faTrash} />
-                    <span>Delete</span>
-                  </button>
+                    <button className="menu-button">
+                      <FontAwesomeIcon icon={faTrash} />
+                      <span>Delete</span>
+                    </button>
 
-                  <button className="menu-button">
-                    <FontAwesomeIcon icon={faCircleXmark} />
-                    <span>Cancel</span>
-                  </button>
-                </div>
-                <FontAwesomeIcon icon={faEllipsisVertical} size="xl" />
+                    <button
+                      className="menu-button"
+                      onClick={() => setPostEDCToggle(false)}
+                    >
+                      <FontAwesomeIcon icon={faCircleXmark} />
+                      <span>Cancel</span>
+                    </button>
+                  </div>
+                )}
+                <FontAwesomeIcon
+                  icon={faEllipsisVertical}
+                  size="xl"
+                  className="ellips-icon"
+                  onClick={() => setPostEDCToggle(true)}
+                />
               </div>
             </div>
 
@@ -117,19 +131,28 @@ export const Explore = () => {
               </div>
 
               <div className="menu-button edit-delete-parent">
-                <div className="edit-delete-menu menu-position">
-                  <button className="menu-button">
-                    <FontAwesomeIcon icon={faTrash} />
-                    <span>Delete</span>
-                  </button>
+                {msgDCToggale && (
+                  <div className="edit-delete-menu menu-position">
+                    <button className="menu-button">
+                      <FontAwesomeIcon icon={faTrash} />
+                      <span>Delete</span>
+                    </button>
 
-                  <button className="menu-button">
-                    <FontAwesomeIcon icon={faCircleXmark} />
-
-                    <span>Cancel</span>
-                  </button>
-                </div>
-                <FontAwesomeIcon icon={faEllipsisVertical} size="xl" />
+                    <button
+                      className="menu-button"
+                      onClick={() => setMsgDCToggale(false)}
+                    >
+                      <FontAwesomeIcon icon={faCircleXmark} />
+                      <span>Cancel</span>
+                    </button>
+                  </div>
+                )}
+                <FontAwesomeIcon
+                  icon={faEllipsisVertical}
+                  className="ellips-icon"
+                  size="xl"
+                  onClick={() => setMsgDCToggale(true)}
+                />
               </div>
             </div>
 

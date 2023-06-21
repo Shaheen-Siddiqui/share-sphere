@@ -11,15 +11,18 @@ import {
 
 //internal imports
 import "./Footer.css";
+import { useContext } from "react";
+import { AuthContext } from "../../hook/context/AuthContext";
 export const MobileFooter = () => {
+  const {logOutRequest}=useContext(AuthContext)
   return (
     <footer className="footer-case">
-      <Link title="Home" to="/">
+      <Link title="Home" to="/home">
         <span id="ftr-icon">
           <FontAwesomeIcon icon={faHouse} size="2xl" />
         </span>
       </Link>
-      <Link title="Explore" to="/explore">
+      <Link title="Explore" to="/">
         <span id="ftr-icon">
           <FontAwesomeIcon icon={faCompass} size="2xl" />
         </span>
@@ -37,7 +40,7 @@ export const MobileFooter = () => {
       </Link>
 
       <Link title="logout">
-      <span id="ftr-icon">
+      <span id="ftr-icon" onClick={logOutRequest}>
           <FontAwesomeIcon icon={faRightFromBracket} size="2xl" />
         </span>
       </Link>

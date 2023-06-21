@@ -14,18 +14,22 @@ import "../../pages/Home/Home.css";
 import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
 import { RightSidebar } from "../../components/RightSidebar/RightSidebar";
 import { WriteNewPost } from "../../components/WriteNewPost/WriteNewPost";
+import { useContext } from "react";
+import { AuthContext } from "../../hook/context/AuthContext";
 
 export const UserProfile = () => {
+  const { logOutRequest, user,token } = useContext(AuthContext);
+
   return (
     <center>
       <div className="home-main-case">
         <div className="right-sidebar-container" id="hide-on-mobile">
-          <RightSidebar />{" "}
+          <RightSidebar />
         </div>
         <main className="home-case">
           <div className="guest-user-profile-info-case">
             <div className="user-profile-image">
-              <div className="profile-logout-button">
+              <div className="profile-logout-button" onClick={logOutRequest}>
                 <FontAwesomeIcon icon={faRightFromBracket} size="xl" />
               </div>
               <img
@@ -34,8 +38,8 @@ export const UserProfile = () => {
               />
             </div>
             <div className="guest-user-profile-info">
-              <h1>~Guest User~</h1>
-              <strong>@Guestuser</strong>
+              <h1>~{user?.username}~</h1>
+              <strong>@{user?.username}</strong>
               <button className="menu-button">Edit Profile</button>
               <u>
                 <span>

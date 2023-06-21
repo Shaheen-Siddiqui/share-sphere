@@ -1,35 +1,48 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-hot-toast";
 
 // internal imports
 import "../Home/Home.css";
 import "./authentication.css";
 import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
 import { RightSidebar } from "../../components/RightSidebar/RightSidebar";
+import { AuthContext } from "../../hook/context/AuthContext";
 
 export const SignUp = () => {
   const [passwordIcon, setPasswordIcon] = useState(false);
   const [confirmPasswordIcon, seConfirmPasswordIcon] = useState(false);
+  const { SignUpService } = useContext(AuthContext);
+  const location = useLocation();
+  const redirectToLocation = location.state?.path || "/";
 
   const [userInformation, setUserInformation] = useState({
     email: "",
-    fullName: "",
+    username: "",
     password: "",
     confirmPassword: "",
   });
-  const { fullName, email, password, confirmPassword } = userInformation;
+  const { username, email, password, confirmPassword } = userInformation;
 
   const isPasswordMatch = () => {
     if (password !== confirmPassword) {
-      alert("password does not match");
+      toast.error("password doest not matched");
     } else {
       return true;
     }
   };
-  const userSignedUpHandler = (event) => {};
-
+  const userSignedUpHandler = (event) => {
+    event.preventDefault();
+    SignUpService(
+      username,
+      password,
+      email,
+      isPasswordMatch,
+      redirectToLocation
+    );
+  };
   return (
     <>
       <div className="home-main-case" id="center-lohin-page">
@@ -49,18 +62,18 @@ export const SignUp = () => {
                 Full Name
               </label>
               <input
-                value={fullName}
+                value={username}
                 autoComplete="off"
                 required
                 type="text"
                 id="fullname"
-                name="fullName"
+                name="username"
                 className="form-inp"
                 placeholder="Enter your full Name"
                 onChange={(event) =>
                   setUserInformation({
                     ...userInformation,
-                    fullName: event.target.value,
+                    username: event.target.value,
                   })
                 }
               />

@@ -4,12 +4,14 @@ import { ProfileContext } from "../../hook/context/ProfileContext";
 import { AuthRequest } from "../AuthRequest.jsx/AuthRequest";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPlus} from '@fortawesome/free-solid-svg-icons'
+import { AuthContext } from "../../hook/context/AuthContext";
 
 export const RightSidebar = () => {
-  const { login } = useContext(ProfileContext);
+  // const { login } = useContext(ProfileContext);
+  const {token}=useContext(AuthContext)
   return (
     <>
-      {!login ? (
+      {!token ? (
         <AuthRequest />
       ) : (
         <div className="follow-user-case">
