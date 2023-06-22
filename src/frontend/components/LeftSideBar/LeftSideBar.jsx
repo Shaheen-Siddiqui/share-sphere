@@ -12,10 +12,12 @@ import {
 import "./LeftSideBar.css";
 import { useContext } from "react";
 import { PostContext } from "../../hook/context/PostContext";
+import { AuthContext } from "../../hook/context/AuthContext";
 
 export const LeftSideBar = () => {
-  const { setTogglePostModal,togglePostModal } = useContext(PostContext);
+  const { setTogglePostModal, togglePostModal, allPosts } = useContext(PostContext);
 
+  
   return (
     <div className="left-sidebar-case">
       <nav className="navbar-links">
@@ -57,7 +59,8 @@ export const LeftSideBar = () => {
 
         <div
           className="side-item new-post-button"
-          onClick={() => setTogglePostModal(true)}>
+          onClick={() => setTogglePostModal(true)}
+        >
           <span id="ftr-icon">
             <FontAwesomeIcon icon={faLeaf} size="2xl" />
           </span>

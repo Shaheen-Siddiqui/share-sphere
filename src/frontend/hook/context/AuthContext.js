@@ -2,15 +2,18 @@ import { createContext, useReducer } from "react";
 import { authReducer } from "../reducer/AuthReducer";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
-  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [{ user, token }, dispatchAuthState] = useReducer(authReducer, {
     user: JSON.parse(localStorage.getItem("user")) || {},
     token: localStorage.getItem("token") || "",
   });
+  const navigate = useNavigate();
 
   const SignUpService = async (
     username,
@@ -41,6 +44,7 @@ export const AuthContextProvider = ({ children }) => {
               token: response.data.encodedToken,
             },
           });
+          setIsLoggedIn(true);
           navigate(redirectToLocation, "/");
         }
       } catch (error) {
@@ -73,6 +77,7 @@ export const AuthContextProvider = ({ children }) => {
             token: response.data.encodedToken,
           },
         });
+        setIsLoggedIn(true);
         toast.success("Logged in successfully!");
         navigate(redirectToLocation, { replace: true });
       }
@@ -99,7 +104,14 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ SignUpService, loginService, logOutRequest, user, token }}
+      value={{
+        SignUpService,
+        loginService,
+        logOutRequest,
+        user,
+        token,
+        isLoggedIn,
+      }}
     >
       {children}
     </AuthContext.Provider>

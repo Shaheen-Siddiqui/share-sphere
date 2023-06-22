@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { ProfileContextProvider } from "./frontend/hook/context/ProfileContext";
 
 import { makeServer } from "./server";
 import { AuthContextProvider } from "./frontend/hook/context/AuthContext";
 import { PostContextProveder } from "./frontend/hook/context/PostContext";
+import { PostCRUDContextProvider } from "./frontend/hook/context/PostCRUDContext";
 
 // Call make Server
 makeServer();
@@ -16,13 +16,11 @@ root.render(
     <BrowserRouter>
       <AuthContextProvider>
 
-
-        <PostContextProveder>
-          <ProfileContextProvider>
+        <PostCRUDContextProvider>
+          <PostContextProveder>
             <App />
-          </ProfileContextProvider>
-        </PostContextProveder>
-
+          </PostContextProveder>
+        </PostCRUDContextProvider>
         
       </AuthContextProvider>
     </BrowserRouter>
