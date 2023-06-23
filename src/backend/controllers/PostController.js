@@ -122,7 +122,10 @@ export const editPostHandler = function (schema, request) {
         }
       );
     }
+
     const postId = request.params.postId;
+
+    console.log(postId,'postId');
     const { postData } = JSON.parse(request.requestBody);
     let post = schema.posts.findBy({ _id: postId }).attrs;
     if (post.username !== user.username) {

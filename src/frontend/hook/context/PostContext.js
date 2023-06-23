@@ -4,17 +4,21 @@ import { PostReducer } from "../reducer/PostReducer";
 import { toast } from "react-hot-toast";
 import { useContext } from "react";
 import { AuthContext } from "./AuthContext";
+import { PostCRUDContext } from "./PostCRUDContext";
 
 export const PostContext = createContext();
 
 export const PostContextProveder = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { allPosts } = useContext(PostCRUDContext);
   const [togglePostModal, setTogglePostModal] = useState(false);
+  const [toggleEditModal, setToggleEditModal] = useState(false);
+  const [postEdit, setPostEdit] = useState();
+  const [previousPost, setPreviousPost] = useState("");
+
   const [postState, dispatchPostState] = useReducer(PostReducer, {
-    allPosts: [],
     userBookMark: [],
   });
-  const { allPosts, userBookMark } = postState;
+  // const {  userBookMark } = postState;
 
   const filterTrands = () => {
     const filteredPostData = [...allPosts].sort(
@@ -28,33 +32,6 @@ export const PostContextProveder = ({ children }) => {
       (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
     );
     dispatchPostState({ type: "LATEST_POSTS", payload: filterDataPost });
-  };
-
-  const obtainAllPostService = async () => {
-    try {
-      const response = await axios.get("/api/posts");
-      dispatchPostState({
-        type: "POST_FUNCTION",
-        payload: response.data.posts,
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  const deleteParticularPost = async (_id) => {
-    const encodedToken = localStorage.getItem("token");
-    try {
-      const response = await axios.delete(`/api/posts/${_id}`, {
-        headers: { authorization: encodedToken },
-      });
-      dispatchPostState({
-        type: "POST_FUNCTION",
-        payload: response.data.posts,
-      });
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   const addToBookMark = async (_id) => {
@@ -108,25 +85,6 @@ export const PostContextProveder = ({ children }) => {
     } catch (error) {}
   };
 
-  const likePost = async (_id) => {
-    const encodedToken = localStorage.getItem("token");
-    try {
-      const response = await axios.post(
-        `/api/posts/like/${_id}`,
-        {},
-        { headers: { authorization: encodedToken } }
-      );
-      dispatchPostState({
-        type: "POST_FUNCTION",
-        payload: response.data.posts,
-      });
-      toast.success("Liked");
-    } catch (error) {
-      toast.error("already liked");
-      console.log(error);
-    }
-  };
-
   // const displikePost = async (_id) => {
   //   const encodedToken = localStorage.getItem("token");
   //   try {
@@ -146,17 +104,19 @@ export const PostContextProveder = ({ children }) => {
       value={{
         togglePostModal,
         setTogglePostModal,
-        deleteParticularPost,
-        obtainAllPostService,
         addToBookMark,
-        postState,
         obtainAllBookMarks,
-        userBookMark,
+
         deleteBookMarkedPost,
-        likePost,
-        allPosts,
+
         filterTrands,
         filterLatest,
+        postState,
+        toggleEditModal,
+        setToggleEditModal,
+        postEdit,
+        setPostEdit,
+        previousPost, setPreviousPost,
       }}
     >
       {children}

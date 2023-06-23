@@ -25,25 +25,35 @@ import { useNavigate } from "react-router-dom";
 export const Explore = () => {
   const { user, isLoggedIn } = useContext(AuthContext);
   const {
-    likePost,
-    allPosts,
     filterTrands,
-    
     filterLatest,
     addToBookMark,
-    deleteParticularPost,
-    obtainAllPostService,
+    setPostEdit,
+    setToggleEditModal,
+    setPreviousPost,
   } = useContext(PostContext);
 
-  const { postEDCToggle, msgDCToggale, ShowPostEDCCase, ShowMsgDCCase } =
-    useContext(PostCRUDContext);
-
+  const {
+    postEDCToggle,
+    msgDCToggale,
+    ShowPostEDCCase,
+    ShowMsgDCCase,
+    obtainAllPostService,
+    deleteParticularPost,
+    allPosts,
+    likePost,
+  } = useContext(PostCRUDContext);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     obtainAllPostService();
   }, []);
+
+  const updatePostByUser = (_id) => {
+    setPostEdit(_id);
+    setToggleEditModal(true);
+  };
 
   return (
     <center>
@@ -55,7 +65,7 @@ export const Explore = () => {
           <div className="sort-btn-case">
             <button onClick={obtainAllPostService}>
               {/* <FontAwesomeIcon icon={faChartMixedUpCircleCurrency} />  */}
-              All posts
+              All posts ({`${allPosts.length}`})
             </button>
             <button onClick={filterTrands}>
               <ion-icon name="flame-sharp"></ion-icon> Trending
@@ -66,8 +76,7 @@ export const Explore = () => {
           </div>
           <hr className="filter-border" />
 
-          {/* HART CODED DATA */}
-          {allPosts.map((item) => {
+          {allPosts?.map((item) => {
             const {
               _id,
               content,
@@ -91,7 +100,13 @@ export const Explore = () => {
                       <>
                         {postEDCToggle[_id] && (
                           <div className="edit-delete-menu menu-position">
-                            <button className="menu-button">
+                            <button
+                              className="menu-button"
+                              onClick={() =>
+                                updatePostByUser(_id) ||
+                                setPreviousPost(content)
+                              }
+                            >
                               <FontAwesomeIcon icon={faPenToSquare} />
                               <span>Edit</span>
                             </button>
@@ -128,7 +143,7 @@ export const Explore = () => {
                   <p>{content}</p>
                   <center>
                     <img
-                      src={postedImages === null ? "" : postedImages}
+                      src={postedImages}
                       alt={postedImages === null ? "" : "user posted pamp"}
                       className="posted-main-image"
                     />

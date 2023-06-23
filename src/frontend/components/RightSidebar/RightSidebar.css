@@ -1,7 +1,7 @@
 .follow-user img {
     border-radius: 5rem;
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     display: block;
 }
 
@@ -22,14 +22,15 @@
     line-height: 1;
     flex-wrap: nowrap;
 }
-
+#follow-user-id{
+    /* font-size: 0.5rem; */
+}
 .follow-user {
     background-color: var(--borders);
     padding: 1rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     color: white;
-    font-family: sans-serif;
     gap: 0.5rem;
     justify-content: space-around;
 }

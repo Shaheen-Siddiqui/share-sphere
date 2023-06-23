@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 
 import "./App.css";
 import { RequireAuth } from "./frontend/RequireAuth";
+import { EditModal } from "./frontend/components/PostModal/EditPost";
 const MobileHeader = lazy(() => import("./frontend/components/Header/Header"));
 const MobileFooter = lazy(() => import("./frontend/components/Footer/Footer"));
 const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
@@ -21,6 +22,7 @@ const SignUp = lazy(() => import("./frontend/pages/authentication/Signup"));
 const PostModal = lazy(() =>
   import("./frontend/components/PostModal/PostModal")
 );
+
 
 function App() {
   return (
@@ -90,6 +92,7 @@ function App() {
             <Route path="/mock" element={<Mockman />} />
           </Routes>
           <PostModal/>
+          <EditModal/>
         </div>
       </Suspense>
     </div>

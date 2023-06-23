@@ -24,12 +24,10 @@ export const BookMark = () => {
   const {
     obtainAllBookMarks,
     deleteBookMarkedPost,
-    userBookMark,
-    likePost,
-    obtainAllPostService,
+    postState
   } = useContext(PostContext);
 
-  const { postEDCToggle, msgDCToggale, ShowPostEDCCase, ShowMsgDCCase } =
+  const { postEDCToggle, msgDCToggale, ShowPostEDCCase, ShowMsgDCCase,likePost } =
     useContext(PostCRUDContext);
 
   useEffect(() => {
@@ -44,11 +42,11 @@ export const BookMark = () => {
         </div>
         <main className="home-case">
           <h1 className="search-icon-case">
-            Your Book Marks &nbsp;({userBookMark.length})
+            Your Book Marks &nbsp;({postState?.userBookMark?.length})
           </h1>
           {/* --------- */}
 
-          {userBookMark.map((item) => {
+          {postState?.userBookMark.map((item) => {
             const {
               _id,
               content,

@@ -4,21 +4,33 @@ import { PostContext } from "../../hook/context/PostContext";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
+import { useEffect } from "react";
 
-export const PostModal = () => {
-  const { togglePostModal, setTogglePostModal } = useContext(PostContext);
+export const EditModal = () => {
+  const {
+    toggleEditModal,
+    setToggleEditModal,
+    postEdit,
+    previousPost,
+  } = useContext(PostContext);
 
-  const { dispatchPostCRUD, createNewPost, postContent } =
+  const { editPostService} =
     useContext(PostCRUDContext);
 
+  const [text, setText] = useState("");
   const userPostHandler = (event) => {
     event.preventDefault();
-    createNewPost();
-    setTogglePostModal(false);
+    editPostService(postEdit, text);
+    setToggleEditModal(false);
   };
+
+  useEffect(() => {
+    setText(previousPost);
+  }, [toggleEditModal]);
+
   return (
     <>
-      {togglePostModal && (
+      {toggleEditModal && (
         <form className="post-modal" onSubmit={userPostHandler}>
           {/* <!-- Modal content --> */}
           <div className="modal-content">
@@ -30,34 +42,28 @@ export const PostModal = () => {
                 alt="user"
               />
               <textarea
-                required
                 readOnly={false}
-                value={postContent}
-                onChange={(event) =>
-                  dispatchPostCRUD({
-                    type: "POST_CONTENT",
-                    payload: event.target.value,
-                  })
-                }
+                value={text}
+                onChange={(event) => setText(event.target.value)}
                 placeholder="Write your thought..."
                 className="menu-button"
               ></textarea>
 
-              <span onClick={() => setTogglePostModal(false)}>
+              <span onClick={() => setToggleEditModal(false)}>
                 <FontAwesomeIcon icon={faCircleXmark} />
               </span>
             </div>
             <hr />
 
             <footer className="post-footer">
-              <div className="image-imogies">
+              {/* <div className="image-imogies">
                 <button>
                   <ion-icon name="image"></ion-icon> Photo/GIF
                 </button>
                 <button>
                   <ion-icon name="happy-outline"></ion-icon> Emojis
                 </button>
-              </div>
+              </div> */}
               <button type="submit">
                 <ion-icon name="caret-up-circle-outline"></ion-icon> POST
               </button>
@@ -68,4 +74,4 @@ export const PostModal = () => {
     </>
   );
 };
-export { PostModal as default };
+export { EditModal as default };

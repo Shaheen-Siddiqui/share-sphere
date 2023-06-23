@@ -13,6 +13,7 @@ export const AuthContextProvider = ({ children }) => {
     user: JSON.parse(localStorage.getItem("user")) || {},
     token: localStorage.getItem("token") || "",
   });
+
   const navigate = useNavigate();
 
   const SignUpService = async (
@@ -33,9 +34,13 @@ export const AuthContextProvider = ({ children }) => {
         if (response.status === 201) {
           localStorage.setItem(
             "user",
-            JSON.stringify(response.data.createdUser)
+            JSON.stringify({
+              ...response.data.createdUser,
+              imgUrl: "https://ems.vsign.in/assets/images/brand/user.png",
+            })
           );
           localStorage.setItem("token", response.data.encodedToken);
+
           toast.success("Signed up!!");
           dispatchAuthState({
             type: "USER_LOGGED_IN",
@@ -60,6 +65,9 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
+  const getCurrentUserImage = user?.imgUrl;
+  // console.log(getCurrentUserImage, "curr");
+
   const loginService = async (username, password, redirectToLocation) => {
     try {
       const response = await axios.post("/api/auth/login", {
@@ -83,16 +91,13 @@ export const AuthContextProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
-      const {
-        response: { status },
-      } = error;
-      if (status === 404) {
-        toast.error("The username you entered is not Registered");
-      } else if (401) {
-        toast.error("The credentials you entered are invalid");
-      } else {
-        toast.error("unable to login!");
-      }
+      // if (error.response.status === 404) {
+      //   toast.error("The username you entered is not Registered");
+      // } else if (401) {
+      //   toast.error("The credentials you entered are invalid");
+      // } else {
+      //   toast.error("unable to login!");
+      // }
     }
   };
 
@@ -100,6 +105,7 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     dispatchAuthState({ type: "USER_LOGGED_OUT" });
+    navigate("/login");
   };
 
   return (
