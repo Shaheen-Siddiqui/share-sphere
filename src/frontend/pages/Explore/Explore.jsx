@@ -3,13 +3,12 @@ import { useContext } from "react";
 // internal imports
 import "./Explore.css";
 import "../Home/Home.css";
-import { RightSidebar } from "../../components/RightSidebar/RightSidebar";
 import { WriteNewPost } from "../../components/WriteNewPost/WriteNewPost";
-import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
 import { PostContext } from "../../hook/context/PostContext";
 import { useEffect } from "react";
 import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 import { Feed } from "../../components/Feed/Feed";
+import { SideBars } from "../../components/SideBars/SideBars";
 
 export const Explore = () => {
   const { filterTrands, filterLatest } = useContext(PostContext);
@@ -22,9 +21,7 @@ export const Explore = () => {
   return (
     <center>
       <div className="home-main-case">
-        <div className="right-sidebar-container">
-          <RightSidebar />
-        </div>
+        <SideBars />
         <main className="home-case">
           <div className="sort-btn-case">
             <button onClick={obtainAllPostService}>
@@ -42,11 +39,8 @@ export const Explore = () => {
           {allPosts?.map((item) => {
             return <Feed key={item._id} {...item} />;
           })}
-          
         </main>
-        <div className="left-sidebar-container">
-          <LeftSideBar />
-        </div>
+
         <WriteNewPost />
       </div>
     </center>

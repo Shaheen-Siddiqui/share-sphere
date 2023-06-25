@@ -13,11 +13,12 @@ import "./LeftSideBar.css";
 import { useContext } from "react";
 import { PostContext } from "../../hook/context/PostContext";
 import { AuthContext } from "../../hook/context/AuthContext";
+import { UserContext } from "../../hook/context/UserContext";
 
 export const LeftSideBar = () => {
   const { setTogglePostModal } = useContext(PostContext);
+  const { currentUserInfo } = useContext(UserContext);
 
-  
   return (
     <div className="left-sidebar-case">
       <nav className="navbar-links">
@@ -48,7 +49,7 @@ export const LeftSideBar = () => {
           </div>
         </Link>
 
-        <Link to="/profile">
+        <Link to={`/profile/${currentUserInfo?._id}`}>
           <div className="side-item">
             <span id="ftr-icon">
               <FontAwesomeIcon icon={faUserTie} size="2xl" />

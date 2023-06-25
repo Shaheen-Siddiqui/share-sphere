@@ -14,9 +14,9 @@ export const FollowUserContextProvider = ({ children }) => {
 
   // console.log(followUserData?.followUser?.followers);
   const whoIsFollowed = (_id) => {
-    const alpha = followUserData?.followUser?.followers?.find((item) => item._id == _id);
-    console.log(alpha);
-    return alpha;
+    // const alpha = followUserData?.followUser?.followers?.find((item) => item._id == _id);
+    // console.log(alpha);
+    // return alpha;
   };
 
   const followActionService = async (followUserId) => {
@@ -28,6 +28,7 @@ export const FollowUserContextProvider = ({ children }) => {
         { headers: { authorization: encodedToken } }
       );
       dispatchFollowState({ type: "FOLLOW_FUNCTIONS", payload: response.data });
+      console.log(response.data,'followed user');
     } catch (error) {
       console.log(error);
     }

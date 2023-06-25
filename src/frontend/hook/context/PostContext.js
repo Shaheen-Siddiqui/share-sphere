@@ -23,7 +23,7 @@ export const PostContextProveder = ({ children }) => {
     postState.userBookMark.find((item) => item._id === _id);
 
   const filterTrands = () => {
-    const filteredPostData = [...allPosts].sort(
+    const filteredPostData = allPosts.sort(
       (a, b) => b.likes.likeCount - a.likes.likeCount
     );
     dispatchPostState({ type: "TRANDING_POSTS", payload: filteredPostData });
@@ -119,6 +119,7 @@ export const PostContextProveder = ({ children }) => {
         previousPost,
         setPreviousPost,
         isBookMarked,
+        dispatchPostState
       }}
     >
       {children}

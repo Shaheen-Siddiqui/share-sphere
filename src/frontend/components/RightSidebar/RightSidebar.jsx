@@ -1,17 +1,23 @@
-import { useContext } from "react";
-import "./RightSidebar.css";
-import { AuthRequest } from "../AuthRequest.jsx/AuthRequest";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+//Internal Imports...
+import "./RightSidebar.css";
+import { AuthRequest } from "../AuthRequest.jsx/AuthRequest";
 import { AuthContext } from "../../hook/context/AuthContext";
 import { UserContext } from "../../hook/context/UserContext";
-import { useEffect } from "react";
 import { FollowUserContext } from "../../hook/context/FollowUserContext";
 
 export const RightSidebar = () => {
   const { token } = useContext(AuthContext);
-  const { userState, obtainAllUserService, currentUserInfo } =
-    useContext(UserContext);
+  const {
+    userState,
+    obtainAllUserService,
+    currentUserInfo,
+    getParticularUser,
+  } = useContext(UserContext);
   const { followActionService, whoIsFollowed } = useContext(FollowUserContext);
 
   useEffect(() => {
@@ -31,12 +37,16 @@ export const RightSidebar = () => {
             const { imgUrl, username, _id } = item;
             return (
               <div className="follow-user row" key={_id}>
-                <img
-                  align="center"
-                  loading="lazy"
-                  src={imgUrl}
-                  alt={username}
-                />
+                <Link to={`/profile/${_id}`}>
+                  <img
+                    align="center"
+                    loading="lazy"
+                    src={imgUrl}
+                    alt={username}
+                    onClick={() => getParticularUser(_id)}
+                  />
+                </Link>
+
                 <p id="follow-user-id">
                   <p>{username}</p>
                   <p>@{username}</p>

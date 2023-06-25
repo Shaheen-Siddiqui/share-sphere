@@ -39,13 +39,18 @@ export const Feed = ({
     setPostEdit,
     setToggleEditModal,
     isBookMarked,
-    deleteBookMarkedPost
+    deleteBookMarkedPost,
+    dispatchPostState
   } = useContext(PostContext);
   const navigate = useNavigate();
 
   const updatePostByUser = (_id) => {
     setPostEdit(_id);
     setToggleEditModal(true);
+  };
+
+  const deletePost = (_id) => {
+    deleteParticularPost(_id);
   };
   return (
     <div className="user-post-main-case" key={_id}>
@@ -73,7 +78,7 @@ export const Feed = ({
 
                   <button
                     className="menu-button"
-                    onClick={() => deleteParticularPost(_id)}
+                    onClick={() => deletePost(_id)}
                   >
                     <FontAwesomeIcon icon={faTrash} />
                     <span>Delete</span>

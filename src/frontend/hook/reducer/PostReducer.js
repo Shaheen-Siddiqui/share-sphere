@@ -16,6 +16,11 @@ export const PostReducer = (postState, { type, payload }) => {
         ...postState,
         allPosts: payload,
       };
+    // case "DELETE_FROM_BOOKMARK":
+    //   return{
+    //     ...postState,
+    //     userBookMark:payload
+    //   }
     default:
       break;
   }

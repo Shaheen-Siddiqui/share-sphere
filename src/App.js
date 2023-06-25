@@ -78,7 +78,15 @@ function App() {
               }
             />
             <Route
-              path="/profile"
+              path="/profile/:userID"
+              element={
+                <RequireAuth>
+                  <UserProfile />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/profile/:userID"
               element={
                 <RequireAuth>
                   <UserProfile />

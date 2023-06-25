@@ -27,6 +27,7 @@ root.render(
           </PostCRUDContextProvider>
         </FollowUserContextProvider>
         </UserContextProvider>
+         
       </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>

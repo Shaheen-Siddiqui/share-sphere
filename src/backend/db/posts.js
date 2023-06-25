@@ -27,42 +27,42 @@ export const posts = [
     updatedAt: formatDate(),
     comment: [],
   },
-  // {
-  //   _id: uuid(),
-  //   content:
-  //     "A stylish look effortlessly merges sophistication and individuality, capturing attention with its impeccable sense of fashion and attention to detail, leaving a lasting impression wherever it goes.",
-  //   imgUrl:
-  //     "https://www.sunofjapan.com/wp-content/uploads/2023/03/KO098-SG.jpg",
-  //   postedImages:
-  //     "https://www.sunofjapan.com/wp-content/uploads/2023/03/KO098-SG.jpg",
-  //   likes: {
-  //     likeCount: 3,
-  //     likedBy: [],
-  //     dislikedBy: [],
-  //   },
-  //   username: "merry karl",
-  //   createdAt: "2023-06-15",
-  //   updatedAt: formatDate(),
-  //   comment: [],
-  // },
-  // {
-  //   _id: uuid(),
-  //   content:
-  //     "Nature is a mesmerizing tapestry of beauty and balance, showcasing the intricate interplay between living organisms and the environment, reminding us of our deep connection to the world around us.",
-  //   postedImages:
-  //     "https://images.unsplash.com/photo-1559863345-02eae058c2c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZW5qb3l8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
-  //   imgUrl:
-  //     "https://images.unsplash.com/photo-1559863345-02eae058c2c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZW5qb3l8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
-  //   likes: {
-  //     likeCount: 10,
-  //     likedBy: [],
-  //     dislikedBy: [],
-  //   },
-  //   username: "himayra khan",
-  //   createdAt: "2023-06-28",
-  //   updatedAt: formatDate(),
-  //   comment: [],
-  // },
+  {
+    _id: uuid(),
+    content:
+      "A stylish look effortlessly merges sophistication and individuality, capturing attention with its impeccable sense of fashion and attention to detail, leaving a lasting impression wherever it goes.",
+    imgUrl:
+      "https://www.sunofjapan.com/wp-content/uploads/2023/03/KO098-SG.jpg",
+    postedImages:
+      "https://www.sunofjapan.com/wp-content/uploads/2023/03/KO098-SG.jpg",
+    likes: {
+      likeCount: 3,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "merry karl",
+    createdAt: "2023-06-15",
+    updatedAt: formatDate(),
+    comment: [],
+  },
+  {
+    _id: uuid(),
+    content:
+      "Nature is a mesmerizing tapestry of beauty and balance, showcasing the intricate interplay between living organisms and the environment, reminding us of our deep connection to the world around us.",
+    postedImages:
+      "https://images.unsplash.com/photo-1559863345-02eae058c2c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZW5qb3l8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+    imgUrl:
+      "https://images.unsplash.com/photo-1559863345-02eae058c2c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZW5qb3l8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
+    likes: {
+      likeCount: 10,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "himayra khan",
+    createdAt: "2023-06-28",
+    updatedAt: formatDate(),
+    comment: [],
+  },
 
   {
     _id: uuid(),
@@ -83,24 +83,24 @@ export const posts = [
     updatedAt: formatDate(),
     comment: [],
   },
-  // {
-  //   _id: uuid(),
-  //   content:
-  //     "Care is a compassionate and nurturing attitude towards others, driven by empathy and concern for their well-being. It involves actively listening, supporting, and showing kindness, while also considering the needs and feelings of those we care for. Care fosters a sense of connection, creating a safe and supportive environment where individuals can thrive.",
-  //   imgUrl:
-  //     "https://1fid.com/wp-content/uploads/2022/10/hijab-dp-18-1024x1022.jpg",
-  //   postedImages: null,
+  {
+    _id: uuid(),
+    content:
+      "Care is a compassionate and nurturing attitude towards others, driven by empathy and concern for their well-being. It involves actively listening, supporting, and showing kindness, while also considering the needs and feelings of those we care for. Care fosters a sense of connection, creating a safe and supportive environment where individuals can thrive.",
+    imgUrl:
+      "https://1fid.com/wp-content/uploads/2022/10/hijab-dp-18-1024x1022.jpg",
+    postedImages: null,
 
-  //   likes: {
-  //     likeCount: 6,
-  //     likedBy: [],
-  //     dislikedBy: [],
-  //   },
-  //   username: "Shaheen amaan",
-  //   createdAt: "2023-05-23",
-  //   updatedAt: formatDate(),
-  //   comment: [],
-  // },
+    likes: {
+      likeCount: 6,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "Shaheen amaan",
+    createdAt: "2023-05-23",
+    updatedAt: formatDate(),
+    comment: [],
+  },
 
   {
     _id: uuid(),

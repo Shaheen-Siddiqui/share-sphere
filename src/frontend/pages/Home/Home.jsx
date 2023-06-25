@@ -9,13 +9,11 @@ import {
 import { faHeart, faBookmark } from "@fortawesome/free-regular-svg-icons";
 
 //internal imports.
-
 import "./Home.css";
-import { RightSidebar } from "../../components/RightSidebar/RightSidebar";
-import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
 import { useState } from "react";
 import { useContext } from "react";
 import { PostContext } from "../../hook/context/PostContext";
+import { SideBars } from "../../components/SideBars/SideBars";
 
 export const Home = () => {
   const [postEDCToggle, setPostEDCToggle] = useState(false);
@@ -25,9 +23,7 @@ export const Home = () => {
   return (
     <center>
       <div className="home-main-case">
-        <div className="right-sidebar-container">
-          <RightSidebar />
-        </div>
+        <SideBars />
         <main className="home-case">
           <div
             className="search-icon-case"
@@ -178,9 +174,6 @@ export const Home = () => {
             </div>
           </div>
         </main>
-        <div className="left-sidebar-container">
-          <LeftSideBar />
-        </div>
       </div>
     </center>
   );

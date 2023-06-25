@@ -14,8 +14,6 @@ export const PostCRUDContextProvider = ({ children }) => {
     }
   );
 
-  
-
   const currentUserImage = JSON.parse(localStorage.getItem("user"));
 
   const [postEDCToggle, setPostEDCToggle] = useState({});
@@ -99,6 +97,7 @@ export const PostCRUDContextProvider = ({ children }) => {
         type: "POST_FUNCTION",
         payload: response.data.posts,
       });
+      
     } catch (error) {
       console.log(error);
     }
@@ -137,7 +136,6 @@ export const PostCRUDContextProvider = ({ children }) => {
         msgDCToggale,
         likePost,
         editPostService,
-        
       }}
     >
       {children}

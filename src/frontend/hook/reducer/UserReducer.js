@@ -3,7 +3,12 @@ export const userReducer = (userState, { type, payload }) => {
     case "USER_FUNCTION":
       return {
         ...userState,
-        allUsers:payload
+        allUsers: payload,
+      };
+    case "SINGLE_USER":
+      return {
+        ...userState,
+        singleUser: payload,
       };
     default:
       break;
