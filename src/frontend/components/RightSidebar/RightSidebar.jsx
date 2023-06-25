@@ -9,22 +9,25 @@ import { useEffect } from "react";
 import { FollowUserContext } from "../../hook/context/FollowUserContext";
 
 export const RightSidebar = () => {
-  // const { login } = useContext(ProfileContext);
   const { token } = useContext(AuthContext);
-  const { userState, obtainAllUserService } = useContext(UserContext);
-  const {followActionService}=useContext(FollowUserContext)
+  const { userState, obtainAllUserService, currentUserInfo } =
+    useContext(UserContext);
+  const { followActionService, whoIsFollowed } = useContext(FollowUserContext);
 
   useEffect(() => {
     obtainAllUserService();
   }, []);
 
+  const excludeMe = userState.allUsers.filter(
+    (item) => item !== currentUserInfo
+  );
   return (
     <>
       {!token ? (
         <AuthRequest />
       ) : (
         <div className="follow-user-case">
-          {userState?.allUsers.map((item) => {
+          {excludeMe.map((item) => {
             const { imgUrl, username, _id } = item;
             return (
               <div className="follow-user row" key={_id}>
@@ -38,10 +41,23 @@ export const RightSidebar = () => {
                   <p>{username}</p>
                   <p>@{username}</p>
                 </p>
-                <button className="row" onClick={()=>followActionService(_id)}>
-                  <FontAwesomeIcon icon={faPlus} />
-                  Follow
-                </button>
+                {whoIsFollowed(_id) ? (
+                  <button
+                    className="row"
+                    onClick={() => followActionService(_id)}
+                  >
+                    <FontAwesomeIcon icon={faPlus} />
+                    Following...
+                  </button>
+                ) : (
+                  <button
+                    className="row"
+                    onClick={() => followActionService(_id)}
+                  >
+                    <FontAwesomeIcon icon={faPlus} />
+                    Follow
+                  </button>
+                )}
               </div>
             );
           })}

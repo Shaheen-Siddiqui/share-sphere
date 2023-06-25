@@ -15,7 +15,7 @@ import { PostContext } from "../../hook/context/PostContext";
 import { AuthContext } from "../../hook/context/AuthContext";
 
 export const LeftSideBar = () => {
-  const { setTogglePostModal, togglePostModal, allPosts } = useContext(PostContext);
+  const { setTogglePostModal } = useContext(PostContext);
 
   
   return (

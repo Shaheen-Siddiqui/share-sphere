@@ -7,7 +7,7 @@ import { formatDate } from "../utils/authUtils";
 
 export const users = [
   {
-    _id: 1,
+    _id: "1",
     firstName: "Shaheen",
     lastName: "amaan",
     username: "Shaheen amaan",
@@ -18,7 +18,7 @@ export const users = [
     updatedAt: formatDate(),
   },
   {
-    _id: 2,
+    _id: "2",
     firstName: "Himayra",
     lastName: "khan",
     username: "himayra khan",
@@ -29,7 +29,7 @@ export const users = [
       "https://images.unsplash.com/photo-1559863345-02eae058c2c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZW5qb3l8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
   },
   {
-    _id: 2,
+    _id: "3",
     firstName: "Merry",
     lastName: "karl",
     username: "merry karl",
@@ -40,7 +40,7 @@ export const users = [
       "https://www.sunofjapan.com/wp-content/uploads/2023/03/KO098-SG.jpg",
   },
   {
-    _id: 2,
+    _id: "4",
     firstName: "Jays",
     lastName: "supuis",
     username: "jays supuis",

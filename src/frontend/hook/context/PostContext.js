@@ -18,7 +18,9 @@ export const PostContextProveder = ({ children }) => {
   const [postState, dispatchPostState] = useReducer(PostReducer, {
     userBookMark: [],
   });
-  // const {  userBookMark } = postState;
+
+  const isBookMarked = (_id) =>
+    postState.userBookMark.find((item) => item._id === _id);
 
   const filterTrands = () => {
     const filteredPostData = [...allPosts].sort(
@@ -106,9 +108,7 @@ export const PostContextProveder = ({ children }) => {
         setTogglePostModal,
         addToBookMark,
         obtainAllBookMarks,
-
         deleteBookMarkedPost,
-
         filterTrands,
         filterLatest,
         postState,
@@ -116,7 +116,9 @@ export const PostContextProveder = ({ children }) => {
         setToggleEditModal,
         postEdit,
         setPostEdit,
-        previousPost, setPreviousPost,
+        previousPost,
+        setPreviousPost,
+        isBookMarked,
       }}
     >
       {children}

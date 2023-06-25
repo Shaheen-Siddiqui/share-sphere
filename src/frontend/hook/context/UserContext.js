@@ -1,13 +1,20 @@
-import { useReducer, createContext } from "react";
+import { useReducer, createContext, useContext } from "react";
 import { userReducer } from "../reducer/UserReducer";
+import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
+  const { user } = useContext(AuthContext);
   const [userState, dispatchUserState] = useReducer(userReducer, {
     allUsers: [],
   });
+  const { allUsers } = userState;
+
+  const currentUserInfo = allUsers?.find(
+    (item) => item.username === user.username
+  );
 
   const obtainAllUserService = async () => {
     try {
@@ -20,7 +27,10 @@ export const UserContextProvider = ({ children }) => {
       console.log(error);
     }
   };
-//   obtainAllUserService();
 
-  return <UserContext.Provider value={{userState,obtainAllUserService}}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ userState, obtainAllUserService,currentUserInfo }}>
+      {children}
+    </UserContext.Provider>
+  );
 };

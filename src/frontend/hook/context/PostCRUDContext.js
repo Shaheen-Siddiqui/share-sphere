@@ -14,6 +14,8 @@ export const PostCRUDContextProvider = ({ children }) => {
     }
   );
 
+  
+
   const currentUserImage = JSON.parse(localStorage.getItem("user"));
 
   const [postEDCToggle, setPostEDCToggle] = useState({});
@@ -51,6 +53,7 @@ export const PostCRUDContextProvider = ({ children }) => {
       console.log(error);
     }
   };
+
   const obtainAllPostService = async () => {
     try {
       const response = await axios.get("/api/posts");
@@ -65,7 +68,7 @@ export const PostCRUDContextProvider = ({ children }) => {
 
   const editPostService = async (_id, postContent) => {
     const encodedToken = localStorage.getItem("token");
-    console.log(_id, postContent, 'test');
+    console.log(_id, postContent, "test");
     try {
       const response = await axios.post(
         `/api/posts/edit/${_id}`,
@@ -134,6 +137,7 @@ export const PostCRUDContextProvider = ({ children }) => {
         msgDCToggale,
         likePost,
         editPostService,
+        
       }}
     >
       {children}

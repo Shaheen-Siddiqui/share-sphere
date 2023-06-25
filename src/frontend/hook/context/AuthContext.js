@@ -29,15 +29,13 @@ export const AuthContextProvider = ({ children }) => {
           username,
           password,
           email,
+          imgUrl: "https://ems.vsign.in/assets/images/brand/user.png",
         });
 
         if (response.status === 201) {
           localStorage.setItem(
             "user",
-            JSON.stringify({
-              ...response.data.createdUser,
-              imgUrl: "https://ems.vsign.in/assets/images/brand/user.png",
-            })
+            JSON.stringify(response.data.createdUser)
           );
           localStorage.setItem("token", response.data.encodedToken);
 
@@ -53,6 +51,7 @@ export const AuthContextProvider = ({ children }) => {
           navigate(redirectToLocation, "/");
         }
       } catch (error) {
+        console.log(error);
         const {
           response: { status },
         } = error;
@@ -64,9 +63,6 @@ export const AuthContextProvider = ({ children }) => {
       }
     }
   };
-
-  const getCurrentUserImage = user?.imgUrl;
-  // console.log(getCurrentUserImage, "curr");
 
   const loginService = async (username, password, redirectToLocation) => {
     try {
@@ -85,19 +81,20 @@ export const AuthContextProvider = ({ children }) => {
             token: response.data.encodedToken,
           },
         });
+
         setIsLoggedIn(true);
         toast.success("Logged in successfully!");
         navigate(redirectToLocation, { replace: true });
       }
     } catch (error) {
       console.log(error);
-      // if (error.response.status === 404) {
-      //   toast.error("The username you entered is not Registered");
-      // } else if (401) {
-      //   toast.error("The credentials you entered are invalid");
-      // } else {
-      //   toast.error("unable to login!");
-      // }
+      if (error.response.status === 404) {
+        toast.error("The username you entered is not Registered");
+      } else if (error.response.status === 401) {
+        toast.error("The credentials you entered are invalid");
+      } else {
+        toast.error("unable to login!");
+      }
     }
   };
 

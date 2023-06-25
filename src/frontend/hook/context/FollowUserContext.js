@@ -1,27 +1,40 @@
-import { useReducer } from "react";
+import axios from "axios";
+import { useContext, useReducer } from "react";
 import { createContext } from "react";
 import { followReducer } from "../reducer/FollowReducer";
-import axios from "axios";
+import { UserContext } from "./UserContext";
 
 export const FollowUserContext = createContext();
 
 export const FollowUserContextProvider = ({ children }) => {
-  const [followState, dispatchFollowState] = useReducer(followReducer, {
-    followUser: [],
+  const { userState } = useContext(UserContext);
+  const [{ followUserData }, dispatchFollowState] = useReducer(followReducer, {
+    followUserData: {},
   });
 
-  const followActionService = async (followUserId) => {
-    // const encodedToken = localStorage.getItem("token");
-    // try {
-    //   const response = await axios.post(
-    //     `/api/users/follow/${followUserId}`,
-    //     {},
-    //     { headers: { authorization: encodedToken } }
-    //   );
-    //   console.log(response.data.user);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+  // console.log(followUserData?.followUser?.followers);
+  const whoIsFollowed = (_id) => {
+    const alpha = followUserData?.followUser?.followers?.find((item) => item._id == _id);
+    console.log(alpha);
+    return alpha;
   };
-  return <FollowUserContext.Provider value={{followActionService}}>{children}</FollowUserContext.Provider>;
+
+  const followActionService = async (followUserId) => {
+    const encodedToken = localStorage.getItem("token");
+    try {
+      const response = await axios.post(
+        `/api/users/follow/${followUserId}`,
+        {},
+        { headers: { authorization: encodedToken } }
+      );
+      dispatchFollowState({ type: "FOLLOW_FUNCTIONS", payload: response.data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return (
+    <FollowUserContext.Provider value={{ followActionService, whoIsFollowed }}>
+      {children}
+    </FollowUserContext.Provider>
+  );
 };

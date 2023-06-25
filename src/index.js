@@ -17,8 +17,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
-        <UserContextProvider>
 
+        <UserContextProvider>
         <FollowUserContextProvider>
           <PostCRUDContextProvider>
             <PostContextProveder>
