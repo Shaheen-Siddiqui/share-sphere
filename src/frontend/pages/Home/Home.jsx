@@ -1,30 +1,46 @@
-//internal imports.
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrash,
+  faCircleXmark,
+  faEllipsisVertical,
+  faPenToSquare,
+  faCirclePlus,
+} from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faBookmark } from "@fortawesome/free-regular-svg-icons";
 
+//internal imports.
 import "./Home.css";
-import { RightSidebar } from "../../components/RightSidebar/RightSidebar";
-import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
+import { useState } from "react";
+import { useContext } from "react";
+import { PostContext } from "../../hook/context/PostContext";
+import { SideBars } from "../../components/SideBars/SideBars";
 
 export const Home = () => {
+  const [postEDCToggle, setPostEDCToggle] = useState(false);
+  const [msgDCToggale, setMsgDCToggale] = useState(false);
+  const { setTogglePostModal } = useContext(PostContext);
+
   return (
     <center>
       <div className="home-main-case">
-        <div className="right-sidebar-container">
-          <RightSidebar />
-        </div>
+        <SideBars />
         <main className="home-case">
-          <div className="search-icon-case">
-            <ion-icon
-              size="large"
-              name="add-circle-sharp"
+          <div
+            className="search-icon-case"
+            onClick={() => setTogglePostModal(true)}
+          >
+            <FontAwesomeIcon
               id="search-add-icon"
-            ></ion-icon>
+              size="2x"
+              icon={faCirclePlus}
+            />
+
             <input
               type="text"
               placeholder="What's happning Shaheen...."
               className="menu-button"
             />
           </div>
-
           <div className="user-post-main-case">
             <div className="about-user">
               <img
@@ -36,28 +52,35 @@ export const Home = () => {
                 <strong>@guestuser</strong>
                 <p>2023</p>
               </div>
-              <button className="menu-button  edit-delete-parent">
-                <div className="edit-delete-menu menu-position">
-                  <button className="menu-button">
-                    <ion-icon size="small" name="create"></ion-icon>
-                    <span>Edit</span>
-                  </button>
+              <div className="menu-button  edit-delete-parent">
+                {postEDCToggle && (
+                  <div className="edit-delete-menu menu-position">
+                    <button className="menu-button">
+                      <FontAwesomeIcon icon={faPenToSquare} />
+                      <span>Edit</span>
+                    </button>
 
-                  <button className="menu-button">
-                    <ion-icon size="small" name="trash"></ion-icon>
-                    <span>Delete</span>
-                  </button>
+                    <button className="menu-button">
+                      <FontAwesomeIcon icon={faTrash} />
+                      <span>Delete</span>
+                    </button>
 
-                  <button className="menu-button">
-                    <ion-icon size="small" name="close-circle"></ion-icon>{" "}
-                    <span>Cancel</span>
-                  </button>
-                </div>
-                <ion-icon
-                  size="small"
-                  name="ellipsis-vertical-sharp"
-                ></ion-icon>
-              </button>
+                    <button
+                      className="menu-button"
+                      onClick={() => setPostEDCToggle(false)}
+                    >
+                      <FontAwesomeIcon icon={faCircleXmark} />
+                      <span>Cancel</span>
+                    </button>
+                  </div>
+                )}
+                <FontAwesomeIcon
+                  icon={faEllipsisVertical}
+                  className="ellips-icon"
+                  size="xl"
+                  onClick={() => setPostEDCToggle(true)}
+                />
+              </div>
             </div>
 
             <div className="user-post">
@@ -75,10 +98,10 @@ export const Home = () => {
               </center>
               <div className="like-bookmark-icon">
                 <div>
-                  <ion-icon size="small" name="heart-outline"></ion-icon>
+                  <FontAwesomeIcon icon={faHeart} size="xl" />
                   <p>0</p>
                 </div>
-                <ion-icon size="small" name="bookmark-outline"></ion-icon>
+                <FontAwesomeIcon icon={faBookmark} size="xl" />
               </div>
             </div>
             <div className="post-comment-case">
@@ -110,23 +133,30 @@ export const Home = () => {
                 </div>
               </div>
 
-              <button className="menu-button edit-delete-parent">
-                <div className="edit-delete-menu menu-position">
-                  <button className="menu-button">
-                    <ion-icon size="small" name="trash"></ion-icon>
-                    <span>Delete</span>
-                  </button>
+              <div className="menu-button edit-delete-parent">
+                {msgDCToggale && (
+                  <div className="edit-delete-menu menu-position">
+                    <button className="menu-button">
+                      <FontAwesomeIcon icon={faTrash} />
+                      <span>Delete</span>
+                    </button>
 
-                  <button className="menu-button">
-                    <ion-icon size="small" name="close-circle"></ion-icon>
-                    <span>Cancel</span>
-                  </button>
-                </div>
-                <ion-icon
-                  size="small"
-                  name="ellipsis-vertical-sharp"
-                ></ion-icon>
-              </button>
+                    <button
+                      className="menu-button"
+                      onClick={() => setMsgDCToggale(false)}
+                    >
+                      <FontAwesomeIcon icon={faCircleXmark} />
+                      <span>Cancel</span>
+                    </button>
+                  </div>
+                )}
+                <FontAwesomeIcon
+                  icon={faEllipsisVertical}
+                  size="xl"
+                  className="ellips-icon"
+                  onClick={() => setMsgDCToggale(true)}
+                />
+              </div>
             </div>
 
             <div className="comments-of-followers commented-user-info">
@@ -144,9 +174,6 @@ export const Home = () => {
             </div>
           </div>
         </main>
-        <div className="left-sidebar-container">
-          <LeftSideBar />
-        </div>
       </div>
     </center>
   );

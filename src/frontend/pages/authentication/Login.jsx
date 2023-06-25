@@ -1,25 +1,35 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 import "./authentication.css";
 import "../Home/Home.css";
 import { RightSidebar } from "../../components/RightSidebar/RightSidebar";
 import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
+import { useContext } from "react";
+import { AuthContext } from "../../hook/context/AuthContext";
 
 export const LogIn = () => {
+  const { loginService } = useContext(AuthContext);
+  const location = useLocation();
   const [passwordIcon, setPasswordIcon] = useState(false);
   const [userLoginCredential, setUserLoginCredential] = useState({
-    email: "",
+    username: "",
     password: "",
   });
-  const { email, password } = userLoginCredential;
+  const { username, password } = userLoginCredential;
+  const redirectToLocation = location.state?.path || "/";
 
-  const userLoginHandler = (event) => {};
+  const userLoginHandler = (event) => {
+    event.preventDefault();
+    loginService(username, password, redirectToLocation);
+  };
 
   const guestCredentialHandler = (event) => {
     setUserLoginCredential({
       ...userLoginCredential,
-      email: "Shaheen_amaan@gmail.com",
+      username: "Shaheen amaan",
       password: "Shaheen@143",
     });
     event.preventDefault();
@@ -36,19 +46,19 @@ export const LogIn = () => {
           <form className="login-form" onSubmit={userLoginHandler}>
             <h1 className="form-text">Login</h1>
 
-            <label className="form-lable" htmlFor="email">
-              Email Address*
+            <label className="form-lable" htmlFor="username">
+              username*
             </label>
             <input
-              value={email}
+              value={username}
               className="form-inp"
-              id="email"
+              id="username"
               type="text"
               required
               onChange={(event) =>
                 setUserLoginCredential({
                   ...userLoginCredential,
-                  email: event.target.value,
+                  username: event.target.value,
                 })
               }
             />
@@ -71,19 +81,15 @@ export const LogIn = () => {
                 }
               />
               {passwordIcon ? (
-                <ion-icon
-                size="small"
-                  name="eye-off"
-                  className="eye-icon"
+                <FontAwesomeIcon
+                  icon={faEyeSlash}
                   onClick={() => setPasswordIcon(!passwordIcon)}
-                ></ion-icon>
+                />
               ) : (
-                <ion-icon
-                size="small"
-                  name="eye"
-                  className="eye-icon"
+                <FontAwesomeIcon
+                  icon={faEye}
                   onClick={() => setPasswordIcon(!passwordIcon)}
-                ></ion-icon>
+                />
               )}
             </div>
             <button

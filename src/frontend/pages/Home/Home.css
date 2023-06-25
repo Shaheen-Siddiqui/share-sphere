@@ -5,7 +5,7 @@
 .search-icon-case {
     background-color: var(--light-background);
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding: 0.4rem 1rem;
     border-radius: var(--border-radius);
@@ -36,7 +36,7 @@
     display: grid;
 
     & p {
-        text-align: start;
+        text-align: justify;
         padding: 0.8rem 0;
     }
 }
@@ -105,7 +105,7 @@
     }
 
     & div {
-        justify-self: start;
+        justify-self: flex-start;
         text-align: left;
         margin-left: 1rem;
     }
@@ -178,12 +178,16 @@
 
 .edit-delete-parent {
     position: relative;
+    cursor: pointer;
 }
 
 .menu-position {
     position: absolute;
     z-index: 1;
 
+}
+.ellips-icon{
+    padding: 1rem;
 }
 
 .commented-user-info {
@@ -194,6 +198,9 @@
     & p {
         font-size: small;
     }
+}
+.pointer{
+    cursor: pointer;
 }
 
 

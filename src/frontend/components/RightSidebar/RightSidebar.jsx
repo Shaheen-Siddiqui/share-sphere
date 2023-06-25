@@ -1,66 +1,76 @@
-import { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+//Internal Imports...
 import "./RightSidebar.css";
-import { ProfileContext } from "../../hook/context/ProfileContext";
 import { AuthRequest } from "../AuthRequest.jsx/AuthRequest";
+import { AuthContext } from "../../hook/context/AuthContext";
+import { UserContext } from "../../hook/context/UserContext";
+import { FollowUserContext } from "../../hook/context/FollowUserContext";
 
 export const RightSidebar = () => {
-  const { login } = useContext(ProfileContext);
+  const { token } = useContext(AuthContext);
+  const {
+    userState,
+    obtainAllUserService,
+    currentUserInfo,
+    getParticularUser,
+  } = useContext(UserContext);
+  const { followActionService, whoIsFollowed } = useContext(FollowUserContext);
+
+  useEffect(() => {
+    obtainAllUserService();
+  }, []);
+
+  const excludeMe = userState.allUsers.filter(
+    (item) => item !== currentUserInfo
+  );
   return (
     <>
-      {!login ? (
+      {!token ? (
         <AuthRequest />
       ) : (
         <div className="follow-user-case">
-          <div className="follow-user row">
-            <img
-              align="center"
-              loading="lazy"
-              src="https://banner2.cleanpng.com/20180329/zue/kisspng-computer-icons-user-profile-person-5abd85306ff7f7.0592226715223698404586.jpg"
-              alt=""
-            />
-            <p>
-              <p>John kids</p>
-              <p>@Johnkidd</p>
-            </p>
-            <button className="row">
-              <ion-icon name="add-outline"></ion-icon>
-              Follow
-            </button>
-          </div>
-          <div className="follow-user row">
-            <img
-              width="40rem"
-              height="40rem"
-              align="center"
-              loading="lazy"
-              src="https://banner2.cleanpng.com/20180329/zue/kisspng-computer-icons-user-profile-person-5abd85306ff7f7.0592226715223698404586.jpg"
-              alt=""
-            />
-            <p>
-              <p>John kids</p>
-              <p>@Johnkidd</p>
-            </p>
-            <button className="row">
-              <ion-icon name="add-outline"></ion-icon> Follow
-            </button>
-          </div>
-          <div className="follow-user row">
-            <img
-              width="40rem"
-              height="40rem"
-              align="center"
-              loading="lazy"
-              src="https://banner2.cleanpng.com/20180329/zue/kisspng-computer-icons-user-profile-person-5abd85306ff7f7.0592226715223698404586.jpg"
-              alt=""
-            />
-            <p>
-              <p>John kids</p>
-              <p>@Johnkidd</p>
-            </p>
-            <button className="row">
-              <ion-icon name="add-outline"></ion-icon> Follow
-            </button>
-          </div>
+          {excludeMe.map((item) => {
+            const { imgUrl, username, _id } = item;
+            return (
+              <div className="follow-user row" key={_id}>
+                <Link to={`/profile/${_id}`}>
+                  <img
+                    align="center"
+                    loading="lazy"
+                    src={imgUrl}
+                    alt={username}
+                    onClick={() => getParticularUser(_id)}
+                  />
+                </Link>
+
+                <p id="follow-user-id">
+                  <p>{username}</p>
+                  <p>@{username}</p>
+                </p>
+                {whoIsFollowed(_id) ? (
+                  <button
+                    className="row"
+                    onClick={() => followActionService(_id)}
+                  >
+                    <FontAwesomeIcon icon={faPlus} />
+                    Following...
+                  </button>
+                ) : (
+                  <button
+                    className="row"
+                    onClick={() => followActionService(_id)}
+                  >
+                    <FontAwesomeIcon icon={faPlus} />
+                    Follow
+                  </button>
+                )}
+              </div>
+            );
+          })}
         </div>
       )}
     </>
