@@ -11,6 +11,7 @@ import { Feed } from "../../components/Feed/Feed";
 import { SideBars } from "../../components/SideBars/SideBars";
 
 export const Explore = () => {
+  console.log("explore");
   const { filterTrands, filterLatest } = useContext(PostContext);
   const { allPosts, obtainAllPostService } = useContext(PostCRUDContext);
 

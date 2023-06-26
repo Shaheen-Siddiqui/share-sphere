@@ -9,7 +9,7 @@ import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 import { useEffect } from "react";
 
 export const Home = () => {
-
+console.log("home");
   
   const { currentUserInfo } = useContext(UserContext);
   const { allPosts,obtainAllPostService } = useContext(PostCRUDContext);
