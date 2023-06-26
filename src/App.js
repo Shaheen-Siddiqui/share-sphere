@@ -1,22 +1,30 @@
 import Mockman from "mockman-js";
-import { Suspense, lazy, useEffect } from "react";
+import {  lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 //internal imports
 
 import "./App.css";
-// import {Login as LogIn } from './frontend/pages/authentication/Login'
 import { RequireAuth } from "./frontend/RequireAuth";
+
+
+
+import {Home} from './frontend/pages/Home/Home'
+import {BookMark} from './frontend/pages/BookMark/BookMark'
+import {Explore} from './frontend/pages/Explore/Explore'
+import {LogIn} from './frontend/pages/authentication/Login'
+
+
 const MobileHeader = lazy(() => import("./frontend/components/Header/Header"));
 const MobileFooter = lazy(() => import("./frontend/components/Footer/Footer"));
-const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
-const Home = lazy(() => import("./frontend/pages/Home/Home"));
-const BookMark = lazy(() => import("./frontend/pages/BookMark/BookMark"));
+// const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
+// const Home = lazy(() => import("./frontend/pages/Home/Home"));
+// const BookMark = lazy(() => import("./frontend/pages/BookMark/BookMark"));
 const UserProfile = lazy(() =>
   import("./frontend/pages/UserProfile/UserProfile")
 );
-const LogIn = lazy(() => import("./frontend/pages/authentication/Login"));
+// const LogIn = lazy(() => import("./frontend/pages/authentication/Login"));
 const SignUp = lazy(() => import("./frontend/pages/authentication/Signup"));
 
 const PostModal = lazy(() =>
@@ -25,6 +33,7 @@ const PostModal = lazy(() =>
 const EditModal = lazy(() =>
   import("./frontend/components/PostModal/EditPost")
 );
+
 
 function App() {
   return (
@@ -54,7 +63,7 @@ function App() {
           },
         }}
       />
-      <Suspense fallback="loading...">
+      {/* <Suspense fallback="loading..."> */}
         <MobileHeader />
         <div style={{ marginTop: "6.7rem" }}>
           <MobileFooter />
@@ -101,7 +110,7 @@ function App() {
           <PostModal />
           <EditModal />
         </div>
-      </Suspense>
+      {/* </Suspense> */}
     </div>
   );
 }
