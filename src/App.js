@@ -1,5 +1,5 @@
 import Mockman from "mockman-js";
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
@@ -24,9 +24,14 @@ const PostModal = lazy(() =>
 const EditModal = lazy(() =>
   import("./frontend/components/PostModal/EditPost")
 );
-console.log(LogIn, 'login')
+
+
 
 function App() {
+  useEffect(()=>{
+  
+    console.log(LogIn,Explore, 'login')
+  })
   return (
     <div>
       {/* toast messages */}
