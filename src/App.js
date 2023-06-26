@@ -1,6 +1,6 @@
 import Mockman from "mockman-js";
 
-import {  lazy } from "react";
+import {  lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
@@ -17,7 +17,7 @@ import {Explore} from './frontend/pages/Explore/Explore'
 import {LogIn} from './frontend/pages/authentication/Login'
 
 
-const MobileHeader = lazy(() => import("./frontend/components/Header/Header"));
+
 // const MobileFooter = lazy(() => import("./frontend/components/Footer/Footer"));
 // const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
 // const Home = lazy(() => import("./frontend/pages/Home/Home"));
@@ -29,6 +29,7 @@ import UserProfile from "./frontend/pages/UserProfile/UserProfile"
 import SignUp from "./frontend/pages/authentication/Signup"
 import PostModal from "./frontend/components/PostModal/PostModal"
 import EditModal from "./frontend/components/PostModal/EditPost"
+const MobileHeader = lazy(() => import("./frontend/components/Header/Header"));
 
 function App() {
   return (
