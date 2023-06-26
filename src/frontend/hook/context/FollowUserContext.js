@@ -7,17 +7,12 @@ import { UserContext } from "./UserContext";
 export const FollowUserContext = createContext();
 
 export const FollowUserContextProvider = ({ children }) => {
-  const { userState } = useContext(UserContext);
+  const { userState, dispatchUserState } = useContext(UserContext);
   const [{ followUserData }, dispatchFollowState] = useReducer(followReducer, {
-    followUserData: {},
+    // followUserData: {},
   });
 
-  // console.log(followUserData?.followUser?.followers);
-  const whoIsFollowed = (_id) => {
-    // const alpha = followUserData?.followUser?.followers?.find((item) => item._id == _id);
-    // console.log(alpha);
-    // return alpha;
-  };
+  const whoIsFollowed = (_id) => {};
 
   const followActionService = async (followUserId) => {
     const encodedToken = localStorage.getItem("token");
@@ -27,12 +22,22 @@ export const FollowUserContextProvider = ({ children }) => {
         {},
         { headers: { authorization: encodedToken } }
       );
-      dispatchFollowState({ type: "FOLLOW_FUNCTIONS", payload: response.data });
-      console.log(response.data,'followed user');
+      dispatchUserState({
+        type: "EDITED_USER_PROFILE",
+        payload: response.data.followUser,
+      });
+      dispatchUserState({
+        type: "EDITED_USER_PROFILE",
+        payload: response.data.user,
+      });
+
+      console.log(response.data, "followed user");
     } catch (error) {
       console.log(error);
     }
   };
+
+  
   return (
     <FollowUserContext.Provider value={{ followActionService, whoIsFollowed }}>
       {children}

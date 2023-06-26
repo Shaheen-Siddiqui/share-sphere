@@ -40,20 +40,19 @@ export const UserContextProvider = ({ children }) => {
     }
   };
 
-  const editUserProfile = async () => {
+  const editUserProfile = async (data) => {
     const encodedToken = localStorage.getItem("token");
     try {
       const response = await axios.post(
         `/api/users/edit`,
         {
-          postData: {
-            // content: postContent,
-            // imgUrl: currentUserImage?.imgUrl,
+          userData: {
+            ...data,
           },
         },
         { headers: { authorization: encodedToken } }
       );
-      console.log(response, "edit");
+      dispatchUserState({type:"EDITED_USER_PROFILE", payload:response.data.user});
     } catch (error) {
       console.log(error);
     }
@@ -67,6 +66,7 @@ export const UserContextProvider = ({ children }) => {
         currentUserInfo,
         getParticularUser,
         editUserProfile,
+        dispatchUserState
       }}
     >
       {children}

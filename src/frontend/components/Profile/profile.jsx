@@ -8,6 +8,7 @@ import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 import { AuthContext } from "../../hook/context/AuthContext";
 import { useContext } from "react";
 import { UserContext } from "../../hook/context/UserContext";
+import { useState } from "react";
 
 export const Profile = ({
   username,
@@ -17,6 +18,7 @@ export const Profile = ({
   following,
   followers,
   _id,
+  setToggle
 }) => {
   useEffect(() => {
     obtainAllPostService();
@@ -29,7 +31,10 @@ export const Profile = ({
     (item) => item?.username === currentUserInfo?.username
   ).length;
 
-  const editOfFollow = currentUserInfo?._id === _id;
+  const editUserProfileFunction = () => {
+    setToggle(true);
+  };
+  const editOrFollow = currentUserInfo?._id === _id;
   return (
     <div className="guest-user-profile-info-case">
       <div className="user-profile-image">
@@ -41,8 +46,8 @@ export const Profile = ({
       <div className="guest-user-profile-info">
         <h1>~{username}~</h1>
         <strong>@{username}</strong>
-        {editOfFollow ? (
-          <button onClick={editUserProfile} className="menu-button">
+        {editOrFollow ? (
+          <button onClick={editUserProfileFunction} className="menu-button">
             Edit Profile
           </button>
         ) : (
