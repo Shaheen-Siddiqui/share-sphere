@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import "./PostModal.css";
 import { PostContext } from "../../hook/context/PostContext";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";

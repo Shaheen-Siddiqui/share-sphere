@@ -13,9 +13,7 @@ export const authReducer = (authState, { type, payload }) => {
         token: "",
       };
 
-      break;
-
     default:
-      break;
+      throw new Error (`invelid type ${type} check authReducer`)
   }
 };

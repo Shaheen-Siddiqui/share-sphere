@@ -55,7 +55,7 @@ export const AuthContextProvider = ({ children }) => {
         const {
           response: { status },
         } = error;
-        if (status == 422) {
+        if (status === 422) {
           toast.error(" username already exists! ");
         } else {
           toast.error("unable to Signup!");

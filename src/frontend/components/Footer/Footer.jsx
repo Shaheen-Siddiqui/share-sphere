@@ -4,7 +4,6 @@ import {
   faHouse,
   faCompass,
   faBookmark,
-  faLeaf,
   faUserTie,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";

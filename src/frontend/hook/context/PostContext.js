@@ -1,9 +1,8 @@
 import axios from "axios";
-import { useState, useReducer, useEffect, createContext } from "react";
+import { useState, useReducer, createContext } from "react";
 import { PostReducer } from "../reducer/PostReducer";
 import { toast } from "react-hot-toast";
 import { useContext } from "react";
-import { AuthContext } from "./AuthContext";
 import { PostCRUDContext } from "./PostCRUDContext";
 
 export const PostContext = createContext();
