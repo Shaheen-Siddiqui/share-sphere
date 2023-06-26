@@ -24,13 +24,13 @@ export const Explore = () => {
         <SideBars />
         <main className="home-case">
           <div className="sort-btn-case">
-            <button onClick={obtainAllPostService}>
+            <button onClick={()=>obtainAllPostService()}>
               All posts ({`${allPosts.length}`})
             </button>
-            <button onClick={filterTrands}>
+            <button >
               <ion-icon name="flame-sharp"></ion-icon> Trending
             </button>
-            <button onClick={filterLatest}>
+            <button >
               <ion-icon name="layers-sharp"></ion-icon> Latest
             </button>
           </div>
