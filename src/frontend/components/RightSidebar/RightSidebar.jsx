@@ -52,8 +52,8 @@ export const RightSidebar = () => {
                 </Link>
 
                 <p id="follow-user-id">
-                  <p>{username}</p>
-                  <p>@{username}</p>
+                  <span>{username}</span>
+                  <span>@{username}</span>
                 </p>
                 {isFollowed(_id) ? (
                   <button

@@ -14,7 +14,7 @@ export const PostCRUDContextProvider = ({ children }) => {
     }
   );
 
-  const currentUserImage = JSON.parse(localStorage.getItem("user"));
+  const currentUserImage = (localStorage.getItem("user"));
 
   const [postEDCToggle, setPostEDCToggle] = useState({});
   const [msgDCToggale, setMsgDCToggale] = useState({});

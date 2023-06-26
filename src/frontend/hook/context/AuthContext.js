@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [{ user, token }, dispatchAuthState] = useReducer(authReducer, {
-    user: JSON.parse(localStorage.getItem("user")) || {},
+    user: (localStorage.getItem("user")) || {},
     token: localStorage.getItem("token") || "",
   });
 
