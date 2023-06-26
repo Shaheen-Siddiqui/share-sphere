@@ -11,7 +11,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../hook/context/AuthContext";
 
 export const LogIn = () => {
-  console.log("Hi");
   const { loginService } = useContext(AuthContext);
   const location = useLocation();
   const [passwordIcon, setPasswordIcon] = useState(false);
@@ -21,7 +20,7 @@ export const LogIn = () => {
   });
   const { username, password } = userLoginCredential;
   const redirectToLocation = location.state?.path || "/";
-  
+
   const userLoginHandler = (event) => {
     event.preventDefault();
     loginService(username, password, redirectToLocation);
