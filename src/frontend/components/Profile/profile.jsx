@@ -8,7 +8,6 @@ import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 import { AuthContext } from "../../hook/context/AuthContext";
 import { useContext } from "react";
 import { UserContext } from "../../hook/context/UserContext";
-import { useState } from "react";
 
 export const Profile = ({
   username,
@@ -18,14 +17,15 @@ export const Profile = ({
   following,
   followers,
   _id,
-  setToggle
+  setToggle,
 }) => {
-  useEffect(() => {
-    obtainAllPostService();
-  }, []);
-  const { currentUserInfo, editUserProfile } = useContext(UserContext);
+  const { currentUserInfo } = useContext(UserContext);
   const { allPosts, obtainAllPostService } = useContext(PostCRUDContext);
   const { logOutRequest } = useContext(AuthContext);
+  
+  useEffect(() => {
+    obtainAllPostService();
+  }, [obtainAllPostService]);
 
   const allPostOfUser = allPosts.filter(
     (item) => item?.username === currentUserInfo?.username

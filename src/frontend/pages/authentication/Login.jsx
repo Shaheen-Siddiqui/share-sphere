@@ -20,7 +20,7 @@ export const LogIn = () => {
   });
   const { username, password } = userLoginCredential;
   const redirectToLocation = location.state?.path || "/";
-
+  
   const userLoginHandler = (event) => {
     event.preventDefault();
     loginService(username, password, redirectToLocation);
