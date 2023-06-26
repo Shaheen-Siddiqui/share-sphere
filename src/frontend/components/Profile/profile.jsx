@@ -29,7 +29,7 @@ export const Profile = ({
 
   const allPostOfUser = allPosts.filter(
     (item) => item?.username === currentUserInfo?.username
-  ).length;
+  )?.length;
 
   const editUserProfileFunction = () => {
     setToggle(true);
@@ -64,7 +64,7 @@ export const Profile = ({
         </Link>
         <div className="definet-numeral-info">
           <span>
-            <div>{following.length}</div>
+            <div>{following?.length}</div>
             <span>Following</span>
           </span>
           <span>
@@ -72,7 +72,7 @@ export const Profile = ({
             <span>Posts</span>
           </span>
           <span>
-            <div>{followers.length}</div>
+            <div>{followers?.length}</div>
             <span>Followers</span>
           </span>
         </div>
