@@ -123,7 +123,6 @@ export const users = [
     website: "https://tinyurl.com/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    imgUrl: "https://shaheen-siddiqui.github.io/Dashbord/",
     imgUrl: "https://avatars.githubusercontent.com/u/77974484?v=4",
     following: [],
     followers: [],
