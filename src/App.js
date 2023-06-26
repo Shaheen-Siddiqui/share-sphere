@@ -58,8 +58,9 @@ function App() {
           },
         }}
       />
-      {/* <Suspense fallback="loading..."> */}
+      <Suspense fallback="loading...">
         <MobileHeader />
+        </Suspense>
         <div style={{ marginTop: "6.7rem" }}>
           <MobileFooter />
           <Routes>
