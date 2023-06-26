@@ -11,25 +11,26 @@ import { RequireAuth } from "./frontend/RequireAuth";
 
 
 
-import {Home} from './frontend/pages/Home/Home'
-import {BookMark} from './frontend/pages/BookMark/BookMark'
-import {Explore} from './frontend/pages/Explore/Explore'
+// import {Home} from './frontend/pages/Home/Home'
+// import {BookMark} from './frontend/pages/BookMark/BookMark'
+// import {Explore} from './frontend/pages/Explore/Explore'
 import {LogIn} from './frontend/pages/authentication/Login'
 
 
 
-// const MobileFooter = lazy(() => import("./frontend/components/Footer/Footer"));
-// const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
-// const Home = lazy(() => import("./frontend/pages/Home/Home"));
-// const BookMark = lazy(() => import("./frontend/pages/BookMark/BookMark"));
+
 
 // import MobileHeader from "./frontend/components/Header/Header"
-import MobileFooter from "./frontend/components/Footer/Footer"
+// import MobileFooter from "./frontend/components/Footer/Footer"
 import UserProfile from "./frontend/pages/UserProfile/UserProfile"
 import SignUp from "./frontend/pages/authentication/Signup"
 import PostModal from "./frontend/components/PostModal/PostModal"
 import EditModal from "./frontend/components/PostModal/EditPost"
 const MobileHeader = lazy(() => import("./frontend/components/Header/Header"));
+const MobileFooter = lazy(() => import("./frontend/components/Footer/Footer"));
+const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
+const Home = lazy(() => import("./frontend/pages/Home/Home"));
+const BookMark = lazy(() => import("./frontend/pages/BookMark/BookMark"));
 
 function App() {
   return (
