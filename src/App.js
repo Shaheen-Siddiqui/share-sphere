@@ -69,7 +69,6 @@ function App() {
         <div style={{ marginTop: "6.7rem" }}>
           <MobileFooter />
           <Routes>
-            <Route exact index path="/" element={<Explore />} />
             {/* ----------PRIVATE ROUTES---------- */}
             <Route
               path="/home"
@@ -104,9 +103,11 @@ function App() {
               }
             />
             {/* ----------PRIVATE ROUTES---------- */}
+
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/mock" element={<Mockman />} />
+            <Route exact path="/" element={<Explore />} />
           </Routes>
           <PostModal />
           <EditModal />
