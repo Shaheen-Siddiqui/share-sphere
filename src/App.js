@@ -65,8 +65,17 @@ function App() {
       <div style={{ marginTop: "6.7rem" }}>
         <MobileFooter />
         <Routes>
-          {/* ----------PRIVATE ROUTES---------- */}
-          <Route
+          <Route path="/">
+            <Route index element={<Explore />} />
+            <Route path="home" element={<Home />} />
+            <Route path="bookmark" element={<BookMark />} />
+            <Route path="login" element={<LogIn />} />
+            <Route path="*" element={<NoMatch />} />
+          </Route>
+        </Routes>
+        ;{/* <Routes> */}
+        {/* ----------PRIVATE ROUTES---------- */}
+        {/* <Route
             path="/home"
             index
             element={
@@ -74,8 +83,8 @@ function App() {
                 <Home />
               </RequireAuth>
             }
-          />
-          <Route
+          /> */}
+        {/* <Route
             path="/bookmark"
             index
             element={
@@ -99,14 +108,13 @@ function App() {
                 <UserProfile />
               </RequireAuth>
             }
-          />
-          {/* ----------PRIVATE ROUTES---------- */}
-
-          <Route index path="/login" element={<LogIn />} />
+          /> */}
+        {/* ----------PRIVATE ROUTES---------- */}
+        {/* <Route index path="/login" element={<LogIn />} />
           <Route index path="/signup" element={<SignUp />} />
           <Route index path="/mock" element={<Mockman />} />
-          <Route index exact path="/" element={<Explore />} />
-        </Routes>
+          <Route index exact path="/" element={<Explore />} /> */}
+        {/* </Routes> */}
         <PostModal />
         <EditModal />
       </div>
@@ -116,3 +124,13 @@ function App() {
 }
 
 export default App;
+
+// <Routes>
+//   <Route path="/">
+//     <Route index element={<Explore />} />
+//     <Route path="home" element={<Home />} />
+//     <Route path="bookmark" element={<BookMark />} />
+//     <Route path="login" element={<LogIn />} />
+//     <Route path="*" element={<NoMatch />} />
+//   </Route>
+// </Routes>;

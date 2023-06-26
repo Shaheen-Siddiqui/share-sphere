@@ -7,15 +7,10 @@ import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 import { useEffect } from "react";
 
 export const EditModal = () => {
-  const {
-    toggleEditModal,
-    setToggleEditModal,
-    postEdit,
-    previousPost,
-  } = useContext(PostContext);
+  const { toggleEditModal, setToggleEditModal, postEdit, previousPost } =
+    useContext(PostContext);
 
-  const { editPostService} =
-    useContext(PostCRUDContext);
+  const { editPostService } = useContext(PostCRUDContext);
 
   const [text, setText] = useState("");
   const userPostHandler = (event) => {
@@ -26,8 +21,8 @@ export const EditModal = () => {
 
   useEffect(() => {
     setText(previousPost);
-        //eslint-disable-next-line
-  }, [toggleEditModal,previousPost]);
+    //eslint-disable-next-line
+  }, [toggleEditModal, previousPost]);
 
   return (
     <>
