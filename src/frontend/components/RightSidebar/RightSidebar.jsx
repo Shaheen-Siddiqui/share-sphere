@@ -27,6 +27,10 @@ export const RightSidebar = () => {
   const excludeMe = userState.allUsers.filter(
     (item) => item !== currentUserInfo
   );
+
+  const isFollowed = (_id) =>
+    currentUserInfo?.following.find((item) => item._id === _id);
+
   return (
     <>
       {!token ? (
@@ -51,7 +55,7 @@ export const RightSidebar = () => {
                   <p>{username}</p>
                   <p>@{username}</p>
                 </p>
-                {whoIsFollowed(_id) ? (
+                {isFollowed(_id) ? (
                   <button
                     className="row"
                     onClick={() => followActionService(_id)}

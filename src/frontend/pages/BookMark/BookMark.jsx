@@ -34,7 +34,7 @@ export const BookMark = () => {
           {/* --------- */}
 
           {postState?.userBookMark.map((item) => {
-            return <Feed {...item} />;
+            return <Feed {...item} inBookMark />;
           })}
 
           {/* --------- */}

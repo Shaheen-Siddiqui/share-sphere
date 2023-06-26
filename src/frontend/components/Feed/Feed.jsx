@@ -23,6 +23,7 @@ export const Feed = ({
   likes: { likeCount },
   username,
   createdAt,
+  inBookMark,
 }) => {
   const { user, isLoggedIn } = useContext(AuthContext);
   const {
@@ -40,7 +41,7 @@ export const Feed = ({
     setToggleEditModal,
     isBookMarked,
     deleteBookMarkedPost,
-    dispatchPostState
+    dispatchPostState,
   } = useContext(PostContext);
   const navigate = useNavigate();
 
@@ -75,14 +76,15 @@ export const Feed = ({
                     <FontAwesomeIcon icon={faPenToSquare} />
                     <span>Edit</span>
                   </button>
-
-                  <button
-                    className="menu-button"
-                    onClick={() => deletePost(_id)}
-                  >
-                    <FontAwesomeIcon icon={faTrash} />
-                    <span>Delete</span>
-                  </button>
+                  {!inBookMark && (
+                    <button
+                      className="menu-button"
+                      onClick={() => deletePost(_id)}
+                    >
+                      <FontAwesomeIcon icon={faTrash} />
+                      <span> Delete</span>
+                    </button>
+                  )}
 
                   <button
                     className="menu-button"
