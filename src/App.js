@@ -69,7 +69,7 @@ function App() {
         <div style={{ marginTop: "6.7rem" }}>
           <MobileFooter />
           <Routes>
-            <Route path="/" element={<Explore />} />
+            <Route exact path="/" element={<Explore />} />
             {/* ----------PRIVATE ROUTES---------- */}
             <Route
               path="/home"
