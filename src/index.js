@@ -19,15 +19,15 @@ root.render(
       <AuthContextProvider>
 
         <UserContextProvider>
-        <FollowUserContextProvider>
-          <PostCRUDContextProvider>
-            <PostContextProveder>
-              <App />
-            </PostContextProveder>
-          </PostCRUDContextProvider>
-        </FollowUserContextProvider>
+          <FollowUserContextProvider>
+            <PostCRUDContextProvider>
+              <PostContextProveder>
+                <App />
+              </PostContextProveder>
+            </PostCRUDContextProvider>
+          </FollowUserContextProvider>
         </UserContextProvider>
-         
+        
       </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>

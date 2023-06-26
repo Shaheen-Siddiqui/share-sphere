@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 //internal imports
 
 import "./App.css";
-import {Login as LogIn } from './frontend/pages/authentication/Login'
+// import {Login as LogIn } from './frontend/pages/authentication/Login'
 import { RequireAuth } from "./frontend/RequireAuth";
 const MobileHeader = lazy(() => import("./frontend/components/Header/Header"));
 const MobileFooter = lazy(() => import("./frontend/components/Footer/Footer"));
@@ -16,7 +16,7 @@ const BookMark = lazy(() => import("./frontend/pages/BookMark/BookMark"));
 const UserProfile = lazy(() =>
   import("./frontend/pages/UserProfile/UserProfile")
 );
-// const LogIn = lazy(() => import("./frontend/pages/authentication/Login"));
+const LogIn = lazy(() => import("./frontend/pages/authentication/Login"));
 const SignUp = lazy(() => import("./frontend/pages/authentication/Signup"));
 
 const PostModal = lazy(() =>
@@ -26,12 +26,7 @@ const EditModal = lazy(() =>
   import("./frontend/components/PostModal/EditPost")
 );
 
-
 function App() {
-  useEffect(()=>{
-  
-    console.log(LogIn,Explore, 'login')
-  })
   return (
     <div>
       {/* toast messages */}
