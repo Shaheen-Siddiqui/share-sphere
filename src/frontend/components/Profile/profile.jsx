@@ -25,7 +25,7 @@ export const Profile = ({
   
   useEffect(() => {
     obtainAllPostService();
-  }, [obtainAllPostService]);
+  }, []);
 
   const allPostOfUser = allPosts.filter(
     (item) => item?.username === currentUserInfo?.username

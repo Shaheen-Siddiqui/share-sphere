@@ -13,7 +13,7 @@ export const BookMark = () => {
 
   useEffect(() => {
     obtainAllBookMarks();
-  }, [obtainAllBookMarks]);
+  }, []);
 
   return (
     <center>

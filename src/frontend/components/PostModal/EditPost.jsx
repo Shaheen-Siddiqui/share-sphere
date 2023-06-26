@@ -26,7 +26,7 @@ export const EditModal = () => {
 
   useEffect(() => {
     setText(previousPost);
-  }, [toggleEditModal,previousPost]);
+  }, [toggleEditModal]);
 
   return (
     <>

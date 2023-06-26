@@ -23,7 +23,8 @@ console.log("home");
   );
   useEffect(()=>{
     obtainAllPostService()
-  },[obtainAllPostService])
+  },[])
+
   return (
     <center>
       <div className="home-main-case">

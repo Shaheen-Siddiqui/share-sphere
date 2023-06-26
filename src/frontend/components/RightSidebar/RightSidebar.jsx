@@ -22,7 +22,7 @@ export const RightSidebar = () => {
 
   useEffect(() => {
     obtainAllUserService();
-  }, [obtainAllUserService]);
+  }, []);
 
   const excludeMe = userState.allUsers.filter(
     (item) => item !== currentUserInfo

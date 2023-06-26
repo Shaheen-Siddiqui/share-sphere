@@ -13,6 +13,7 @@ export const PostCRUDContextProvider = ({ children }) => {
       postContent: "",
     }
   );
+  console.log("CRUD context");
 
   const currentUserImage = JSON.parse(localStorage.getItem("user"));
 
@@ -97,7 +98,6 @@ export const PostCRUDContextProvider = ({ children }) => {
         type: "POST_FUNCTION",
         payload: response.data.posts,
       });
-      
     } catch (error) {
       console.log(error);
     }

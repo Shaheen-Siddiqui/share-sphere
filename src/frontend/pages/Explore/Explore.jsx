@@ -17,7 +17,7 @@ export const Explore = () => {
 
   useEffect(() => {
     obtainAllPostService();
-  }, [obtainAllPostService]);
+  }, []);
 
   return (
     <center>

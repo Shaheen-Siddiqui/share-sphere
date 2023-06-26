@@ -1,6 +1,6 @@
 import Mockman from "mockman-js";
 
-import {  lazy } from "react";
+import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
@@ -9,13 +9,10 @@ import { Toaster } from "react-hot-toast";
 import "./App.css";
 import { RequireAuth } from "./frontend/RequireAuth";
 
-
-
-import {Home} from './frontend/pages/Home/Home'
-import {BookMark} from './frontend/pages/BookMark/BookMark'
-import {Explore} from './frontend/pages/Explore/Explore'
-import {LogIn} from './frontend/pages/authentication/Login'
-
+import { Home } from "./frontend/pages/Home/Home";
+import { BookMark } from "./frontend/pages/BookMark/BookMark";
+import { Explore } from "./frontend/pages/Explore/Explore";
+import { LogIn } from "./frontend/pages/authentication/Login";
 
 const MobileHeader = lazy(() => import("./frontend/components/Header/Header"));
 const MobileFooter = lazy(() => import("./frontend/components/Footer/Footer"));
@@ -34,7 +31,6 @@ const PostModal = lazy(() =>
 const EditModal = lazy(() =>
   import("./frontend/components/PostModal/EditPost")
 );
-
 
 function App() {
   return (
@@ -65,53 +61,55 @@ function App() {
         }}
       />
       {/* <Suspense fallback="loading..."> */}
-        <MobileHeader />
-        <div style={{ marginTop: "6.7rem" }}>
-          <MobileFooter />
-          <Routes>
-            {/* ----------PRIVATE ROUTES---------- */}
-            <Route
-              path="/home"
-              element={
-                <RequireAuth>
-                  <Home />
-                </RequireAuth>
-              }
-            />
-            <Route
-              path="/bookmark"
-              element={
-                <RequireAuth>
-                  <BookMark />
-                </RequireAuth>
-              }
-            />
-            <Route
-              path="/profile/:userID"
-              element={
-                <RequireAuth>
-                  <UserProfile />
-                </RequireAuth>
-              }
-            />
-            <Route
-              path="/profile/:userID"
-              element={
-                <RequireAuth>
-                  <UserProfile />
-                </RequireAuth>
-              }
-            />
-            {/* ----------PRIVATE ROUTES---------- */}
+      <MobileHeader />
+      <div style={{ marginTop: "6.7rem" }}>
+        <MobileFooter />
+        <Routes>
+          {/* ----------PRIVATE ROUTES---------- */}
+          <Route
+            path="/home"
+            index
+            element={
+              <RequireAuth>
+                <Home />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/bookmark"
+            index
+            element={
+              <RequireAuth>
+                <BookMark />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/profile/:userID"
+            element={
+              <RequireAuth>
+                <UserProfile />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/profile/:userID"
+            element={
+              <RequireAuth>
+                <UserProfile />
+              </RequireAuth>
+            }
+          />
+          {/* ----------PRIVATE ROUTES---------- */}
 
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/mock" element={<Mockman />} />
-            <Route exact path="/" element={<Explore />} />
-          </Routes>
-          <PostModal />
-          <EditModal />
-        </div>
+          <Route index path="/login" element={<LogIn />} />
+          <Route index path="/signup" element={<SignUp />} />
+          <Route index path="/mock" element={<Mockman />} />
+          <Route index exact path="/" element={<Explore />} />
+        </Routes>
+        <PostModal />
+        <EditModal />
+      </div>
       {/* </Suspense> */}
     </div>
   );
