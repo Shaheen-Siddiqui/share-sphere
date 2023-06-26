@@ -61,7 +61,7 @@ function App() {
       />
       <Suspense fallback="loading...">
         <MobileHeader />
-        </Suspense>
+        {/* </Suspense> */}
         <div style={{ marginTop: "6.7rem" }}>
           <MobileFooter />
           <Routes>
@@ -99,7 +99,7 @@ function App() {
           <PostModal />
           <EditModal />
         </div>
-      {/* </Suspense> */}
+      </Suspense>
     </div>
   );
 }
