@@ -57,6 +57,9 @@ function App() {
         <MobileHeader />
         <div style={{ marginTop: "6.7rem" }}>
           <MobileFooter />
+          <PostModal />
+          <EditModal />
+        </div>
           <Routes>
             <Route path="/" element={<Explore />} />
             {/* ----------PRIVATE ROUTES---------- */}
@@ -97,9 +100,6 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/mock" element={<Mockman />} />
           </Routes>
-          <PostModal />
-          <EditModal />
-        </div>
       </Suspense>
     </div>
   );
