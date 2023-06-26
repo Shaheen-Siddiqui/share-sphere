@@ -2,12 +2,10 @@ import { useReducer, createContext, useContext } from "react";
 import { userReducer } from "../reducer/UserReducer";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
-  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const [userState, dispatchUserState] = useReducer(userReducer, {
     allUsers: [],
@@ -18,6 +16,7 @@ export const UserContextProvider = ({ children }) => {
   const currentUserInfo = allUsers?.find(
     (item) => item.username === user.username
   );
+
 
   const obtainAllUserService = async () => {
     try {

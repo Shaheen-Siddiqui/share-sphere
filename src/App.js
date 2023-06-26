@@ -60,7 +60,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Explore />} />
             {/* ----------PRIVATE ROUTES---------- */}
-
             <Route
               path="/home"
               element={
@@ -94,7 +93,6 @@ function App() {
               }
             />
             {/* ----------PRIVATE ROUTES---------- */}
-
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/mock" element={<Mockman />} />

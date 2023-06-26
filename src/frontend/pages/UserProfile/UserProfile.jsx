@@ -6,7 +6,6 @@ import { UserContext } from "../../hook/context/UserContext";
 import { Profile } from "../../components/Profile/profile";
 import { SideBars } from "../../components/SideBars/SideBars";
 import { useParams } from "react-router-dom";
-import { EditProfile } from "../../components/PostModal/EditProfile";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../UserProfile/UserProfile.css";
@@ -15,17 +14,15 @@ export const UserProfile = () => {
   const { userState, currentUserInfo, editUserProfile } =
     useContext(UserContext);
   const { userID } = useParams();
-  const { bio, website, imgUrl } = currentUserInfo;
+  // const { bio, website, imgUrl } = currentUserInfo;
+
   const [toggle, setToggle] = useState(false);
-  const [openImageModal, setopenImageModal] = useState(false);
+  // const [_, setopenImageModal] = useState(false);
+  const [updateBio, setUpdateBio] = useState(currentUserInfo?.bio);
+  const [updateWebsite, setUpdateWebsite] = useState(currentUserInfo?.website);
+  const [updateImage] = useState(currentUserInfo?.imgUrl);
 
-  const [updateBio, setUpdateBio] = useState(bio);
-  const [updateWebsite, setUpdateWebsite] = useState(website);
-  const [updateImage, setUpdateImage] = useState(imgUrl);
-
-  const obtainUserByID = userState.allUsers?.find((item) => item._id == userID);
-
-  // console.log(currentUserInfo,'info');
+  const obtainUserByID = userState.allUsers?.find((item) => item._id === userID);
 
   const userPostHandler = (event) => {
     event.preventDefault();
