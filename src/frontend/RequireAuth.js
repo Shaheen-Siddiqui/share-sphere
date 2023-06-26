@@ -8,8 +8,8 @@ export const RequireAuth = ({ children }) => {
   if (!isLoggedIn) {
     return <Navigate to="/login" />;
   }
-  else {
+  
   return children;
-  }
+  
 };
 export { RequireAuth as default };
