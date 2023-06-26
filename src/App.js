@@ -104,7 +104,7 @@ function App() {
               }
             />
             {/* ----------PRIVATE ROUTES---------- */}
-            <Route path="/login" element={<LogIn />} />
+            <Route exact path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/mock" element={<Mockman />} />
           </Routes>
