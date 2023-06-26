@@ -1,10 +1,13 @@
 import "./AuthRequest.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export const AuthRequest = () => {
+  const navigate=useNavigate()
+  
   return (
+
     <div className="request-main-case">
       <h1>Don’t miss what’s happening</h1>
-      <Link to="/login">
+      <Link onClick={()=>navigate("/login")}>
         <button id="login-animation" className="menu-button">
           <span></span>
           <span></span>
