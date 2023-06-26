@@ -12,7 +12,6 @@ import {
 import "./LeftSideBar.css";
 import { useContext } from "react";
 import { PostContext } from "../../hook/context/PostContext";
-import { AuthContext } from "../../hook/context/AuthContext";
 import { UserContext } from "../../hook/context/UserContext";
 
 export const LeftSideBar = () => {

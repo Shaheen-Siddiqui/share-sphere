@@ -1,11 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTrash,
-  faCircleXmark,
-  faEllipsisVertical,
-  faPenToSquare,
-} from "@fortawesome/free-solid-svg-icons";
-import { faHeart, faBookmark } from "@fortawesome/free-regular-svg-icons";
 
 //internal imports
 import "./BookMark.css";
@@ -21,7 +13,7 @@ export const BookMark = () => {
 
   useEffect(() => {
     obtainAllBookMarks();
-  }, []);
+  }, [obtainAllBookMarks]);
 
   return (
     <center>

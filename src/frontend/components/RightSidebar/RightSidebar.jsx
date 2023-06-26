@@ -18,11 +18,11 @@ export const RightSidebar = () => {
     currentUserInfo,
     getParticularUser,
   } = useContext(UserContext);
-  const { followActionService, whoIsFollowed } = useContext(FollowUserContext);
+  const { followActionService } = useContext(FollowUserContext);
 
   useEffect(() => {
     obtainAllUserService();
-  }, []);
+  }, [obtainAllUserService]);
 
   const excludeMe = userState.allUsers.filter(
     (item) => item !== currentUserInfo

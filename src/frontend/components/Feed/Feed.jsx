@@ -41,7 +41,7 @@ export const Feed = ({
     setToggleEditModal,
     isBookMarked,
     deleteBookMarkedPost,
-    dispatchPostState,
+    
   } = useContext(PostContext);
   const navigate = useNavigate();
 
@@ -151,7 +151,7 @@ export const Feed = ({
         </div>
       </div>
       <div className="post-comment-case">
-        <img src={imgUrl} alt="user-image" />
+        <img src={imgUrl} alt="user" />
         <div className="write-comment-case">
           <input placeholder="Write a comment..." />
           <button>

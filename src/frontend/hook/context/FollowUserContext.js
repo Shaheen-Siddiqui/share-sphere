@@ -1,16 +1,16 @@
 import axios from "axios";
-import { useContext, useReducer } from "react";
+import { useContext } from "react";
 import { createContext } from "react";
-import { followReducer } from "../reducer/FollowReducer";
+// import { followReducer } from "../reducer/FollowReducer";
 import { UserContext } from "./UserContext";
 
 export const FollowUserContext = createContext();
 
 export const FollowUserContextProvider = ({ children }) => {
-  const { userState, dispatchUserState } = useContext(UserContext);
-  const [{ followUserData }, dispatchFollowState] = useReducer(followReducer, {
-    // followUserData: {},
-  });
+  const { dispatchUserState } = useContext(UserContext);
+  // const [{ followUserData }, dispatchFollowState] = useReducer(followReducer, {
+  //   // followUserData: {},
+  // });
 
   const whoIsFollowed = (_id) => {};
 
