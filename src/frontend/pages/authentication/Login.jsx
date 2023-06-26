@@ -122,4 +122,5 @@ import { AuthContext } from "../../hook/context/AuthContext";
   );
 };
 
-export { Login as default };
+// export { Login as default };
+export {Login}
