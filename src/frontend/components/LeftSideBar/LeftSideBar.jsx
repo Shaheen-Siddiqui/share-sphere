@@ -48,7 +48,7 @@ export const LeftSideBar = () => {
           </div>
         </Link>
 
-        <Link to={`/profile/${currentUserInfo?._id}`}>
+        <Link to={`/profile/1`}>
           <div className="side-item">
             <span id="ftr-icon">
               <FontAwesomeIcon icon={faUserTie} size="2xl" />
