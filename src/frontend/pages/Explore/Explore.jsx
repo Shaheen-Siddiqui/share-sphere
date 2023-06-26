@@ -17,6 +17,7 @@ export const Explore = () => {
 
   useEffect(() => {
     obtainAllPostService();
+        //eslint-disable-next-line
   }, []);
 
   return (

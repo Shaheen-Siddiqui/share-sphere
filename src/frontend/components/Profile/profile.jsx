@@ -25,6 +25,7 @@ export const Profile = ({
   
   useEffect(() => {
     obtainAllPostService();
+        //eslint-disable-next-line
   }, []);
 
   const allPostOfUser = allPosts.filter(

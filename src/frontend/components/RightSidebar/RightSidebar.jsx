@@ -22,6 +22,7 @@ export const RightSidebar = () => {
 
   useEffect(() => {
     obtainAllUserService();
+        //eslint-disable-next-line
   }, []);
 
   const excludeMe = userState.allUsers.filter(

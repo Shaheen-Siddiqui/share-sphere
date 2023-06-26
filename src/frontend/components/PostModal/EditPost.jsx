@@ -26,6 +26,8 @@ export const EditModal = () => {
 
   useEffect(() => {
     setText(previousPost);
+        //eslint-disable-next-line
+
   }, [toggleEditModal]);
 
   return (

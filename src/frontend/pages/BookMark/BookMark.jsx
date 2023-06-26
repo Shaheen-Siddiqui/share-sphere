@@ -13,6 +13,7 @@ export const BookMark = () => {
 
   useEffect(() => {
     obtainAllBookMarks();
+        //eslint-disable-next-line
   }, []);
 
   return (
