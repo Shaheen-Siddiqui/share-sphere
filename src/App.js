@@ -1,4 +1,5 @@
 import Mockman from "mockman-js";
+
 import {  lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
