@@ -106,6 +106,14 @@ function App() {
                 </RequireAuth>
               }
             />
+            <Route
+              path="/profile/:userID"
+              element={
+                <RequireAuth>
+                  <UserProfile />
+                </RequireAuth>
+              }
+            />
             {/* ----------PRIVATE ROUTES---------- */}
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
