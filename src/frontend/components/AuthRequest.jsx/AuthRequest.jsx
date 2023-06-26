@@ -1,8 +1,6 @@
 import "./AuthRequest.css";
 import { Link } from "react-router-dom";
 export const AuthRequest = () => {
-
-  console.log("amIClicking");
   return (
     <div className="request-main-case">
       <h1>Don’t miss what’s happening</h1>
