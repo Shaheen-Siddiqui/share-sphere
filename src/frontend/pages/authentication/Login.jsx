@@ -10,7 +10,7 @@ import { LeftSideBar } from "../../components/LeftSideBar/LeftSideBar";
 import { useContext } from "react";
 import { AuthContext } from "../../hook/context/AuthContext";
 
- const Login = () => {
+export const LogIn = () => {
   console.log("Hi");
   const { loginService } = useContext(AuthContext);
   const location = useLocation();
@@ -122,5 +122,4 @@ import { AuthContext } from "../../hook/context/AuthContext";
   );
 };
 
-// export { Login as default };
-export {Login}
+export { LogIn as default };
