@@ -38,5 +38,5 @@ export const Home = () => {
   );
 };
 
-export { Home as default };
+// export { Home as default };
 // test //
