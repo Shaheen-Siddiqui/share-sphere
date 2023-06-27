@@ -1,28 +1,24 @@
 import Mockman from "mockman-js";
 
-import { lazy } from "react";
+// import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import { Suspense, lazy } from "react";
 
 //internal imports
 
 import "./App.css";
 import { RequireAuth } from "./frontend/RequireAuth";
 
-import { Home } from "./frontend/pages/Home/Home";
-import { BookMark } from "./frontend/pages/BookMark/BookMark";
-import { Explore } from "./frontend/pages/Explore/Explore";
-import { LogIn } from "./frontend/pages/authentication/Login";
-
 const MobileHeader = lazy(() => import("./frontend/components/Header/Header"));
 const MobileFooter = lazy(() => import("./frontend/components/Footer/Footer"));
-// const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
-// const Home = lazy(() => import("./frontend/pages/Home/Home"));
-// const BookMark = lazy(() => import("./frontend/pages/BookMark/BookMark"));
+const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
+const Home = lazy(() => import("./frontend/pages/Home/Home"));
+const BookMark = lazy(() => import("./frontend/pages/BookMark/BookMark"));
 const UserProfile = lazy(() =>
   import("./frontend/pages/UserProfile/UserProfile")
 );
-// const LogIn = lazy(() => import("./frontend/pages/authentication/Login"));
+const LogIn = lazy(() => import("./frontend/pages/authentication/Login"));
 const SignUp = lazy(() => import("./frontend/pages/authentication/Signup"));
 
 const PostModal = lazy(() =>
@@ -60,22 +56,14 @@ function App() {
           },
         }}
       />
-      {/* <Suspense fallback="loading..."> */}
-      <MobileHeader />
-      <div style={{ marginTop: "6.7rem" }}>
+      <Suspense fallback="loading...">
+        <MobileHeader />
+        {/* <div style={{ marginTop: "6.7rem" }}> */}
         <MobileFooter />
+
         <Routes>
-          <Route path="/">
-            <Route index element={<Explore />} />
-            <Route path="home" element={<Home />} />
-            <Route path="bookmark" element={<BookMark />} />
-            <Route path="login" element={<LogIn />} />
-            <Route path="*" element={<NoMatch />} />
-          </Route>
-        </Routes>
-        ;{/* <Routes> */}
-        {/* ----------PRIVATE ROUTES---------- */}
-        {/* <Route
+          {/* ----------PRIVATE ROUTES---------- */}
+          <Route
             path="/home"
             index
             element={
@@ -83,8 +71,8 @@ function App() {
                 <Home />
               </RequireAuth>
             }
-          /> */}
-        {/* <Route
+          />
+          <Route
             path="/bookmark"
             index
             element={
@@ -93,6 +81,14 @@ function App() {
               </RequireAuth>
             }
           />
+          {/* <Route
+            path="/profile/:userID"
+            element={
+              <RequireAuth>
+                <UserProfile />
+              </RequireAuth>
+            }
+          /> */}
           <Route
             path="/profile/:userID"
             element={
@@ -101,36 +97,17 @@ function App() {
               </RequireAuth>
             }
           />
-          <Route
-            path="/profile/:userID"
-            element={
-              <RequireAuth>
-                <UserProfile />
-              </RequireAuth>
-            }
-          /> */}
-        {/* ----------PRIVATE ROUTES---------- */}
-        {/* <Route index path="/login" element={<LogIn />} />
+          {/* ----------PRIVATE ROUTES---------- */}
+          <Route index path="/login" element={<LogIn />} />
           <Route index path="/signup" element={<SignUp />} />
           <Route index path="/mock" element={<Mockman />} />
-          <Route index exact path="/" element={<Explore />} /> */}
-        {/* </Routes> */}
+          <Route index exact path="/" element={<Explore />} />
+        </Routes>
         <PostModal />
         <EditModal />
-      </div>
-      {/* </Suspense> */}
+      </Suspense>
     </div>
   );
 }
 
-export default App;
-
-// <Routes>
-//   <Route path="/">
-//     <Route index element={<Explore />} />
-//     <Route path="home" element={<Home />} />
-//     <Route path="bookmark" element={<BookMark />} />
-//     <Route path="login" element={<LogIn />} />
-//     <Route path="*" element={<NoMatch />} />
-//   </Route>
-// </Routes>;
+export { App as default };

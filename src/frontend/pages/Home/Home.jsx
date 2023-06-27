@@ -40,5 +40,5 @@ console.log("home");
   );
 };
 
-// export { Home as default };
+export { Home as default };
 // test //

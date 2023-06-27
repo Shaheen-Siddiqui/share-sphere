@@ -49,4 +49,4 @@ export const Explore = () => {
   );
 };
 
-// export { Explore as default };
+export { Explore as default };
