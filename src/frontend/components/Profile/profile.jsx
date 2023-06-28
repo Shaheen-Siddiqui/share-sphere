@@ -21,7 +21,7 @@ export const Profile = ({
   setToggle,
   obtainUserByID
 }) => {
-  const { currentUserInfo,userState } = useContext(UserContext);
+  const { currentUserInfo } = useContext(UserContext);
   const { allPosts, obtainAllPostService } = useContext(PostCRUDContext);
   const { logOutRequest } = useContext(AuthContext);
   const { followActionService, unFollowActionServise } =

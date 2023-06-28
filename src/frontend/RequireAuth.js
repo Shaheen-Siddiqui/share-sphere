@@ -7,7 +7,8 @@ export const RequireAuth = ({ children }) => {
   const { isLoggedIn } = useContext(AuthContext);
   if (!isLoggedIn) {
     return <Navigate to="/login" state={{ path: location.pathname }} />;
+  } else {
+    return children;
   }
-  return children;
 };
 export { RequireAuth as default };
