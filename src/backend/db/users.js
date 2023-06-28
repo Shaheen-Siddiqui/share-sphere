@@ -15,7 +15,7 @@ export const users = [
     imgUrl:
       "https://1fid.com/wp-content/uploads/2022/10/hijab-dp-18-1024x1022.jpg",
     bio: "An accomplished software engineer with a passion for innovation",
-    website: "https://the-decor-supermarket.netlify.app/",
+    website: "https://github.com/Shaheen-Siddiqui/share-sphere",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     following: [

@@ -51,8 +51,47 @@
     align-items: center;
     gap: 0.9rem;
 }
+
+/* Edit profile PopUp */
+.edit-profile-x {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.update-img {
+    border-radius: var(--border-radius);
+    width: 6rem;
+}
+
+.updates {
+    display: flex;
+    flex-direction: column;
+    float: left;
+
+    align-items: start;
+    padding-left: 1rem;
+
+    & textarea {
+        padding: 0 0 2rem 0;
+        height: fit-content;
+        color: var(--main-text);
+        width: 100%;
+    }
+
+    & input {
+        border-bottom: 2px solid var(--secondary-color);
+        width: 100%;
+        margin-top: 2rem;
+        font-size: 16px;
+        color: var(--main-text);
+    }
+}
+
+
 @media (max-width:767px) {
-    #hide-on-mobile{
+    #hide-on-mobile {
         display: none;
     }
 }
