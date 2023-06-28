@@ -3,7 +3,7 @@ import Mockman from "mockman-js";
 // import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import { Suspense, lazy } from "react";
+import { lazy, Suspense } from "react";
 
 //internal imports
 import "./App.css";
@@ -51,46 +51,47 @@ function App() {
         }}
       />
       <Suspense fallback="loading...">
-        {/* <div style={{ marginTop: "6.7rem" }}> */}
         <MobileHeader />
-        <MobileFooter />
+        <div style={{ marginTop: "6.7rem" }}>
+          <MobileFooter />
 
-        <Routes>
-          {/* ----------PRIVATE ROUTES---------- */}
-          <Route
-            path="/home"
-            index
-            element={
-              <RequireAuth>
-                <Home />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/bookmark"
-            index
-            element={
-              <RequireAuth>
-                <BookMark />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/profile/:userID"
-            element={
-              <RequireAuth>
-                <UserProfile />
-              </RequireAuth>
-            }
-          />
-          {/* ----------PRIVATE ROUTES---------- */}
-          <Route index path="/login" element={<LogIn />} />
-          <Route index path="/signup" element={<SignUp />} />
-          <Route index path="/mock" element={<Mockman />} />
-          <Route index exact path="/" element={<Explore />} />
-        </Routes>
-        <PostModal />
-        <EditModal />
+          <Routes>
+            {/* ----------PRIVATE ROUTES---------- */}
+            <Route
+              path="/home"
+              index
+              element={
+                <RequireAuth>
+                  <Home />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/bookmark"
+              index
+              element={
+                <RequireAuth>
+                  <BookMark />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/profile/:userID"
+              element={
+                <RequireAuth>
+                  <UserProfile />
+                </RequireAuth>
+              }
+            />
+            {/* ----------PRIVATE ROUTES---------- */}
+            <Route index path="/login" element={<LogIn />} />
+            <Route index path="/signup" element={<SignUp />} />
+            <Route index path="/mock" element={<Mockman />} />
+            <Route index exact path="/" element={<Explore />} />
+          </Routes>
+          <PostModal />
+          <EditModal />
+        </div>
       </Suspense>
     </div>
   );
