@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useId } from "react";
+import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,6 +8,7 @@ import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 import { AuthContext } from "../../hook/context/AuthContext";
 import { useContext } from "react";
 import { UserContext } from "../../hook/context/UserContext";
+import { FollowUserContext } from "../../hook/context/FollowUserContext";
 
 export const Profile = ({
   username,
@@ -18,24 +19,32 @@ export const Profile = ({
   followers,
   _id,
   setToggle,
+  obtainUserByID
 }) => {
-  const { currentUserInfo } = useContext(UserContext);
+  const { currentUserInfo,userState } = useContext(UserContext);
   const { allPosts, obtainAllPostService } = useContext(PostCRUDContext);
   const { logOutRequest } = useContext(AuthContext);
-  
+  const { followActionService, unFollowActionServise } =
+    useContext(FollowUserContext);
+ 
+
   useEffect(() => {
     obtainAllPostService();
-        //eslint-disable-next-line
+    //eslint-disable-next-line
   }, []);
 
   const allPostOfUser = allPosts.filter(
-    (item) => item?.username === currentUserInfo?.username
-  )?.length;
+    (item) => item?.username === obtainUserByID?.username
+  );
 
   const editUserProfileFunction = () => {
     setToggle(true);
   };
   const editOrFollow = currentUserInfo?._id === _id;
+
+  const isFollowed = (_id) =>
+    currentUserInfo?.following.find((item) => item._id === _id);
+
   return (
     <div className="guest-user-profile-info-case">
       <div className="user-profile-image">
@@ -47,12 +56,19 @@ export const Profile = ({
       <div className="guest-user-profile-info">
         <h1>~{username}~</h1>
         <strong>@{username}</strong>
+
         {editOrFollow ? (
           <button onClick={editUserProfileFunction} className="menu-button">
             Edit Profile
           </button>
+        ) : isFollowed(_id) ? (
+          <button className="row" onClick={() => unFollowActionServise(_id)}>
+            Following...
+          </button>
         ) : (
-          <button className="menu-button">Follow</button>
+          <button className="row" onClick={() => followActionService(_id)}>
+            Follow
+          </button>
         )}
         <u>
           <span>{bio}</span>
@@ -69,7 +85,7 @@ export const Profile = ({
             <span>Following</span>
           </span>
           <span>
-            <div>{allPostOfUser}</div>
+            <div>{allPostOfUser?.length}</div>
             <span>Posts</span>
           </span>
           <span>

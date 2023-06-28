@@ -41,7 +41,7 @@ export const UserProfile = () => {
         <SideBars />
 
         <main className="home-case">
-          <Profile {...obtainUserByID} setToggle={setToggle} />;
+          <Profile {...obtainUserByID} setToggle={setToggle} obtainUserByID={obtainUserByID} />;
         </main>
         {toggle && (
           <form className="post-modal" onSubmit={userPostHandler}>

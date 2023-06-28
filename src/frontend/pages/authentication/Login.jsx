@@ -12,7 +12,6 @@ import { AuthContext } from "../../hook/context/AuthContext";
 
 export const LogIn = () => {
 
-  console.log("login");
   const { loginService } = useContext(AuthContext);
   const location = useLocation();
   const [passwordIcon, setPasswordIcon] = useState(false);

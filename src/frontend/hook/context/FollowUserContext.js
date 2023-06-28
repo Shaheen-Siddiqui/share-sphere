@@ -8,11 +8,7 @@ export const FollowUserContext = createContext();
 
 export const FollowUserContextProvider = ({ children }) => {
   const { dispatchUserState } = useContext(UserContext);
-  // const [{ followUserData }, dispatchFollowState] = useReducer(followReducer, {
-  //   // followUserData: {},
-  // });
-
-  const whoIsFollowed = (_id) => {};
+  
 
   const followActionService = async (followUserId) => {
     const encodedToken = localStorage.getItem("token");
@@ -30,16 +26,36 @@ export const FollowUserContextProvider = ({ children }) => {
         type: "EDITED_USER_PROFILE",
         payload: response.data.user,
       });
-
-      console.log(response.data, "followed user");
     } catch (error) {
       console.log(error);
     }
   };
 
-  
+  const unFollowActionServise = async (unFoolwUserId) => {
+    const encodedToken = localStorage.getItem("token");
+    try {
+      const response = await axios.post(
+        `/api/users/unfollow/${unFoolwUserId}`,
+        {},
+        { headers: { authorization: encodedToken } }
+      );
+      dispatchUserState({
+        type: "EDITED_USER_PROFILE",
+        payload: response.data.followUser,
+      });
+      dispatchUserState({
+        type: "EDITED_USER_PROFILE",
+        payload: response.data.user,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <FollowUserContext.Provider value={{ followActionService, whoIsFollowed }}>
+    <FollowUserContext.Provider
+      value={{ followActionService, unFollowActionServise }}
+    >
       {children}
     </FollowUserContext.Provider>
   );

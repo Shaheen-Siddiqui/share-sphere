@@ -16,8 +16,6 @@ export const UserContextProvider = ({ children }) => {
   const currentUserInfo = allUsers?.find(
     (item) => item.username === user.username
   );
-  console.log("usercontext");
-
 
   const obtainAllUserService = async () => {
     try {

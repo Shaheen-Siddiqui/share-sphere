@@ -6,10 +6,8 @@ import { Toaster } from "react-hot-toast";
 import { Suspense, lazy } from "react";
 
 //internal imports
-
 import "./App.css";
 import { RequireAuth } from "./frontend/RequireAuth";
-
 const MobileHeader = lazy(() => import("./frontend/components/Header/Header"));
 const MobileFooter = lazy(() => import("./frontend/components/Footer/Footer"));
 const Explore = lazy(() => import("./frontend/pages/Explore/Explore"));
@@ -31,22 +29,18 @@ const EditModal = lazy(() =>
 function App() {
   return (
     <div>
-      {/* toast messages */}
       <Toaster
         position="top-center"
         reverseOrder={false}
         gutter={8}
         containerStyle={{ fontSize: "1.5rem" }}
         toastOptions={{
-          // Define default options
           className: "",
           duration: 2000,
           style: {
             background: "#363636",
             color: "#fff",
           },
-
-          // Default options for specific types
           success: {
             duration: 2000,
             theme: {
@@ -57,8 +51,8 @@ function App() {
         }}
       />
       <Suspense fallback="loading...">
-        <MobileHeader />
         {/* <div style={{ marginTop: "6.7rem" }}> */}
+        <MobileHeader />
         <MobileFooter />
 
         <Routes>
@@ -81,14 +75,6 @@ function App() {
               </RequireAuth>
             }
           />
-          {/* <Route
-            path="/profile/:userID"
-            element={
-              <RequireAuth>
-                <UserProfile />
-              </RequireAuth>
-            }
-          /> */}
           <Route
             path="/profile/:userID"
             element={

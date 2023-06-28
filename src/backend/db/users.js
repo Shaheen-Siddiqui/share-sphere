@@ -123,7 +123,7 @@ export const users = [
     website: "https://tinyurl.com/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    imgUrl: "https://avatars.githubusercontent.com/u/77974484?v=4",
+    imgUrl:"https://funkylife.in/wp-content/uploads/2023/03/good-morning-image-531.jpg",
     following: [],
     followers: [],
   },

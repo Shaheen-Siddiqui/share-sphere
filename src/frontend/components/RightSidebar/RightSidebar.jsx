@@ -18,11 +18,12 @@ export const RightSidebar = () => {
     currentUserInfo,
     getParticularUser,
   } = useContext(UserContext);
-  const { followActionService } = useContext(FollowUserContext);
+  const { followActionService, unFollowActionServise } =
+    useContext(FollowUserContext);
 
   useEffect(() => {
     obtainAllUserService();
-        //eslint-disable-next-line
+    //eslint-disable-next-line
   }, []);
 
   const excludeMe = userState.allUsers.filter(
@@ -53,15 +54,14 @@ export const RightSidebar = () => {
                 </Link>
 
                 <p id="follow-user-id">
-                  <p>{username}</p>
-                  <p>@{username}</p>
+                  <span>{username}</span>
+                  <span>@{username}</span>
                 </p>
                 {isFollowed(_id) ? (
                   <button
                     className="row"
-                    onClick={() => followActionService(_id)}
+                    onClick={() => unFollowActionServise(_id)}
                   >
-                    <FontAwesomeIcon icon={faPlus} />
                     Following...
                   </button>
                 ) : (
