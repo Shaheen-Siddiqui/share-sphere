@@ -9,20 +9,27 @@ import { useParams } from "react-router-dom";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../UserProfile/UserProfile.css";
+import { PostContext } from "../../hook/context/PostContext";
+import { Feed } from "../../components/Feed/Feed";
+import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 
 export const UserProfile = () => {
   const { userState, currentUserInfo, editUserProfile } =
     useContext(UserContext);
+  const {allPosts}=useContext(PostCRUDContext)
   const { userID } = useParams();
-  // const { bio, website, imgUrl } = currentUserInfo;
 
   const [toggle, setToggle] = useState(false);
-  // const [_, setopenImageModal] = useState(false);
   const [updateBio, setUpdateBio] = useState(currentUserInfo?.bio);
   const [updateWebsite, setUpdateWebsite] = useState(currentUserInfo?.website);
   const [updateImage] = useState(currentUserInfo?.imgUrl);
 
-  const obtainUserByID = userState.allUsers?.find((item) => item._id === userID);
+  const obtainUserByID = userState.allUsers?.find(
+    (item) => item._id === userID
+  );
+  const allPostOfUser = allPosts.filter(
+    (item) => item?.username === obtainUserByID?.username
+  );
 
   const userPostHandler = (event) => {
     event.preventDefault();
@@ -41,40 +48,51 @@ export const UserProfile = () => {
         <SideBars />
 
         <main className="home-case">
-          <Profile {...obtainUserByID} setToggle={setToggle} obtainUserByID={obtainUserByID} />;
+          <Profile
+            {...obtainUserByID}
+            setToggle={setToggle}
+            obtainUserByID={obtainUserByID}
+          />
+          {
+            allPostOfUser.map((item,index)=>{
+              return <Feed key={index} {...item}/>
+            })
+          }
         </main>
+
         {toggle && (
           <form className="post-modal" onSubmit={userPostHandler}>
             <div className="modal-content">
-              <div className="post-message">
+              <div className="edit-profile-x">
                 <h1>Edit Profile</h1>
-
+                <span onClick={() => setToggle(false)}>
+                  <FontAwesomeIcon icon={faCircleXmark} />
+                </span>
+              </div>
+              <center>
+                <img src={updateImage} alt="user" className="update-img" />
+              </center>
+              <div className="updates">
+                <u>
+                  <p className="bio-update">update Bio</p>
+                </u>
                 <textarea
                   value={updateBio}
                   required
                   readOnly={false}
                   className="menu-button"
-                  id="bio-case"
                   onChange={(event) => setUpdateBio(event.target.value)}
                 ></textarea>
-
-                <span>
-                  <FontAwesomeIcon icon={faCircleXmark} />
-                </span>
-              </div>
-              <div>
-                <p>website</p>
+                <u>
+                  <p>Website</p>
+                </u>
                 <input
-                  type="text"
                   value={updateWebsite}
                   onChange={(event) => setUpdateWebsite(event.target.value)}
+                  className="menu-button"
+                  type="text"
                 />
               </div>
-              <div>
-                <img height="50" width="50" src={updateImage} alt="alt neo" />
-                <input type="file" placeholder="choose an image" />
-              </div>
-              <hr />
 
               <footer className="post-footer">
                 <button type="submit">
