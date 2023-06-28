@@ -33,8 +33,6 @@ share-sphere is a Social media app Connecting people through a seamless and imme
 4. fortawesome Icons
 5. react-loader-spinner
 6. react-toastify
-7. react-image-slider
-8. tippyjs/react
 
 ## BACKEND
 1. mockBee - [https://mockbee.netlify.app/]
