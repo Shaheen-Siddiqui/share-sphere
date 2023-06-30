@@ -103,6 +103,7 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.removeItem("user");
     dispatchAuthState({ type: "USER_LOGGED_OUT" });
     navigate("/login");
+    setIsLoggedIn(false);
   };
 
   return (

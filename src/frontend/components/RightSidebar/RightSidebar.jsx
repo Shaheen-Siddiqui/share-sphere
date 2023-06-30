@@ -11,7 +11,7 @@ import { UserContext } from "../../hook/context/UserContext";
 import { FollowUserContext } from "../../hook/context/FollowUserContext";
 
 export const RightSidebar = () => {
-  const { token } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const {
     userState,
     obtainAllUserService,
@@ -35,7 +35,7 @@ export const RightSidebar = () => {
 
   return (
     <>
-      {!token ? (
+      {!isLoggedIn ? (
         <AuthRequest />
       ) : (
         <div className="follow-user-case">

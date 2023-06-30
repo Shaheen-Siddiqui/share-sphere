@@ -41,7 +41,6 @@ export const Feed = ({
     setToggleEditModal,
     isBookMarked,
     deleteBookMarkedPost,
-    
   } = useContext(PostContext);
   const navigate = useNavigate();
 
@@ -76,15 +75,14 @@ export const Feed = ({
                     <FontAwesomeIcon icon={faPenToSquare} />
                     <span>Edit</span>
                   </button>
-                  {!inBookMark && (
-                    <button
-                      className="menu-button"
-                      onClick={() => deletePost(_id)}
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                      <span> Delete</span>
-                    </button>
-                  )}
+
+                  <button
+                    className="menu-button"
+                    onClick={() => deletePost(_id)}
+                  >
+                    <FontAwesomeIcon icon={faTrash} />
+                    <span> Delete</span>
+                  </button>
 
                   <button
                     className="menu-button"
@@ -95,12 +93,14 @@ export const Feed = ({
                   </button>
                 </div>
               )}
-              <FontAwesomeIcon
-                icon={faEllipsisVertical}
-                size="xl"
-                className="ellips-icon"
-                onClick={() => ShowPostEDCCase(_id)}
-              />
+              {!inBookMark && (
+                <FontAwesomeIcon
+                  icon={faEllipsisVertical}
+                  size="xl"
+                  className="ellips-icon"
+                  onClick={() => ShowPostEDCCase(_id)}
+                />
+              )}
             </>
           )}
         </div>

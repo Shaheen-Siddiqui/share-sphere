@@ -63,6 +63,7 @@
 .update-img {
     border-radius: var(--border-radius);
     width: 6rem;
+    cursor: pointer;
 }
 
 .updates {

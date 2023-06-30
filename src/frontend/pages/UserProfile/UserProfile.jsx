@@ -12,17 +12,18 @@ import "../UserProfile/UserProfile.css";
 import { PostContext } from "../../hook/context/PostContext";
 import { Feed } from "../../components/Feed/Feed";
 import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
+import { ProfileAvatar } from "../../components/PostModal/ProfileAvatar";
 
 export const UserProfile = () => {
   const { userState, currentUserInfo, editUserProfile } =
     useContext(UserContext);
-  const {allPosts}=useContext(PostCRUDContext)
+  const { allPosts } = useContext(PostCRUDContext);
   const { userID } = useParams();
 
   const [toggle, setToggle] = useState(false);
   const [updateBio, setUpdateBio] = useState(currentUserInfo?.bio);
   const [updateWebsite, setUpdateWebsite] = useState(currentUserInfo?.website);
-  const [updateImage] = useState(currentUserInfo?.imgUrl);
+  const [updateImage, setUpdateImageUrl] = useState(currentUserInfo?.imgUrl);
 
   const obtainUserByID = userState.allUsers?.find(
     (item) => item._id === userID
@@ -30,6 +31,7 @@ export const UserProfile = () => {
   const allPostOfUser = allPosts.filter(
     (item) => item?.username === obtainUserByID?.username
   );
+  const [avatarCase, setAvatarCase] = useState(false);
 
   const userPostHandler = (event) => {
     event.preventDefault();
@@ -46,22 +48,19 @@ export const UserProfile = () => {
     <center>
       <div className="home-main-case">
         <SideBars />
-
         <main className="home-case">
           <Profile
             {...obtainUserByID}
             setToggle={setToggle}
             obtainUserByID={obtainUserByID}
           />
-          {
-            allPostOfUser.map((item,index)=>{
-              return <Feed key={index} {...item}/>
-            })
-          }
+          {allPostOfUser.map((item, index) => {
+            return <Feed key={index} {...item} />;
+          })}
         </main>
 
         {toggle && (
-          <form className="post-modal" onSubmit={userPostHandler}>
+          <form className="post-modal" onSubmit={userPostHandler} id="post-modal" >
             <div className="modal-content">
               <div className="edit-profile-x">
                 <h1>Edit Profile</h1>
@@ -70,8 +69,14 @@ export const UserProfile = () => {
                 </span>
               </div>
               <center>
-                <img src={updateImage} alt="user" className="update-img" />
+                <img
+                  src={updateImage}
+                  alt="user"
+                  className="update-img"
+                  onClick={() => setAvatarCase(true)}
+                />
               </center>
+                {avatarCase && <ProfileAvatar setAvatarCase={setAvatarCase} setUpdateImageUrl={setUpdateImageUrl} />}
               <div className="updates">
                 <u>
                   <p className="bio-update">update Bio</p>
@@ -96,7 +101,7 @@ export const UserProfile = () => {
 
               <footer className="post-footer">
                 <button type="submit">
-                  <ion-icon name="caret-up-circle-outline"></ion-icon> POST
+                  <ion-icon name="caret-up-circle-outline"></ion-icon> UPDATE
                 </button>
               </footer>
             </div>
