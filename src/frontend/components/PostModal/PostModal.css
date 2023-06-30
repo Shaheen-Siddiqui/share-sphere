@@ -75,15 +75,37 @@
         gap: 1.5rem;
     }
 }
+
 /* Edit Profile CSS */
-#bio-case{
+#bio-case {
     width: 100%;
-    height:50px;
+    height: 50px;
     font-size: 16px;
     resize: none;
 }
 
+/* Profile avatar css */
+#avatar-modal-content {
+    position: absolute;
+    inset: 0;
+    top: 10rem;
+    width: 50rem;
+}
 
+.avatar-img {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.avatar-case {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-self: center;
+}
 
 /******************** media queries *******************/
 @media (min-width:767px) {

@@ -52,14 +52,6 @@ export const EditModal = () => {
             <hr />
 
             <footer className="post-footer">
-              {/* <div className="image-imogies">
-                <button>
-                  <ion-icon name="image"></ion-icon> Photo/GIF
-                </button>
-                <button>
-                  <ion-icon name="happy-outline"></ion-icon> Emojis
-                </button>
-              </div> */}
               <button type="submit">
                 <ion-icon name="caret-up-circle-outline"></ion-icon> POST
               </button>

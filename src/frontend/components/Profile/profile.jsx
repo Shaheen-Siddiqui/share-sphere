@@ -9,6 +9,8 @@ import { AuthContext } from "../../hook/context/AuthContext";
 import { useContext } from "react";
 import { UserContext } from "../../hook/context/UserContext";
 import { FollowUserContext } from "../../hook/context/FollowUserContext";
+import { ProfileAvatar } from "../PostModal/ProfileAvatar";
+import { useState } from "react";
 
 export const Profile = ({
   username,
@@ -19,14 +21,13 @@ export const Profile = ({
   followers,
   _id,
   setToggle,
-  obtainUserByID
+  obtainUserByID,
 }) => {
   const { currentUserInfo } = useContext(UserContext);
   const { allPosts, obtainAllPostService } = useContext(PostCRUDContext);
   const { logOutRequest } = useContext(AuthContext);
   const { followActionService, unFollowActionServise } =
     useContext(FollowUserContext);
- 
 
   useEffect(() => {
     obtainAllPostService();
@@ -44,14 +45,14 @@ export const Profile = ({
 
   const isFollowed = (_id) =>
     currentUserInfo?.following.find((item) => item._id === _id);
-
   return (
     <div className="guest-user-profile-info-case">
       <div className="user-profile-image">
         <div className="profile-logout-button" onClick={logOutRequest}>
           <FontAwesomeIcon icon={faRightFromBracket} size="xl" />
         </div>
-        <img src={imgUrl} alt="guest user" />
+
+        <img src={imgUrl} alt="guest user"/>
       </div>
       <div className="guest-user-profile-info">
         <h1>~{username}~</h1>
