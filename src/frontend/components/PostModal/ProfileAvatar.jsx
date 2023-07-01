@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { PostContext } from "../../hook/context/PostContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { userAvatars } from "../../../backend/db/avatar";

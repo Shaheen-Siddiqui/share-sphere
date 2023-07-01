@@ -17,7 +17,7 @@ export const posts = [
     postedImages:
       "https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg",
     likes: {
-      likeCount: 900,
+      likeCount: 4,
       likedBy: [],
       dislikedBy: [],
     },
@@ -76,7 +76,7 @@ export const posts = [
     postedImages:
       "https://www.sunofjapan.com/wp-content/uploads/2023/03/KO098-SG.jpg",
     likes: {
-      likeCount: 3,
+      likeCount: 300,
       likedBy: [],
       dislikedBy: [],
     },
@@ -132,7 +132,7 @@ export const posts = [
     postedImages: null,
 
     likes: {
-      likeCount: 6,
+      likeCount: 688,
       likedBy: [],
       dislikedBy: [],
     },
