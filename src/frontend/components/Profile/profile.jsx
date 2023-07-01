@@ -1,5 +1,5 @@
-import { useEffect, useId } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,8 +9,6 @@ import { AuthContext } from "../../hook/context/AuthContext";
 import { useContext } from "react";
 import { UserContext } from "../../hook/context/UserContext";
 import { FollowUserContext } from "../../hook/context/FollowUserContext";
-import { ProfileAvatar } from "../PostModal/ProfileAvatar";
-import { useState } from "react";
 
 export const Profile = ({
   username,

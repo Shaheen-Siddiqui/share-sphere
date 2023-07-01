@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../UserProfile/UserProfile.css";
-import { PostContext } from "../../hook/context/PostContext";
 import { Feed } from "../../components/Feed/Feed";
 import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 import { ProfileAvatar } from "../../components/PostModal/ProfileAvatar";

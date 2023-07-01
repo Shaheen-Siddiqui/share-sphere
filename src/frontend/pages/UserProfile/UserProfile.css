@@ -71,7 +71,7 @@
     flex-direction: column;
     float: left;
 
-    align-items: start;
+    align-items: flex-start;
     padding-left: 1rem;
 
     & textarea {
