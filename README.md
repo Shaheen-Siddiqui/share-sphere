@@ -43,8 +43,8 @@ share-sphere is a Social media app Connecting people through a seamless and imme
 - `npm start`
 
 # Preview
-|      PAGE NAME       |     DESKTOP VIEW(2560px)     |         MOBILE VIEW (320px) |
-:---------------------: :-----------------------------: ----------------------------
+|      PAGE NAME        |     DESKTOP VIEW(2560px)     |  MOBILE VIEW (320px)        |
+| : ------------------: |  : ------------------------- |  -------------------------- |                       
 
 
 
