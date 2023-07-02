@@ -45,8 +45,28 @@ share-sphere is a Social media app Connecting people through a seamless and imme
 # Preview
 |                 MOBILE(425px)                             |          
 |:---------------------------------------------------------:|
-## 1. Auth Page
+### 1. Auth Page
+![Screenshot 2023-07-02 092618](https://github.com/Shaheen-Siddiqui/share-sphere/assets/95218912/b2264f29-da8a-4a83-8c1c-6a82a21c818a)
+
+### 2. Explore Page
 ![Screenshot 2023-07-02 092702](https://github.com/Shaheen-Siddiqui/share-sphere/assets/95218912/3183fd80-57c0-4874-98e7-6483bd8c169a)
+
+### 3 Bookmark Page
+![Screenshot 2023-07-02 092803](https://github.com/Shaheen-Siddiqui/share-sphere/assets/95218912/ffafbca7-f412-4490-99b1-fc24b53fcb15)
+
+### 4 Homa page
+![Screenshot 2023-07-02 092848](https://github.com/Shaheen-Siddiqui/share-sphere/assets/95218912/34df354c-36b0-4ddc-a585-23cc8a1f36f3)
+
+### 5. Profile Page
+![Screenshot 2023-07-02 093127](https://github.com/Shaheen-Siddiqui/share-sphere/assets/95218912/37d7604b-0825-4c58-b6fa-95369185b520)
+
+### 6 Edit Profile PopUp
+![Screenshot 2023-07-02 093135](https://github.com/Shaheen-Siddiqui/share-sphere/assets/95218912/7f462efd-0b84-4cfe-87eb-8302b6c6757e)
+
+
+### 7. Create a new Post PopUp
+![Screenshot 2023-07-02 092738](https://github.com/Shaheen-Siddiqui/share-sphere/assets/95218912/00a069cb-b9ae-4ffc-8001-941a16495789)
+
 
 
 ## Come for Coffee☕ with Me
