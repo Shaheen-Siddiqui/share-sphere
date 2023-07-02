@@ -43,8 +43,11 @@ share-sphere is a Social media app Connecting people through a seamless and imme
 - `npm start`
 
 # Preview
-|     MOBILE(425px)     |          
-|:---------------------:|
+|                 MOBILE(425px)                             |          
+|:---------------------------------------------------------:|
+## 1. Auth Page
+![Screenshot 2023-07-02 092702](https://github.com/Shaheen-Siddiqui/share-sphere/assets/95218912/3183fd80-57c0-4874-98e7-6483bd8c169a)
+
 
 ## Come for Coffee☕ with Me
  * [LinkedIn](https://www.linkedin.com/in/shaheen-siddiqui-7067ab22a/)
