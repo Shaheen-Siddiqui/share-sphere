@@ -1,6 +1,7 @@
 # [Share-Sphere](https://share-sphere.netlify.app/)
 share-sphere is a Social media app Connecting people through a seamless and immersive experience."
 * Access the share sphere at: https://share-sphere.netlify.app/
+* video URL: https://www.awesomescreenshot.com/video/18795589?key=9314724a05f316a476b9f8568c46503a
 
 ## Features
 1. User Feed
