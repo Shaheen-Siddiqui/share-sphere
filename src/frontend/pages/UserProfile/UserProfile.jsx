@@ -1,14 +1,15 @@
+import { useParams } from "react-router-dom";
+import { useContext, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+
 //internal imports
 import "../../pages/Home/Home.css";
+import "../UserProfile/UserProfile.css";
 import { WriteNewPost } from "../../components/WriteNewPost/WriteNewPost";
-import { useContext, useState } from "react";
 import { UserContext } from "../../hook/context/UserContext";
 import { Profile } from "../../components/Profile/profile";
 import { SideBars } from "../../components/SideBars/SideBars";
-import { useParams } from "react-router-dom";
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../UserProfile/UserProfile.css";
 import { Feed } from "../../components/Feed/Feed";
 import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 import { ProfileAvatar } from "../../components/PostModal/ProfileAvatar";
