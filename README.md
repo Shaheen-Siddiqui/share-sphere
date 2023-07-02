@@ -30,7 +30,7 @@ share-sphere is a Social media app Connecting people through a seamless and imme
 1. React JS (useContext, useReducer)
 2. React Router v6
 3. Vanilla CSS
-4. fortawesome Icons
+4. fontawesome Icons
 5. react-loader-spinner
 6. react-toastify
 
@@ -38,12 +38,13 @@ share-sphere is a Social media app Connecting people through a seamless and imme
 1. mockBee - [https://mockbee.netlify.app/]
 ---
 ## Play with it
-- Fork the Repositary
+- Fork the Repository
 - `npm install`
 - `npm start`
 
 # Preview
-{....}
+|     MOBILE(425px)     |          
+|:---------------------:|
 
 ## Come for Coffee☕ with Me
  * [LinkedIn](https://www.linkedin.com/in/shaheen-siddiqui-7067ab22a/)
