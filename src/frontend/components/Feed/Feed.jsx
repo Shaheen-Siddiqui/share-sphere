@@ -13,6 +13,8 @@ import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 import { useContext } from "react";
 import { PostContext } from "../../hook/context/PostContext";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../hook/context/UserContext";
+import { useState } from "react";
 
 //internal import
 export const Feed = ({
@@ -24,8 +26,14 @@ export const Feed = ({
   username,
   createdAt,
   inBookMark,
+  comment,
 }) => {
   const { user, isLoggedIn } = useContext(AuthContext);
+  const [commentText, setCommentText] = useState("");
+  const {
+    currentUserInfo,
+    userState: { allUsers },
+  } = useContext(UserContext);
   const {
     postEDCToggle,
     msgDCToggale,
@@ -33,6 +41,7 @@ export const Feed = ({
     ShowMsgDCCase,
     deleteParticularPost,
     likePost,
+    dispatchPostCRUD,
   } = useContext(PostCRUDContext);
   const {
     addToBookMark,
@@ -52,10 +61,29 @@ export const Feed = ({
   const deletePost = (_id) => {
     deleteParticularPost(_id);
   };
+
+  const userImage = allUsers.find(
+    (value) => value.username === username
+  ).imgUrl;
+
+  const CommentHandler = (event) => {
+    setCommentText(event.target.value);
+
+    dispatchPostCRUD({
+      type: "COMMENT",
+      payload: { value: commentText, _id: _id },
+    });
+  };
+
+  const dropComment = () => {
+    dispatchPostCRUD({ type: "POST_COMMENT_MESSAGE", payload: _id });
+    setCommentText("");
+  };
+
   return (
     <div className="user-post-main-case" key={_id}>
       <div className="about-user">
-        <img src={imgUrl} alt={username} />
+        <img src={userImage} alt={username} />
         <div>
           <h1>{username}</h1>
           <strong>@{username}</strong>
@@ -108,13 +136,27 @@ export const Feed = ({
 
       <div className="user-post">
         <p>{content}</p>
-        <center>
-          <img
-            src={postedImages}
-            alt={postedImages === null ? "" : "user posted pamp"}
-            className="posted-main-image"
-          />
-        </center>
+
+        {/* <center>
+          {typeof postedImages === "string" ? (
+            <img
+              src={postedImages}
+              alt={postedImages === null ? "" : "user posted pamp"}
+              className="posted-main-image"
+            />
+          ) : (
+            postedImages?.map((value) => {
+              return (
+                <img
+                  src={value}
+                  alt={postedImages === null ? "" : "user posted pamp"}
+                  className={postedImages?"posted-main-image":""}
+                />
+              );
+            })
+          )}
+        </center> */}
+
         <div className="like-bookmark-icon">
           <div
             className="pointer"
@@ -151,52 +193,57 @@ export const Feed = ({
         </div>
       </div>
       <div className="post-comment-case">
-        <img src={imgUrl} alt="user" />
+        <img src={userImage} alt="user" />
+
         <div className="write-comment-case">
-          <input placeholder="Write a comment..." />
-          <button>
+          <input
+            value={commentText}
+            type="text"
+            placeholder="Write a comment..."
+            onChange={CommentHandler}
+          />
+          <button onClick={dropComment}>
             <strong>𝖕𝖔𝖘𝖙✎ </strong>
           </button>
         </div>
       </div>
+
       {/* my friends comments */}
-      <div className="comments-of-followers">
-        <div className="commented-user-info">
-          <img src={imgUrl} alt="user profile" />
-          <div>
-            <h2>Guest User</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Dolores, ut.
-            </p>
-          </div>
-        </div>
-
-        <div className="menu-button edit-delete-parent">
-          {msgDCToggale[_id] && (
-            <div className="edit-delete-menu menu-position">
-              <button className="menu-button">
-                <FontAwesomeIcon icon={faTrash} />
-                <span>Delete</span>
-              </button>
-
-              <button
-                className="menu-button"
-                onClick={() => ShowMsgDCCase(_id)}
-              >
-                <FontAwesomeIcon icon={faCircleXmark} />
-                <span>Cancel</span>
-              </button>
+      {comment?.map((value, index) => {
+        return (
+          <div className="comments-of-followers" key={index}>
+            <div className="commented-user-info">
+              <img src={currentUserInfo?.imgUrl} alt="user profile" />
+              <div>
+                <h2>Guest User</h2>
+                <p>{value}</p>
+              </div>
             </div>
-          )}
-          <FontAwesomeIcon
-            icon={faEllipsisVertical}
-            className="ellips-icon"
-            size="xl"
-            onClick={() => ShowMsgDCCase(_id)}
-          />
-        </div>
-      </div>
+            <div className="menu-button edit-delete-parent">
+              {/* <div className="edit-delete-menu menu-position">
+                <button className="menu-button">
+                  <FontAwesomeIcon icon={faTrash} />
+                  <span>Delete</span>
+                </button>
+
+                <button
+                  className="menu-button"
+                  onClick={() => ShowMsgDCCase(_id)}
+                >
+                  <FontAwesomeIcon icon={faCircleXmark} />
+                  <span>Cancel</span>
+                </button>
+              </div> */}
+              <FontAwesomeIcon
+                icon={faEllipsisVertical}
+                className="ellips-icon"
+                size="xl"
+                onClick={() => ShowMsgDCCase(_id)}
+              />  
+            </div>
+          </div>
+        );
+      })}
 
       <div className="comments-of-followers commented-user-info">
         <img

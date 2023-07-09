@@ -25,7 +25,6 @@
 }
 
 .user-post-main-case {
-    /* position: relative; */
     background-color: var(--light-background);
     padding: 1rem;
     margin-top: 1rem;
@@ -119,7 +118,7 @@
 
 .posted-main-image {
     max-width: 100%;
-    height: auto;
+    height: 50rem;
 }
 
 .border {
@@ -128,6 +127,7 @@
 
 .comments-of-followers {
     display: flex;
+    justify-content:space-between;
     background-color: var(--primary-color); 
     padding: 1rem 0;
     margin-top: 1rem;

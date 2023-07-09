@@ -1,6 +1,6 @@
 export const PostReducer = (postState, { type, payload }) => {
+ 
   switch (type) {
-    
     case "BOOKMARKED_FUNCTION":
       return {
         ...postState,
@@ -16,11 +16,7 @@ export const PostReducer = (postState, { type, payload }) => {
         ...postState,
         allPosts: payload,
       };
-    // case "DELETE_FROM_BOOKMARK":
-    //   return{
-    //     ...postState,
-    //     userBookMark:payload
-    //   }
+    
     default:
       break;
   }

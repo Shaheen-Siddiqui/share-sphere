@@ -1,14 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./PostModal.css";
+import "../../pages/Home/Home.css";
 import { PostContext } from "../../hook/context/PostContext";
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 
 export const PostModal = () => {
   const { togglePostModal, setTogglePostModal } = useContext(PostContext);
 
-  const { dispatchPostCRUD, createNewPost, postContent } =
+  const { dispatchPostCRUD, createNewPost, postContent, postedImages } =
     useContext(PostCRUDContext);
 
   const userPostHandler = (event) => {
@@ -16,6 +17,18 @@ export const PostModal = () => {
     createNewPost();
     setTogglePostModal(false);
   };
+
+  const postImageHandler = (event) => {
+    const MultipleImage = Object.values(event.target.files).map((value) =>
+      URL.createObjectURL(value)
+    );
+
+    dispatchPostCRUD({
+      type: "POST_IMAGE",
+      payload: MultipleImage,
+    });
+  };
+
   return (
     <>
       {togglePostModal && (
@@ -29,6 +42,7 @@ export const PostModal = () => {
                 src="https://www.eventstodayz.com/wp-content/uploads/2017/10/cute-little-girls-hd-image.jpg"
                 alt="user"
               />
+
               <textarea
                 required
                 readOnly={false}
@@ -47,15 +61,51 @@ export const PostModal = () => {
                 <FontAwesomeIcon icon={faCircleXmark} />
               </span>
             </div>
+            <div className="flex-images">
+              {postedImages?.map((image, _id) => {
+                return (
+                  <div key={_id}>
+                    <img src={image} alt="" id="user-image-post" /><br/>
+                    <button
+                    className="remove-selected-img"
+                      type="button"
+                      onClick={() =>
+                        dispatchPostCRUD({
+                          type: "DELETE_SELECTED_IMAGE",
+                          payload: _id,
+                        })
+                      }
+                    >
+                      Remove
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
             <hr />
 
             <footer className="post-footer">
               <div className="image-imogies">
-                <button>
-                  <ion-icon name="image"></ion-icon> Photo/GIF
-                </button>
+                <label htmlFor="chosen-image">
+                  <strong>
+                    <ion-icon name="happy-outline"></ion-icon> Photo
+                  </strong>
+                </label>
+
+                <input
+                  type="file"
+                  multiple
+                  accept="image/*"
+                  id="chosen-image"
+                  onChange={postImageHandler}
+                />
+
                 <button>
                   <ion-icon name="happy-outline"></ion-icon> Emojis
+                </button>
+
+                <button>
+                  <ion-icon name="happy-outline"></ion-icon> Gif
                 </button>
               </div>
               <button type="submit">

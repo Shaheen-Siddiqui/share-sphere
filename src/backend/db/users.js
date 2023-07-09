@@ -9,8 +9,8 @@ export const users = [
   {
     _id: "1",
     firstName: "Shaheen",
-    lastName: "amaan",
-    username: "Shaheen amaan",
+    lastName: "siddiqui",
+    username: "Shaheen siddiqui",
     password: "Shaheen@143",
     imgUrl:
       "https://1fid.com/wp-content/uploads/2022/10/hijab-dp-18-1024x1022.jpg",
@@ -18,6 +18,7 @@ export const users = [
     website: "https://github.com/Shaheen-Siddiqui/share-sphere",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    
     following: [
       {
         _id: "ab8zWjEeXd",
@@ -57,6 +58,8 @@ export const users = [
     website: "https://furtherfeatureofapp.netlify.app/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comment: [],
+
     imgUrl:
       "https://images.unsplash.com/photo-1559863345-02eae058c2c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZW5qb3l8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
 
@@ -91,6 +94,8 @@ export const users = [
     website: "https://shaheen-siddiqui.github.io/PORTFOLIO_22/index.html",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    comment: [],
+
     imgUrl:
       "https://www.sunofjapan.com/wp-content/uploads/2023/03/KO098-SG.jpg",
     following: [
@@ -123,7 +128,9 @@ export const users = [
     website: "https://tinyurl.com/",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    imgUrl:"https://funkylife.in/wp-content/uploads/2023/03/good-morning-image-531.jpg",
+    comment: [],
+    imgUrl:
+      "https://funkylife.in/wp-content/uploads/2023/03/good-morning-image-531.jpg",
     following: [],
     followers: [],
   },
