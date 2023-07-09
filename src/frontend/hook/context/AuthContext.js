@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const [{ user, token }, dispatchAuthState] = useReducer(authReducer, {
     user: JSON.parse(localStorage.getItem("user")) || {},

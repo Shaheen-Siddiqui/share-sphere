@@ -19,6 +19,7 @@ export const userReducer = (userState, { type, payload }) => {
         allUsers: newAllUserState,
       };
     }
+   
     default:
       break;
   }

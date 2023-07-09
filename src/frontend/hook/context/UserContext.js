@@ -10,12 +10,14 @@ export const UserContextProvider = ({ children }) => {
   const [userState, dispatchUserState] = useReducer(userReducer, {
     allUsers: [],
     singleUser: {},
+   
   });
   const { allUsers } = userState;
-
+  
   const currentUserInfo = allUsers?.find(
     (item) => item.username === user.username
   );
+
 
   const obtainAllUserService = async () => {
     try {
@@ -50,7 +52,10 @@ export const UserContextProvider = ({ children }) => {
         },
         { headers: { authorization: encodedToken } }
       );
-      dispatchUserState({type:"EDITED_USER_PROFILE", payload:response.data.user});
+      dispatchUserState({
+        type: "EDITED_USER_PROFILE",
+        payload: response.data.user,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -64,7 +69,7 @@ export const UserContextProvider = ({ children }) => {
         currentUserInfo,
         getParticularUser,
         editUserProfile,
-        dispatchUserState
+        dispatchUserState,
       }}
     >
       {children}

@@ -6,15 +6,17 @@ import { toast } from "react-hot-toast";
 export const PostCRUDContext = createContext(null);
 
 export const PostCRUDContextProvider = ({ children }) => {
-  const [{ postContent, allPosts }, dispatchPostCRUD] = useReducer(
-    PostCRUDReducer,
-    {
-      allPosts: [],
-      postContent: "",
-    }
-  );
+  const [
+    { postContent, allPosts, commentMessaage, comment, postedImages },
+    dispatchPostCRUD,
+  ] = useReducer(PostCRUDReducer, {
+    allPosts: [],
+    postContent: "",
+    postedImages: null,
+  });
 
-  const currentUserImage = JSON.parse(localStorage.getItem("user"));
+
+  
 
   const [postEDCToggle, setPostEDCToggle] = useState({});
   const [msgDCToggale, setMsgDCToggale] = useState({});
@@ -40,13 +42,15 @@ export const PostCRUDContextProvider = ({ children }) => {
         {
           postData: {
             content: postContent,
-            postedImages: null,
-            imgUrl: currentUserImage?.imgUrl,
+            postedImages,
           },
         },
         { headers: { authorization: encodedToken } }
       );
-      dispatchPostCRUD({ type: "POST_FUNCTION", payload: response.data.posts });
+      dispatchPostCRUD({
+        type: "CREATE_NEW_POST",
+        payload: response.data.posts,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -73,6 +77,7 @@ export const PostCRUDContextProvider = ({ children }) => {
         {
           postData: {
             content: postContent,
+            postedImages,
           },
         },
         { headers: { authorization: encodedToken } }
@@ -135,6 +140,7 @@ export const PostCRUDContextProvider = ({ children }) => {
         msgDCToggale,
         likePost,
         editPostService,
+        postedImages,
       }}
     >
       {children}
