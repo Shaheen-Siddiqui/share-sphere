@@ -90,41 +90,44 @@ export const Feed = ({
         <div className="menu-button  edit-delete-parent">
           {username === user.username && (
             <>
-              {postEDCToggle[_id] && (
-                <div className="edit-delete-menu menu-position">
-                  <button
-                    className="menu-button"
-                    type="button"
-                    onClick={() =>
-                      updatePostByUser(_id) || setPreviousPost(content)
-                    }
-                  >
-                    <FontAwesomeIcon icon={faPenToSquare} />
-                    <span>Edit</span>
-                  </button>
+              {postEDCToggle[_id] &&
+                (!isLoggedIn ? (
+                  navigate("/login")
+                ) : (
+                  <div className="edit-delete-menu menu-position">
+                    <button
+                      className="menu-button"
+                      type="button"
+                      onClick={() =>
+                        updatePostByUser(_id) || setPreviousPost(content)
+                      }
+                    >
+                      <FontAwesomeIcon icon={faPenToSquare} />
+                      <span>Edit</span>
+                    </button>
 
-                  <button
-                    className="menu-button"
-                    type="button"
-                    onClick={() => {
-                      deletePost(_id);
-                      toast.error("Post Deleted!");
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faTrash} />
-                    <span> Delete</span>
-                  </button>
+                    <button
+                      className="menu-button"
+                      type="button"
+                      onClick={() => {
+                        deletePost(_id);
+                        toast.error("Post Deleted!");
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faTrash} />
+                      <span> Delete</span>
+                    </button>
 
-                  <button
-                    className="menu-button"
-                    type="button"
-                    onClick={() => ShowPostEDCCase(_id)}
-                  >
-                    <FontAwesomeIcon icon={faCircleXmark} />
-                    <span>Cancel</span>
-                  </button>
-                </div>
-              )}
+                    <button
+                      className="menu-button"
+                      type="button"
+                      onClick={() => ShowPostEDCCase(_id)}
+                    >
+                      <FontAwesomeIcon icon={faCircleXmark} />
+                      <span>Cancel</span>
+                    </button>
+                  </div>
+                ))}
               {!inBookMark && (
                 <FontAwesomeIcon
                   icon={faEllipsisVertical}
