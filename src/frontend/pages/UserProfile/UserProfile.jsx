@@ -13,6 +13,7 @@ import { SideBars } from "../../components/SideBars/SideBars";
 import { Feed } from "../../components/Feed/Feed";
 import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 import { ProfileAvatar } from "../../components/PostModal/ProfileAvatar";
+import { toast } from "react-hot-toast";
 
 export const UserProfile = () => {
   const { userState, currentUserInfo, editUserProfile } =
@@ -42,6 +43,7 @@ export const UserProfile = () => {
       website: updateWebsite,
       imgUrl: updateImage,
     });
+    toast.success("Updated Successfully!");
   };
 
   return (
@@ -60,7 +62,11 @@ export const UserProfile = () => {
         </main>
 
         {toggle && (
-          <form className="post-modal" onSubmit={userPostHandler} id="post-modal" >
+          <form
+            className="post-modal"
+            onSubmit={userPostHandler}
+            id="post-modal"
+          >
             <div className="modal-content">
               <div className="edit-profile-x">
                 <h1>Edit Profile</h1>
@@ -75,8 +81,27 @@ export const UserProfile = () => {
                   className="update-img"
                   onClick={() => setAvatarCase(true)}
                 />
+                {/*---- Edit User Profile Photo CODE----- */}
+                {/* <label htmlFor="user-profile-update">
+                  Brouse from computer
+                </label>
+                <input
+                  type="file"
+                  id="user-profile-update"
+                  accept="image/*"
+                  onChange={(event) =>
+                    setUpdateImageUrl(
+                      URL.createObjectURL(event.target.files[0])
+                    )
+                  }
+                /> */}
               </center>
-                {avatarCase && <ProfileAvatar setAvatarCase={setAvatarCase} setUpdateImageUrl={setUpdateImageUrl} />}
+              {avatarCase && (
+                <ProfileAvatar
+                  setAvatarCase={setAvatarCase}
+                  setUpdateImageUrl={setUpdateImageUrl}
+                />
+              )}
               <div className="updates">
                 <u>
                   <p className="bio-update">update Bio</p>
