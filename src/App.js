@@ -4,6 +4,7 @@ import Mockman from "mockman-js";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { lazy, Suspense } from "react";
+import { RotatingLines } from  'react-loader-spinner'
 
 //internal imports
 import "./App.css";
@@ -50,7 +51,19 @@ function App() {
           },
         }}
       />
-      <Suspense fallback="loading...">
+      <Suspense
+        fallback={
+          <center className="spinner-case">
+            <RotatingLines
+              strokeColor="grey"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="96"
+              visible={true}
+            />
+          </center>
+        }
+      >
         <MobileHeader />
         <div style={{ marginTop: "6.7rem" }}>
           <MobileFooter />
