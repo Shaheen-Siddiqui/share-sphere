@@ -35,8 +35,8 @@
 }
 
 #user-image-post {
-    height: 5rem;
-    width: 5rem;
+    height: 10rem;
+    width: 15rem;
     border-radius: none;
     border: 2px solid currentColor;
     position: relative;
@@ -139,6 +139,15 @@
     gap: 2rem;
     justify-content: center;
     align-self: center;
+}
+
+/* content imoji css */
+.emoji-case {
+    display: inline-block;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+
 }
 
 /******************** media queries *******************/

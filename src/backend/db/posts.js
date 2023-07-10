@@ -23,7 +23,7 @@ export const posts = [
     createdAt: "2023-06-30",
     updatedAt: formatDate(),
     comment: [],
-    commentedData: "Hope! every thing will be fine at you hemo",
+    commentedData: "",
   },
 
   {
@@ -177,7 +177,7 @@ export const posts = [
     content:
       "LinkedIn is a professional networking platform designed for business and career-related connections, allowing users to build a professional profile, connect with colleagues and industry professionals, and explore job opportunities",
     postedImages:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzzz83Od38sYR4nls5rtwqEEnnqdRFJKiJE0gADqCS-cdyk93XRNLw_sqJ-5TAc7oIELs&usqp=CAU",
+      "https://e1.pxfuel.com/desktop-wallpaper/68/770/desktop-wallpaper-shaheen-shah-afridi-to-lead-lahore-qalandars-in-psl-7-lahore-qalandars-2022.jpg",
 
     likes: {
       likeCount: 0,

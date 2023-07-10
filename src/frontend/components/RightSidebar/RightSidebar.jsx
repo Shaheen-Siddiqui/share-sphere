@@ -9,6 +9,7 @@ import { AuthRequest } from "../AuthRequest.jsx/AuthRequest";
 import { AuthContext } from "../../hook/context/AuthContext";
 import { UserContext } from "../../hook/context/UserContext";
 import { FollowUserContext } from "../../hook/context/FollowUserContext";
+import { toast } from "react-hot-toast";
 
 export const RightSidebar = () => {
   const { isLoggedIn } = useContext(AuthContext);
@@ -60,14 +61,17 @@ export const RightSidebar = () => {
                 {isFollowed(_id) ? (
                   <button
                     className="row"
-                    onClick={() => unFollowActionServise(_id)}
+                    onClick={() => {unFollowActionServise(_id); toast.error(`${username}*  unfollowed by you!`)}}
                   >
-                    Following...
+                    Following
                   </button>
                 ) : (
                   <button
                     className="row"
-                    onClick={() => followActionService(_id)}
+                    onClick={() => {
+                      followActionService(_id);
+                      toast.success(`You have followed  *${username}`);
+                    }}
                   >
                     <FontAwesomeIcon icon={faPlus} />
                     Follow

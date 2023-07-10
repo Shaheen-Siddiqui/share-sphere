@@ -18,7 +18,7 @@ export const ProfileAvatar = ({ setAvatarCase, setUpdateImageUrl }) => {
                 className="avatar-img"
                 src={avatar}
                 alt={index}
-                key={index}
+                key={index} 
                 onClick={() => setUpdateImageUrl(avatar)}
               />
             );

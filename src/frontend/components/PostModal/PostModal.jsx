@@ -1,34 +1,49 @@
-import { useContext, useState } from "react";
+import { useContext,  useState } from "react";
+
 import "./PostModal.css";
 import "../../pages/Home/Home.css";
+
+import { Emojis } from "./Emojis";
 import { PostContext } from "../../hook/context/PostContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
+import { toast } from "react-hot-toast";
 
 export const PostModal = () => {
-  const { togglePostModal, setTogglePostModal } = useContext(PostContext);
+  const [openEmojiModal, setOpenEmojiModal] = useState(false);
 
-  const { dispatchPostCRUD, createNewPost, postContent, postedImages } =
-    useContext(PostCRUDContext);
+  const { togglePostModal, setTogglePostModal } = useContext(PostContext);
+  const {
+    dispatchPostCRUD,
+    createNewPost,
+    postContent,
+    postedImages,
+    
+  } = useContext(PostCRUDContext);
 
   const userPostHandler = (event) => {
     event.preventDefault();
     createNewPost();
     setTogglePostModal(false);
+    toast.success("Post successfully created! ")
   };
 
   const postImageHandler = (event) => {
     const MultipleImage = Object.values(event.target.files).map((value) =>
       URL.createObjectURL(value)
     );
-
     dispatchPostCRUD({
       type: "POST_IMAGE",
       payload: MultipleImage,
     });
   };
 
+  const obtainEmojies = (index) => {
+    toast.loading("Feature will come soon...")
+  };
+
+  console.log(postContent, "");
   return (
     <>
       {togglePostModal && (
@@ -53,7 +68,7 @@ export const PostModal = () => {
                     payload: event.target.value,
                   })
                 }
-                placeholder="Write your thought..."
+                placeholder="Write your thought here..."
                 className="menu-button"
               ></textarea>
 
@@ -65,9 +80,10 @@ export const PostModal = () => {
               {postedImages?.map((image, _id) => {
                 return (
                   <div key={_id}>
-                    <img src={image} alt="" id="user-image-post" /><br/>
+                    <img src={image} alt="" id="user-image-post" />
+                    <br />
                     <button
-                    className="remove-selected-img"
+                      className="remove-selected-img"
                       type="button"
                       onClick={() =>
                         dispatchPostCRUD({
@@ -83,6 +99,13 @@ export const PostModal = () => {
               })}
             </div>
             <hr />
+
+            {openEmojiModal && (
+              <Emojis
+                setOpenEmojiModal={setOpenEmojiModal}
+                obtainEmojies={obtainEmojies}
+              />
+            )}
 
             <footer className="post-footer">
               <div className="image-imogies">
@@ -100,12 +123,11 @@ export const PostModal = () => {
                   onChange={postImageHandler}
                 />
 
-                <button>
+                <button
+                  type="button"
+                  onClick={() => setOpenEmojiModal(!openEmojiModal)}
+                >
                   <ion-icon name="happy-outline"></ion-icon> Emojis
-                </button>
-
-                <button>
-                  <ion-icon name="happy-outline"></ion-icon> Gif
                 </button>
               </div>
               <button type="submit">

@@ -46,6 +46,10 @@ a{
   background: var(--primary-color);
   border-radius: 100vw;
 }
+.spinner-case{
+  margin-top: 3rem;
+}
+
 
 @supports (scrollbar-color: #9ED5C5 #8EC3B0) {
   * {

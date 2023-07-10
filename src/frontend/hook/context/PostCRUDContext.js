@@ -1,22 +1,19 @@
 import axios from "axios";
 import { createContext, useReducer, useState } from "react";
 import { PostCRUDReducer } from "../reducer/PostCRUDReducer";
+import { funImoji as funImojiArray } from "../../../backend/db/avatar";
 import { toast } from "react-hot-toast";
 
 export const PostCRUDContext = createContext(null);
 
 export const PostCRUDContextProvider = ({ children }) => {
-  const [
-    { postContent, allPosts, commentMessaage, comment, postedImages },
-    dispatchPostCRUD,
-  ] = useReducer(PostCRUDReducer, {
-    allPosts: [],
-    postContent: "",
-    postedImages: null,
-  });
-
-
-  
+  const [{ postContent, allPosts, postedImages, funImoji }, dispatchPostCRUD] =
+    useReducer(PostCRUDReducer, {
+      allPosts: [],
+      postContent: "",
+      postedImages: null,
+      funImoji: funImojiArray,
+    });
 
   const [postEDCToggle, setPostEDCToggle] = useState({});
   const [msgDCToggale, setMsgDCToggale] = useState({});
@@ -70,14 +67,13 @@ export const PostCRUDContextProvider = ({ children }) => {
 
   const editPostService = async (_id, postContent) => {
     const encodedToken = localStorage.getItem("token");
-    console.log(_id, postContent, "test");
     try {
       const response = await axios.post(
         `/api/posts/edit/${_id}`,
         {
           postData: {
             content: postContent,
-            postedImages,
+            // postedImages,
           },
         },
         { headers: { authorization: encodedToken } }
@@ -86,7 +82,6 @@ export const PostCRUDContextProvider = ({ children }) => {
         type: "EDIT_POST",
         payload: response.data.posts,
       });
-      console.log(response.data.posts, "here");
     } catch (error) {
       console.log(error);
     }
@@ -141,6 +136,7 @@ export const PostCRUDContextProvider = ({ children }) => {
         likePost,
         editPostService,
         postedImages,
+        funImoji,
       }}
     >
       {children}
