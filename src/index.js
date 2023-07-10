@@ -14,8 +14,8 @@ import { UserContextProvider } from "./frontend/hook/context/UserContext";
 makeServer();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
+  <BrowserRouter>
+  {/* // <React.StrictMode> */}
       <AuthContextProvider>
 
         <UserContextProvider>
@@ -29,6 +29,6 @@ root.render(
         </UserContextProvider>
         
       </AuthContextProvider>
+      {/* </React.StrictMode> */}
     </BrowserRouter>
-  </React.StrictMode>
 );

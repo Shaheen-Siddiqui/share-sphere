@@ -26,7 +26,7 @@
 }
 
 .remove-selected-img {
-    position: absolute;
+   position: absolute;
     padding: 1px 2px;
     background-color: var(--borders);
     color: var(--main-text);
@@ -35,8 +35,8 @@
 }
 
 #user-image-post {
-    height: 5rem;
-    width: 5rem;
+    height: 15rem;
+    width: 15rem;
     border-radius: none;
     border: 2px solid currentColor;
     position: relative;

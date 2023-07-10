@@ -23,7 +23,7 @@ export const posts = [
     createdAt: "2023-06-30",
     updatedAt: formatDate(),
     comment: [],
-    commentedData: "Hope! every thing will be fine at you hemo",
+    commentedData: "",
   },
 
   {

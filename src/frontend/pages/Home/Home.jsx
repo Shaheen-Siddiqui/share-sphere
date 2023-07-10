@@ -44,6 +44,7 @@ export const Home = () => {
             />
           </div>
           {homePost?.map((item) => {
+            console.log(item);
             return <Feed key={item._id} {...item} />;
           })}
         </main>

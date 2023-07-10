@@ -6,17 +6,13 @@ import { toast } from "react-hot-toast";
 export const PostCRUDContext = createContext(null);
 
 export const PostCRUDContextProvider = ({ children }) => {
-  const [
-    { postContent, allPosts, commentMessaage, comment, postedImages },
-    dispatchPostCRUD,
-  ] = useReducer(PostCRUDReducer, {
-    allPosts: [],
-    postContent: "",
-    postedImages: null,
-  });
-
-
-  
+  const [{ postContent, allPosts, postedImages, mediaType }, dispatchPostCRUD] =
+    useReducer(PostCRUDReducer, {
+      allPosts: [],
+      postContent: "",
+      postedImages: null,
+      mediaType: "",
+    });
 
   const [postEDCToggle, setPostEDCToggle] = useState({});
   const [msgDCToggale, setMsgDCToggale] = useState({});
@@ -49,7 +45,7 @@ export const PostCRUDContextProvider = ({ children }) => {
       );
       dispatchPostCRUD({
         type: "CREATE_NEW_POST",
-        payload: response.data.posts,
+        payload: [...response.data.posts].reverse(),
       });
     } catch (error) {
       console.log(error);
@@ -61,7 +57,7 @@ export const PostCRUDContextProvider = ({ children }) => {
       const response = await axios.get("/api/posts");
       dispatchPostCRUD({
         type: "POST_FUNCTION",
-        payload: response.data.posts,
+        payload: [...response.data.posts].reverse(),
       });
     } catch (error) {
       console.log(error.message);
@@ -141,6 +137,7 @@ export const PostCRUDContextProvider = ({ children }) => {
         likePost,
         editPostService,
         postedImages,
+        mediaType,
       }}
     >
       {children}

@@ -15,6 +15,7 @@ import { PostContext } from "../../hook/context/PostContext";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../hook/context/UserContext";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 //internal import
 export const Feed = ({
@@ -35,13 +36,11 @@ export const Feed = ({
     userState: { allUsers },
   } = useContext(UserContext);
   const {
-    postEDCToggle,
-    msgDCToggale,
-    ShowPostEDCCase,
-    ShowMsgDCCase,
-    deleteParticularPost,
     likePost,
+    postEDCToggle,
+    ShowPostEDCCase,
     dispatchPostCRUD,
+    deleteParticularPost,
   } = useContext(PostCRUDContext);
   const {
     addToBookMark,
@@ -66,18 +65,17 @@ export const Feed = ({
     (value) => value.username === username
   ).imgUrl;
 
+  const dropComment = () => {
+    dispatchPostCRUD({ type: "POST_COMMENT_MESSAGE", payload: _id });
+    setCommentText("");
+  };
+
   const CommentHandler = (event) => {
     setCommentText(event.target.value);
-
     dispatchPostCRUD({
       type: "COMMENT",
       payload: { value: commentText, _id: _id },
     });
-  };
-
-  const dropComment = () => {
-    dispatchPostCRUD({ type: "POST_COMMENT_MESSAGE", payload: _id });
-    setCommentText("");
   };
 
   return (
@@ -137,7 +135,7 @@ export const Feed = ({
       <div className="user-post">
         <p>{content}</p>
 
-        {/* <center>
+        <center>
           {typeof postedImages === "string" ? (
             <img
               src={postedImages}
@@ -150,12 +148,12 @@ export const Feed = ({
                 <img
                   src={value}
                   alt={postedImages === null ? "" : "user posted pamp"}
-                  className={postedImages?"posted-main-image":""}
+                  className={postedImages ? "posted-main-image" : ""}
                 />
               );
             })
           )}
-        </center> */}
+        </center>
 
         <div className="like-bookmark-icon">
           <div
@@ -207,7 +205,6 @@ export const Feed = ({
           </button>
         </div>
       </div>
-
       {/* my friends comments */}
       {comment?.map((value, index) => {
         return (
@@ -220,26 +217,12 @@ export const Feed = ({
               </div>
             </div>
             <div className="menu-button edit-delete-parent">
-              {/* <div className="edit-delete-menu menu-position">
-                <button className="menu-button">
-                  <FontAwesomeIcon icon={faTrash} />
-                  <span>Delete</span>
-                </button>
-
-                <button
-                  className="menu-button"
-                  onClick={() => ShowMsgDCCase(_id)}
-                >
-                  <FontAwesomeIcon icon={faCircleXmark} />
-                  <span>Cancel</span>
-                </button>
-              </div> */}
               <FontAwesomeIcon
-                icon={faEllipsisVertical}
+                icon={faTrash}
                 className="ellips-icon"
                 size="xl"
-                onClick={() => ShowMsgDCCase(_id)}
-              />  
+                onClick={() => toast("can't trash, think before comment")}
+              />
             </div>
           </div>
         );
