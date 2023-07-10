@@ -1,17 +1,18 @@
 import axios from "axios";
 import { createContext, useReducer, useState } from "react";
 import { PostCRUDReducer } from "../reducer/PostCRUDReducer";
+import { funImoji as funImojiArray } from "../../../backend/db/avatar";
 import { toast } from "react-hot-toast";
 
 export const PostCRUDContext = createContext(null);
 
 export const PostCRUDContextProvider = ({ children }) => {
-  const [{ postContent, allPosts, postedImages, mediaType }, dispatchPostCRUD] =
+  const [{ postContent, allPosts, postedImages, funImoji }, dispatchPostCRUD] =
     useReducer(PostCRUDReducer, {
       allPosts: [],
       postContent: "",
       postedImages: null,
-      mediaType: "",
+      funImoji: funImojiArray,
     });
 
   const [postEDCToggle, setPostEDCToggle] = useState({});
@@ -45,7 +46,7 @@ export const PostCRUDContextProvider = ({ children }) => {
       );
       dispatchPostCRUD({
         type: "CREATE_NEW_POST",
-        payload: [...response.data.posts].reverse(),
+        payload: response.data.posts,
       });
     } catch (error) {
       console.log(error);
@@ -57,7 +58,7 @@ export const PostCRUDContextProvider = ({ children }) => {
       const response = await axios.get("/api/posts");
       dispatchPostCRUD({
         type: "POST_FUNCTION",
-        payload: [...response.data.posts].reverse(),
+        payload: response.data.posts,
       });
     } catch (error) {
       console.log(error.message);
@@ -66,14 +67,13 @@ export const PostCRUDContextProvider = ({ children }) => {
 
   const editPostService = async (_id, postContent) => {
     const encodedToken = localStorage.getItem("token");
-    console.log(_id, postContent, "test");
     try {
       const response = await axios.post(
         `/api/posts/edit/${_id}`,
         {
           postData: {
             content: postContent,
-            postedImages,
+            // postedImages,
           },
         },
         { headers: { authorization: encodedToken } }
@@ -82,7 +82,6 @@ export const PostCRUDContextProvider = ({ children }) => {
         type: "EDIT_POST",
         payload: response.data.posts,
       });
-      console.log(response.data.posts, "here");
     } catch (error) {
       console.log(error);
     }
@@ -137,7 +136,7 @@ export const PostCRUDContextProvider = ({ children }) => {
         likePost,
         editPostService,
         postedImages,
-        mediaType,
+        funImoji,
       }}
     >
       {children}
