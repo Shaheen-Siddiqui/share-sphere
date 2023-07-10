@@ -94,6 +94,7 @@ export const Feed = ({
                 <div className="edit-delete-menu menu-position">
                   <button
                     className="menu-button"
+                    type="button"
                     onClick={() =>
                       updatePostByUser(_id) || setPreviousPost(content)
                     }
@@ -104,7 +105,11 @@ export const Feed = ({
 
                   <button
                     className="menu-button"
-                    onClick={() => deletePost(_id)}
+                    type="button"
+                    onClick={() => {
+                      deletePost(_id);
+                      toast.error("Post Deleted!");
+                    }}
                   >
                     <FontAwesomeIcon icon={faTrash} />
                     <span> Delete</span>
@@ -112,6 +117,7 @@ export const Feed = ({
 
                   <button
                     className="menu-button"
+                    type="button"
                     onClick={() => ShowPostEDCCase(_id)}
                   >
                     <FontAwesomeIcon icon={faCircleXmark} />
@@ -195,38 +201,44 @@ export const Feed = ({
 
         <div className="write-comment-case">
           <input
+            required
             value={commentText}
             type="text"
             placeholder="Write a comment..."
             onChange={CommentHandler}
           />
-          <button onClick={dropComment}>
+          <button type="submit" onClick={dropComment}>
             <strong>𝖕𝖔𝖘𝖙✎ </strong>
           </button>
         </div>
       </div>
+
       {/* my friends comments */}
-      {comment?.map((value, index) => {
-        return (
-          <div className="comments-of-followers" key={index}>
-            <div className="commented-user-info">
-              <img src={currentUserInfo?.imgUrl} alt="user profile" />
-              <div>
-                <h2>Guest User</h2>
-                <p>{value}</p>
-              </div>
-            </div>
-            <div className="menu-button edit-delete-parent">
-              <FontAwesomeIcon
-                icon={faTrash}
-                className="ellips-icon"
-                size="xl"
-                onClick={() => toast("can't trash, think before comment")}
-              />
-            </div>
+      {/* {comment?.map((value, index) => { */}
+      {/* return ( */}
+      <div className="comments-of-followers">
+        <div className="commented-user-info">
+          <img src={currentUserInfo?.imgUrl} alt="user profile" />
+          <div>
+            <h2>Guest User</h2>
+            <p>
+              {" "}
+              Nam nobis quas voluptatem ullam, odit ratione cumque in tempore
+              nulla vero.
+            </p>
           </div>
-        );
-      })}
+        </div>
+        <div className="menu-button edit-delete-parent">
+          <FontAwesomeIcon
+            icon={faTrash}
+            className="ellips-icon"
+            size="xl"
+            onClick={() => toast("can't trash, think before comment")}
+          />
+        </div>
+      </div>
+      {/* );
+      })} */}
 
       <div className="comments-of-followers commented-user-info">
         <img

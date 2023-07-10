@@ -1,22 +1,25 @@
-import { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
+import { useContext, useState, useEffect } from "react";
+
 import "./PostModal.css";
+
 import { PostContext } from "../../hook/context/PostContext";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
-import { useEffect } from "react";
 
 export const EditModal = () => {
   const { toggleEditModal, setToggleEditModal, postEdit, previousPost } =
     useContext(PostContext);
 
   const { editPostService } = useContext(PostCRUDContext);
-
   const [text, setText] = useState("");
+
   const userPostHandler = (event) => {
     event.preventDefault();
     editPostService(postEdit, text);
     setToggleEditModal(false);
+    toast.success("Post Edited!");
   };
 
   useEffect(() => {
