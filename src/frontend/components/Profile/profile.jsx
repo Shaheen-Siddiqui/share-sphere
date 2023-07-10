@@ -1,12 +1,11 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 //Internal Imports
 import { PostCRUDContext } from "../../hook/context/PostCRUDContext";
 import { AuthContext } from "../../hook/context/AuthContext";
-import { useContext } from "react";
 import { UserContext } from "../../hook/context/UserContext";
 import { FollowUserContext } from "../../hook/context/FollowUserContext";
 
@@ -50,7 +49,8 @@ export const Profile = ({
           <FontAwesomeIcon icon={faRightFromBracket} size="xl" />
         </div>
 
-        <img src={imgUrl} alt="guest user"/>
+        <img src={imgUrl} alt="guest user" />
+       
       </div>
       <div className="guest-user-profile-info">
         <h1>~{username}~</h1>
