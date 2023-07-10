@@ -17,6 +17,10 @@
     }
 }
 
+#user-profile-update {
+    display: none;
+}
+
 .profile-logout-button {
     float: right;
     cursor: pointer;
